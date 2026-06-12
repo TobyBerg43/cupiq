@@ -10,8 +10,8 @@ keys.txt
 __pycache__/
 *.pyc
 node_modules/
-_*.js
-_*.css
-_*.html
+/_*.js
+/_*.css
+/_*.html
 .DS_Store
 Thumbs.db
