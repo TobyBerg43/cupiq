@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CupIQ — Advanced World Cup 2026 stats for all 48 teams</title>
+<meta name="description" content="CupIQ tracks 20+ advanced stats for every 2026 World Cup team: xG, xGA, pressing, build-up, set-pieces, plus computed metrics like net xG, xG per shot and finishing. Pure stats, not predictions." />
+<meta name="keywords" content="World Cup 2026, football stats, xG, xGA, advanced soccer statistics, PPDA, possession, progressive passes" />
+<meta property="og:title" content="CupIQ — World Cup 2026 advanced stats" />
+<meta property="og:description" content="20+ advanced metrics for all 48 teams of the 2026 World Cup, computed and explained. Stats, not predictions." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#06090f;--surface:#0b1018;--surface-2:#0f1724;
+    --hair:rgba(255,255,255,.09);--hair-2:rgba(255,255,255,.15);
+    --ink:#f3f6fb;--ink-2:#aeb9cc;--ink-3:#7b8799;
+    --accent:#18d68f;--accent-ink:#04130d;--accent-dim:rgba(24,214,143,.12);
+    --good:#18d68f;--mid:#f5b32b;--low:#fb5a68;--info:#5b9dff;
+    --r-card:12px;--r-ctl:9px;--r-chip:6px;--maxw:1200px;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
+    --ease:cubic-bezier(.2,.7,.2,1);--z-nav:50;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--canvas);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  svg{display:block}
+  .mono{font-family:var(--mono)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1{font-size:clamp(34px,5vw,58px);line-height:1.04;letter-spacing:-.025em;font-weight:800;text-wrap:balance}
+  h2{font-size:clamp(24px,3.2vw,36px);line-height:1.1;letter-spacing:-.02em;font-weight:800;text-wrap:balance}
+  h3{font-size:19px;line-height:1.25;letter-spacing:-.01em;font-weight:700}
+  p{text-wrap:pretty}
+  .lead{color:var(--ink-2);font-size:clamp(16px,1.5vw,18.5px);max-width:64ch}
+  .accent{color:var(--accent)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;font-family:inherit;padding:11px 18px;border-radius:var(--r-ctl);cursor:pointer;border:1px solid transparent;transition:background .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
+  .btn svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .btn-primary:hover{background:#28e69c}
+  .btn-ghost{color:var(--ink);border-color:var(--hair-2);background:transparent}
+  .btn-ghost:hover{background:var(--surface-2);border-color:var(--ink-3)}
+  .btn-lg{padding:13px 22px;font-size:15.5px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  header{position:sticky;top:0;z-index:var(--z-nav);background:rgba(6,9,15,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .brand .mk{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink)}
+  .navlinks{display:flex;gap:26px;align-items:center;margin-left:8px}
+  .navlinks a{color:var(--ink-2);font-size:14.5px;font-weight:500;transition:color .15s}
+  .navlinks a:hover{color:var(--ink)}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-stamp{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+  .nav-stamp i{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .menu-toggle{display:none;width:40px;height:38px;align-items:center;justify-content:center;border:1px solid var(--hair-2);border-radius:8px;background:transparent;color:var(--ink);cursor:pointer}
+  .menu-toggle svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
+
+  section{position:relative}
+  .sec{padding:72px 0;border-top:1px solid var(--hair)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+  .sec-head .lead{margin-top:10px}
+
+  .hero{padding:58px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:48px;align-items:center}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;color:var(--ink-2);border:1px solid var(--hair);border-radius:999px;padding:6px 13px;margin-bottom:22px}
+  .kicker b{color:var(--accent);font-weight:600}
+  .hero h1{max-width:14ch}
+  .hero .lead{margin:20px 0 28px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-note{margin-top:20px;font-size:13px;color:var(--ink-3);display:flex;align-items:center;gap:8px}
+  .hero-note svg{width:15px;height:15px;stroke:var(--ink-3);stroke-width:1.8;fill:none}
+
+  .panel{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card)}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--hair)}
+  .panel-head .t{font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px}
+  .panel-head .t svg{width:16px;height:16px;stroke:var(--accent);stroke-width:2;fill:none}
+  .panel-head .s{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+  .lb-row{display:grid;grid-template-columns:24px 26px 1fr auto auto;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--hair);font-size:13.5px}
+  .lb-row:last-child{border-bottom:none}
+  .lb-row .rk{font-family:var(--mono);font-weight:600;color:var(--ink-3);text-align:right}
+  .lb-row.top .rk{color:var(--accent)}
+  .lb-row .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lb-row .col{font-family:var(--mono);font-size:12.5px;text-align:right;min-width:48px}
+  .lb-row .col .k{display:block;font-size:9.5px;color:var(--ink-3);letter-spacing:.03em}
+  .lb-row .col.hi{color:var(--accent)}
+  .flag{width:26px;height:17px;object-fit:cover;border-radius:3px;border:1px solid var(--hair-2);background:var(--surface-2);flex-shrink:0;display:block}
+  .flag-sm{width:22px;height:14px}
+  .panel-foot{padding:11px 16px;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--hair)}
+  .panel-foot a{color:var(--ink-2)}
+  .panel-foot a:hover{color:var(--accent)}
+
+  .stripe{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--hair);border-radius:var(--r-card);overflow:hidden;margin-top:34px}
+  .stripe .s{padding:18px 20px;border-right:1px solid var(--hair)}
+  .stripe .s:last-child{border-right:none}
+  .stripe .n{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .stripe .l{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+
+  .tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fact{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card);padding:22px}
+  .fact .fh{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .fact .fh svg{width:18px;height:18px;stroke:var(--accent);stroke-width:1.8;fill:none}
+  .fact .fh h3{font-size:16px}
+  .path{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px}
+  .path .stage{padding:6px 11px;border:1px solid var(--hair);border-radius:var(--r-chip);color:var(--ink-2)}
+  .path .stage.final{border-color:var(--accent);color:var(--accent)}
+  .path .arr{color:var(--ink-3)}
+  .venues{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--r-card);overflow:hidden}
+  .venue{background:var(--surface);padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px}
+  .venue .city{font-weight:600}
+  .venue .meta{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+  .venue .nat{font-family:var(--mono);font-size:10px;color:var(--ink-3);border:1px solid var(--hair);border-radius:4px;padding:1px 6px}
+  .timeline{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:4px;flex-wrap:wrap}
+  .timeline .tp{display:flex;flex-direction:column;gap:3px}
+  .timeline .tp .d{font-family:var(--mono);font-size:13px;color:var(--accent)}
+  .timeline .tp .w{font-size:12.5px;color:var(--ink-2)}
+  .timeline .bar{flex:1;height:1px;background:var(--hair);min-width:30px}
+
+  .mtable{border:1px solid var(--hair);border-radius:var(--r-card);overflow:hidden}
+  .mrow{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:18px 22px;border-bottom:1px solid var(--hair)}
+  .mrow:last-child{border-bottom:none}
+  .mrow .mh{font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
+  .mrow .mh svg{width:17px;height:17px;stroke:var(--accent);stroke-width:1.8;fill:none;flex-shrink:0}
+  .mrow .mh .c{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:500}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:var(--mono);font-size:12px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--hair);border-radius:var(--r-chip);padding:5px 10px}
+  .chip b{color:var(--ink);font-weight:600}
+  .mrow.derived .mh svg{stroke:var(--info)}
+
+  /* ---- compare tool ---- */
+  .compare{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card);padding:26px}
+  .cmp-pick{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-bottom:22px}
+  .cmp-pick select{width:100%;background:var(--surface-2);border:1px solid var(--hair);border-radius:var(--r-ctl);color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:600;padding:11px 13px;outline:none;cursor:pointer;transition:border-color .15s}
+  .cmp-pick select:focus{border-color:var(--accent)}
+  .cmp-pick select option{background:var(--surface)}
+  .cmp-pick .vs{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+  .cmp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .cmp-side{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+  .cmp-side.r{flex-direction:row-reverse}
+  .cmp-side img{width:34px;height:23px;object-fit:cover;border-radius:4px;border:1px solid var(--hair-2)}
+  .crow{margin:13px 0}
+  .crow .ck{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);text-align:center;margin-bottom:5px;letter-spacing:.03em}
+  .crow .cbar{display:flex;align-items:center;gap:10px}
+  .crow .cv{font-family:var(--mono);font-size:13px;font-weight:600;width:54px;color:var(--ink-3)}
+  .crow .cv.lv{text-align:right}.crow .cv.rv{text-align:left}
+  .crow .cv.win{color:var(--accent)}
+  .crow .track{flex:1;display:flex;height:7px;border-radius:99px;overflow:hidden;background:var(--surface-2)}
+  .crow .track .l,.crow .track .r{background:var(--ink-3);opacity:.45}
+  .crow .track .l.win,.crow .track .r.win{background:var(--accent);opacity:1}
+
+  .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .step{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card);padding:20px}
+  .step .sn{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:12px}
+  .step h3{font-size:15.5px;margin-bottom:8px}
+  .step p{font-size:13px;color:var(--ink-2)}
+  .step ul{list-style:none;margin-top:11px;display:flex;flex-direction:column;gap:6px}
+  .step li{font-size:12.5px;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start}
+  .step li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:7px;flex-shrink:0}
+  .source-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .src{font-family:var(--mono);font-size:12px;color:var(--ink-2);border:1px solid var(--hair);border-radius:var(--r-chip);padding:6px 11px}
+  .src b{color:var(--ink);font-weight:600}
+
+  .viz-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:stretch}
+  .viz{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card);padding:20px;display:flex;flex-direction:column}
+  .viz .vh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .viz .vh h3{font-size:15px}
+  .viz .vh .vs{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+  .tier{display:flex;align-items:center;gap:12px;margin:9px 0;font-size:12.5px}
+  .tier .nm{width:96px;display:flex;align-items:center;gap:8px;font-weight:600;white-space:nowrap;overflow:hidden}
+  .tier .track{flex:1;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+  .tier .track i{display:block;height:100%;background:var(--accent);border-radius:99px}
+  .tier .v{font-family:var(--mono);width:46px;text-align:right;font-weight:600}
+  .scatter{flex:1;min-height:280px}
+  .scatter text{font-family:var(--mono);fill:var(--ink-3)}
+  .scatter .axis{stroke:var(--hair-2)}
+  .scatter .grid{stroke:var(--hair)}
+  .scatter .pt{stroke:var(--canvas);stroke-width:1}
+
+  .signup{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;border:1px solid var(--hair);border-radius:var(--r-card);padding:34px;background:var(--surface)}
+  .signup h2{font-size:clamp(22px,2.6vw,30px)}
+  .signup .lead{margin-top:10px;font-size:16px}
+  .signup-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start}
+  .signup-form input{flex:1;min-width:200px;background:var(--surface-2);border:1px solid var(--hair);border-radius:var(--r-ctl);color:var(--ink);font-size:14.5px;padding:13px 14px;outline:none;font-family:inherit;transition:border-color .15s}
+  .signup-form input:focus{border-color:var(--accent)}
+  .signup-form input::placeholder{color:var(--ink-3)}
+  .signup-form .btn{white-space:nowrap}
+  .signup-msg{flex-basis:100%;font-size:13px;margin:2px 0 0;min-height:18px;color:var(--ink-3)}
+  .signup-msg.ok{color:var(--accent)}.signup-msg.err{color:var(--low)}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+  .plan{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r-card);padding:24px;display:flex;flex-direction:column}
+  .plan.feat{border-color:var(--accent)}
+  .plan .ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .plan .pname{font-weight:700;font-size:15px}
+  .plan .tag{font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--accent-ink);background:var(--accent);padding:3px 8px;border-radius:var(--r-chip)}
+  .plan .price{font-size:36px;font-weight:800;letter-spacing:-.02em}
+  .plan .price span{font-size:15px;color:var(--ink-3);font-weight:500}
+  .plan .pd{color:var(--ink-2);font-size:13.5px;margin:8px 0 18px;min-height:40px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px;flex:1}
+  .plan li{display:flex;gap:9px;font-size:13.5px;color:var(--ink-2);align-items:flex-start}
+  .plan li svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;stroke-width:2.4;fill:none}
+  .plan li .ck{stroke:var(--accent)}
+  .plan li.off{color:var(--ink-3)}.plan li.off svg{stroke:var(--ink-3)}
+  .plan .btn{width:100%}
+
+  .faq{max-width:780px}
+  .qa{border-bottom:1px solid var(--hair)}
+  .qa summary{padding:18px 0;font-weight:600;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+";font-size:22px;color:var(--ink-3);font-weight:300;transition:transform .2s var(--ease)}
+  .qa[open] summary::after{transform:rotate(45deg);color:var(--accent)}
+  .qa .ans{padding:0 0 18px;color:var(--ink-2);font-size:14.5px;max-width:70ch}
+
+  .final{padding:84px 0;text-align:center}
+  .final h2{margin-bottom:14px}.final .lead{margin:0 auto 26px}
+
+  footer{border-top:1px solid var(--hair);padding:46px 0 30px;background:var(--surface)}
+  .fcols{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:28px}
+  .fcols h5{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-3);margin-bottom:14px;font-weight:600}
+  .fcols a{display:block;color:var(--ink-2);font-size:14px;margin-bottom:9px;transition:color .15s}
+  .fcols a:hover{color:var(--ink)}
+  .fcols p{color:var(--ink-2);font-size:13.5px;max-width:36ch;margin-top:12px}
+  .disclaimer{font-size:12px;color:var(--ink-3);border:1px solid var(--hair);border-radius:var(--r-ctl);padding:13px 15px;margin-top:30px;line-height:1.6}
+  .fbottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid var(--hair);font-size:12.5px;color:var(--ink-3)}
+
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+
+  @media(max-width:920px){
+    .hero-grid,.viz-grid{grid-template-columns:1fr}
+    .tour-grid{grid-template-columns:1fr}
+    .pipe,.plans{grid-template-columns:1fr 1fr}
+    .stripe{grid-template-columns:repeat(2,1fr)}
+    .stripe .s:nth-child(2){border-right:none}
+    .navlinks{display:none}
+  }
+  @media(max-width:560px){
+    .pipe,.plans,.stripe,.fcols,.venues{grid-template-columns:1fr}
+    .cmp-pick{grid-template-columns:1fr}
+    .mrow{grid-template-columns:1fr;gap:12px}
+    .nav-stamp{display:none}.menu-toggle{display:flex}.stripe .s{border-right:none}
+  }
+  @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}}
+</style>
+<link rel="canonical" href="https://cupiq.app/" />
+<meta property="og:url" content="https://cupiq.app/" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:image" content="https://cupiq.app/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CupIQ — World Cup 2026 advanced stats" />
+<meta name="twitter:description" content="20+ advanced metrics for all 48 teams of the 2026 World Cup. Stats, not predictions." />
+<meta name="twitter:image" content="https://cupiq.app/og-image.svg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://cupiq.app/#org","name":"CupIQ","url":"https://cupiq.app/","logo":"https://cupiq.app/favicon.svg"},
+{"@type":"WebSite","@id":"https://cupiq.app/#website","url":"https://cupiq.app/","name":"CupIQ","publisher":{"@id":"https://cupiq.app/#org"},"description":"Advanced World Cup 2026 stats for all 48 teams."},
+{"@type":"Product","name":"CupIQ Pro","description":"All 20+ advanced and computed football metrics for the 48 teams of the 2026 World Cup.","brand":{"@id":"https://cupiq.app/#org"},"offers":[
+{"@type":"Offer","name":"Analyst","price":"19.00","priceCurrency":"USD","url":"https://cupiq.app/#pricing"},
+{"@type":"Offer","name":"Tournament Pass","price":"29.00","priceCurrency":"USD","url":"https://cupiq.app/#pricing"}]}
+]}
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="brand"><span class="mk"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 5.6 18.4 10.3 16 17.8 8 17.8 5.6 10.3Z" stroke-width="1.7" stroke-linejoin="round"/><g fill="currentColor" stroke="none"><circle cx="12" cy="5.6" r="1.6"/><circle cx="18.4" cy="10.3" r="1.6"/><circle cx="16" cy="17.8" r="1.6"/><circle cx="8" cy="17.8" r="1.6"/><circle cx="5.6" cy="10.3" r="1.6"/><circle cx="12" cy="12" r="1.3"/></g></svg></span> CupIQ</a>
+      <div class="navlinks">
+        <a href="#tournament">Tournament</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#compare">Compare</a>
+        <a href="#method">Method</a>
+        <a href="#pricing">Pricing</a>
+        <a href="dashboard.html">Live data</a>
+      </div>
+      <div class="nav-right">
+        <span class="nav-stamp"><i></i> <span id="nav-updated">modeled</span></span>
+        <a href="dashboard.html" class="btn btn-primary">Open the stats</a>
+        <button class="menu-toggle" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><b>World Cup 2026</b> · 48 teams · 20+ advanced metrics</div>
+        <h1>The deepest stats for every team in the tournament.</h1>
+        <p class="lead">CupIQ measures how all 48 teams actually play: xG, pressing, build-up, set-pieces and goalkeeping, plus computed metrics like net xG, xG per shot and finishing. No win probabilities, no tips. Just the numbers, ranked and explained.</p>
+        <div class="hero-cta">
+          <a href="dashboard.html" class="btn btn-primary btn-lg">Open the stats <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#metrics" class="btn btn-ghost btn-lg">See the metrics</a>
+        </div>
+        <div class="hero-note"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Stats, not predictions. Modeled from public data. Not affiliated with FIFA.</div>
+      </div>
+      <div class="panel" aria-label="Net expected-goals leaderboard">
+        <div class="panel-head">
+          <span class="t"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg> Net xG leaders</span>
+          <span class="s" id="board-src">loading…</span>
+        </div>
+        <div id="hero-board"></div>
+        <div class="panel-foot"><span>xG for minus xG against</span><a href="dashboard.html">Full 48-team table →</a></div>
+      </div>
+    </div>
+
+    <div class="stripe">
+      <div class="s"><div class="n">48</div><div class="l">teams tracked</div></div>
+      <div class="s"><div class="n">20+</div><div class="l">metrics / team</div></div>
+      <div class="s"><div class="n">6</div><div class="l">stat dimensions</div></div>
+      <div class="s"><div class="n">104</div><div class="l">matches</div></div>
+      <div class="s"><div class="n">0</div><div class="l">predictions</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOURNAMENT -->
+<section class="sec" id="tournament">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>The biggest World Cup ever played.</h2></div>
+      <p class="lead">48 teams, 12 groups, 104 matches across 16 cities in three countries, from June 11 to July 19, 2026. CupIQ tracks the stats for every team on that path.</p>
+    </div>
+    <div class="tour-grid">
+      <div class="fact">
+        <div class="fh"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg><h3>Format &amp; path to the final</h3></div>
+        <p class="lead" style="font-size:14px;margin-bottom:18px">12 groups of four. The top two of each group plus the eight best third-placed teams reach a 32-team knockout. Single elimination from there.</p>
+        <div class="path">
+          <span class="stage">Groups A–L</span><span class="arr">→</span>
+          <span class="stage">Round of 32</span><span class="arr">→</span>
+          <span class="stage">Round of 16</span><span class="arr">→</span>
+          <span class="stage">Quarters</span><span class="arr">→</span>
+          <span class="stage">Semis</span><span class="arr">→</span>
+          <span class="stage final">Final</span>
+        </div>
+        <div class="timeline">
+          <div class="tp"><span class="d">Jun 11</span><span class="w">Opening · Estadio Azteca, Mexico City</span></div>
+          <div class="bar"></div>
+          <div class="tp" style="text-align:right"><span class="d">Jul 19</span><span class="w">Final · MetLife Stadium, New Jersey</span></div>
+        </div>
+      </div>
+      <div class="fact" style="padding-bottom:14px">
+        <div class="fh"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><h3>16 host cities · 3 nations</h3></div>
+        <div class="venues" id="venues"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="sec" id="metrics">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>Twenty-plus metrics, six dimensions, every team.</h2></div>
+      <p class="lead">The signals that describe how a team plays, grouped by what they measure, plus the computed stats we derive on top.</p>
+    </div>
+    <div class="mtable">
+      <div class="mrow">
+        <div class="mh"><svg viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7"/></svg><div>Attack<span class="c">6 metrics</span></div></div>
+        <div class="chips"><span class="chip"><b>xG for</b></span><span class="chip"><b>npxG</b></span><span class="chip"><b>Shots / 90</b></span><span class="chip"><b>On target / 90</b></span><span class="chip"><b>Big chances / 90</b></span><span class="chip"><b>Finishing (G−xG)</b></span></div>
+      </div>
+      <div class="mrow">
+        <div class="mh"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/></svg><div>Defense &amp; press<span class="c">3 metrics</span></div></div>
+        <div class="chips"><span class="chip"><b>xG against</b></span><span class="chip"><b>PPDA</b> pressing</span><span class="chip"><b>Aerial %</b></span></div>
+      </div>
+      <div class="mrow">
+        <div class="mh"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><div>Build-up<span class="c">3 metrics</span></div></div>
+        <div class="chips"><span class="chip"><b>Possession %</b></span><span class="chip"><b>Progressive passes</b></span><span class="chip"><b>Set-piece xG</b></span></div>
+      </div>
+      <div class="mrow">
+        <div class="mh"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M2 12h2M20 12h2M12 12l5-3"/></svg><div>Goalkeeping<span class="c">1 metric</span></div></div>
+        <div class="chips"><span class="chip"><b>PSxG − GA</b> shot-stopping over/under</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mh"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg><div>Context<span class="c">3 metrics</span></div></div>
+        <div class="chips"><span class="chip"><b>Elo</b> strength</span><span class="chip"><b>Form</b> last 5</span><span class="chip"><b>Momentum</b> 0–100</span></div>
+      </div>
+      <div class="mrow derived">
+        <div class="mh"><svg viewBox="0 0 24 24"><path d="M12 20V10M6 20V4M18 20v-6"/><circle cx="12" cy="6" r="2" fill="currentColor" stroke="none"/></svg><div>Derived<span class="c">computed by CupIQ</span></div></div>
+        <div class="chips"><span class="chip"><b>Net xG</b> (for − against)</span><span class="chip"><b>xG per shot</b> chance quality</span><span class="chip"><b>Shot accuracy %</b></span><span class="chip"><b>Set-piece share</b></span><span class="chip"><b>Percentile rank</b> vs field</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="sec" id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>Compare any two teams, every metric.</h2></div>
+      <p class="lead">Pick two sides and see how they stack up across the key advanced stats. No prediction, just the numbers side by side.</p>
+    </div>
+    <div class="compare">
+      <div class="cmp-pick">
+        <select id="cmpA" aria-label="First team"></select>
+        <span class="vs">vs</span>
+        <select id="cmpB" aria-label="Second team"></select>
+      </div>
+      <div class="cmp-head">
+        <div class="cmp-side" id="cmpHeadA"></div>
+        <div class="cmp-side r" id="cmpHeadB"></div>
+      </div>
+      <div id="cmpOut"></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="sec" id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>How the stats are built.</h2></div>
+      <p class="lead">No black box, and no forecasting. Public data in, advanced and computed metrics out.</p>
+    </div>
+    <div class="pipe">
+      <div class="step">
+        <div class="sn">01 — Sources</div>
+        <h3>Public event data</h3>
+        <p>Team stats and strength ratings from free, established sources.</p>
+        <ul><li>FBref event data (StatsBomb-powered)</li><li>World Football Elo — real national-team ratings</li></ul>
+      </div>
+      <div class="step">
+        <div class="sn">02 — Metrics</div>
+        <h3>Fifteen tracked stats</h3>
+        <p>Each team is measured across six dimensions of play.</p>
+        <ul><li>Attack, defense &amp; press, build-up</li><li>Goalkeeping, context, momentum</li></ul>
+      </div>
+      <div class="step">
+        <div class="sn">03 — Derived</div>
+        <h3>Computed on top</h3>
+        <p>We compute advanced stats the raw feeds don't give you.</p>
+        <ul><li>Net xG, xG per shot, finishing</li><li>Percentile ranks vs the whole field</li></ul>
+      </div>
+      <div class="step">
+        <div class="sn">04 — Refresh</div>
+        <h3>Kept current</h3>
+        <p>The dataset is re-pulled on a schedule.</p>
+        <ul><li>Roughly every 3 hours</li><li>Pre-tournament values are modeled and firm up as matches are played</li></ul>
+      </div>
+    </div>
+    <div class="source-row">
+      <span class="src">Sources: <b>FBref</b></span>
+      <span class="src"><b>World Football Elo</b></span>
+      <span class="src">Computed: <b>locally</b></span>
+      <span class="src"><b>Stats, not predictions</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- VIZ -->
+<section class="sec" id="viz">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>The field, measured.</h2></div>
+      <p class="lead">Drawn from the same dataset the dashboards read, updated whenever the stats are.</p>
+    </div>
+    <div class="viz-grid">
+      <div class="viz">
+        <div class="vh"><h3>Net xG leaders</h3><span class="vs">xG for minus against</span></div>
+        <div id="tier-chart"></div>
+      </div>
+      <div class="viz">
+        <div class="vh"><h3>Attack vs defense</h3><span class="vs">xG for → · tighter ↑</span></div>
+        <svg class="scatter" id="scatter" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Expected goals for versus against, per team"></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="sec" id="updates">
+  <div class="wrap">
+    <div class="signup">
+      <div>
+        <h2>Daily stat briefing, through the final.</h2>
+        <p class="lead">One short email a day during the tournament: the biggest stat movers, who's overperforming their xG, and the matchups worth a closer look. Free, unsubscribe anytime.</p>
+      </div>
+      <form class="signup-form" id="signupForm" novalidate>
+        <input type="email" id="signupEmail" placeholder="you@email.com" required autocomplete="email" aria-label="Email address" />
+        <button class="btn btn-primary" type="submit" id="signupBtn">Get the briefing</button>
+        <p class="signup-msg" id="signupMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2>Start free. The free tier is the trial.</h2></div>
+      <p class="lead">No hidden fees, cancel anytime. The World Cup runs once every four years; the Tournament Pass covers the whole thing for less than a monthly plan.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="ph"><span class="pname">Fan</span></div>
+        <div class="price">$0</div>
+        <div class="pd">Follow the tournament with the core stats.</div>
+        <ul>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Core stats: Elo, xG, xGA, possession, form</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Tournament structure &amp; venues</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Stat glossary &amp; method</li>
+          <li class="off"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg> The full 20+ advanced metrics</li>
+          <li class="off"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg> Per-team percentile profiles</li>
+        </ul>
+        <a href="#" class="btn btn-ghost" data-cta="free">Open the free dashboard</a>
+      </div>
+      <div class="plan feat">
+        <div class="ph"><span class="pname">Analyst</span><span class="tag">FULL DATA</span></div>
+        <div class="price">$19<span> / mo</span></div>
+        <div class="pd">Every advanced and computed metric, all tournament long.</div>
+        <ul>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Everything in Fan</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> All 20+ advanced metrics, sortable</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Computed: net xG, xG/shot, finishing</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Per-team percentile profiles</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Head-to-head comparison</li>
+        </ul>
+        <a href="#" class="btn btn-primary" data-cta="analyst">Get Analyst — $19/mo</a>
+        <p style="font-size:11.5px;color:var(--ink-3);margin-top:9px;line-height:1.5">Auto-renews at $19/month until you cancel. Cancel anytime; access runs to the end of the billing period. <a href="terms.html" style="color:var(--ink-2)">Cancellation &amp; refunds</a>.</p>
+      </div>
+      <div class="plan">
+        <div class="ph"><span class="pname">Tournament Pass</span><span class="tag" style="background:var(--surface-2);color:var(--ink-2)">BEST VALUE</span></div>
+        <div class="price">$29<span> / once</span></div>
+        <div class="pd">All Analyst data, one payment, through the final whistle.</div>
+        <ul>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Everything in Analyst</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Full access through July 19</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Data export (CSV)</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> No recurring charge</li>
+          <li><svg class="ck" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Best value vs monthly</li>
+        </ul>
+        <a href="#" class="btn btn-ghost" data-cta="pass">Buy the Tournament Pass</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Straight answers.</h2></div></div>
+    <div class="faq">
+      <details class="qa" open><summary>Are these predictions?</summary><div class="ans">No. CupIQ does not publish win probabilities, trophy odds or tips. It measures how teams actually play — xG, pressing, build-up, set-pieces — and computes advanced stats on top, so you can judge the matchups yourself.</div></details>
+      <details class="qa"><summary>Is CupIQ a betting product?</summary><div class="ans">No. CupIQ is a sports analytics and data platform. We provide statistics and metrics, not wagers or betting advice. Any decision you make with the numbers is your own.</div></details>
+      <details class="qa"><summary>Where does the data come from?</summary><div class="ans">Team stats from FBref (StatsBomb-powered) and strength ratings from World Football Elo (eloratings.net), processed into derived metrics. Pre-tournament values are modeled and firm up as real matches are played.</div></details>
+      <details class="qa"><summary>What's the difference between Free and Pro?</summary><div class="ans">Free gives you the core stats — Elo, xG, xGA, possession, form. Pro (Analyst or Tournament Pass) unlocks all 20+ advanced and computed metrics, per-team percentile profiles, head-to-head comparison and CSV export for all 48 teams.</div></details>
+      <details class="qa"><summary>How often does it update?</summary><div class="ans">The dataset is re-pulled on a schedule, roughly every three hours, with a faster cadence on match days.</div></details>
+      <details class="qa"><summary>Can I cancel anytime?</summary><div class="ans">Yes. Analyst is monthly and cancellable in one click. The Tournament Pass is a single payment with no recurring charge.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Every team, every metric, measured.</h2>
+    <p class="lead">Open the live dashboard. Free to start, no account required.</p>
+    <a href="dashboard.html" class="btn btn-primary btn-lg">Open the stats <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a href="#" class="brand"><span class="mk"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 5.6 18.4 10.3 16 17.8 8 17.8 5.6 10.3Z" stroke-width="1.7" stroke-linejoin="round"/><g fill="currentColor" stroke="none"><circle cx="12" cy="5.6" r="1.6"/><circle cx="18.4" cy="10.3" r="1.6"/><circle cx="16" cy="17.8" r="1.6"/><circle cx="8" cy="17.8" r="1.6"/><circle cx="5.6" cy="10.3" r="1.6"/><circle cx="12" cy="12" r="1.3"/></g></svg></span> CupIQ</a>
+        <p>Advanced football stats for all 48 teams of the 2026 World Cup. 20+ metrics, computed and explained. Analytics, not predictions.</p>
+      </div>
+      <div><h5>PRODUCT</h5><a href="#tournament">Tournament</a><a href="#metrics">Metrics</a><a href="#compare">Compare</a><a href="dashboard.html">Live data</a></div>
+      <div><h5>STATS</h5><a href="#method">Method</a><a href="#viz">Data</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+      <div><h5>LEGAL</h5><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="responsible-use.html">Responsible use</a><a href="mailto:support@cupiq.app">Contact</a></div>
+    </div>
+    <div class="disclaimer">CupIQ provides statistics and metrics for informational and entertainment purposes only. It is not a gambling operator, does not accept wagers, and does not publish predictions or betting advice. If you choose to bet, do so responsibly and only where legal in your jurisdiction. 21+ where applicable. If gambling is a problem for you, call 1-800-GAMBLER.</div>
+    <div class="fbottom"><span>© 2026 CupIQ. Not affiliated with FIFA or the World Cup.</span><span class="mono">stats, not predictions</span></div>
+  </div>
+</footer>
+
+<script>
+/* ===== Stripe checkout links ===== */
+const STRIPE_LINKS = {
+  free:    "dashboard.html",
+  analyst: "https://buy.stripe.com/00wcN6a1U3jheBi3xC9k400",
+  pass:    "https://buy.stripe.com/5kQeVe6PI3jh8cU0lq9k401"
+};
+document.querySelectorAll('[data-cta]').forEach(function(a){
+  var url = STRIPE_LINKS[a.getAttribute('data-cta')];
+  if(url){ a.href = url; if(a.getAttribute('data-cta')!=='free'){ a.target="_blank"; a.rel="noopener"; } }
+});
+
+/* ===== flags ===== */
+const FLAG={"Argentina":"ar","France":"fr","Spain":"es","Brazil":"br","England":"gb-eng","Portugal":"pt","Netherlands":"nl","Germany":"de","Belgium":"be","Uruguay":"uy","Colombia":"co","Croatia":"hr","Morocco":"ma","Switzerland":"ch","Austria":"at","Senegal":"sn","Ecuador":"ec","Türkiye":"tr","Norway":"no","Japan":"jp","United States":"us","Sweden":"se","Mexico":"mx","Iran":"ir","Scotland":"gb-sct","Czechia":"cz","Egypt":"eg","Algeria":"dz","South Korea":"kr","Canada":"ca","Côte d'Ivoire":"ci","Paraguay":"py","Bosnia and Herzegovina":"ba","Australia":"au","Ghana":"gh","Tunisia":"tn","Panama":"pa","South Africa":"za","DR Congo":"cd","Saudi Arabia":"sa","Qatar":"qa","Uzbekistan":"uz","Curaçao":"cw","Cabo Verde":"cv","Jordan":"jo","Iraq":"iq","New Zealand":"nz","Haiti":"ht"};
+function flagImg(name,cls){var c=FLAG[name];if(!c)return '';return '<img class="flag '+(cls||'')+'" src="flags/'+c+'.svg" alt="'+name+'" loading="lazy" width="26" height="17">';}
+
+/* ===== host cities ===== */
+const VENUES=[
+  ["New York / New Jersey","MetLife","US"],["Los Angeles","SoFi","US"],["Dallas","AT&T","US"],
+  ["Mexico City","Estadio Azteca","MX"],["Atlanta","Mercedes-Benz","US"],["Miami","Hard Rock","US"],
+  ["Seattle","Lumen Field","US"],["San Francisco Bay","Levi's","US"],["Houston","NRG","US"],
+  ["Philadelphia","Lincoln Financial","US"],["Kansas City","Arrowhead","US"],["Boston","Gillette","US"],
+  ["Toronto","BMO Field","CA"],["Vancouver","BC Place","CA"],["Guadalajara","Akron","MX"],["Monterrey","BBVA","MX"]
+];
+document.getElementById('venues').innerHTML=VENUES.map(function(v){
+  return '<div class="venue"><span class="city">'+v[0]+'</span><span class="meta">'+v[1]+'</span><span class="nat">'+v[2]+'</span></div>';
+}).join('');
+
+/* ===== data ===== */
+var TEAMS=[];
+const FALLBACK=[
+  {team:"Argentina",metrics:{xg_for:2.25,xg_against:0.71,npxg:2.07,possession_pct:61.8,progressive_passes:54.2,ppda:7.2,big_chances_per90:3.1,setpiece_xg:0.54,aerial_win_pct:57.7,form_last5:4.7},elo:2105},
+  {team:"France",metrics:{xg_for:2.20,xg_against:0.77,npxg:2.02,possession_pct:57.5,progressive_passes:51.0,ppda:8.0,big_chances_per90:3.0,setpiece_xg:0.49,aerial_win_pct:56.0,form_last5:4.4},elo:2070},
+  {team:"Spain",metrics:{xg_for:2.39,xg_against:0.98,npxg:2.18,possession_pct:66.0,progressive_passes:58.0,ppda:6.6,big_chances_per90:3.2,setpiece_xg:0.46,aerial_win_pct:52.0,form_last5:4.3},elo:2050},
+  {team:"Brazil",metrics:{xg_for:2.21,xg_against:0.71,npxg:2.03,possession_pct:58.0,progressive_passes:53.0,ppda:7.6,big_chances_per90:3.0,setpiece_xg:0.50,aerial_win_pct:55.0,form_last5:4.2},elo:2030},
+  {team:"England",metrics:{xg_for:1.96,xg_against:1.00,npxg:1.81,possession_pct:54.5,progressive_passes:49.0,ppda:8.4,big_chances_per90:2.7,setpiece_xg:0.52,aerial_win_pct:58.0,form_last5:4.0},elo:2010},
+  {team:"Portugal",metrics:{xg_for:1.95,xg_against:0.81,npxg:1.76,possession_pct:59.7,progressive_passes:50.0,ppda:7.9,big_chances_per90:2.6,setpiece_xg:0.45,aerial_win_pct:54.0,form_last5:4.1},elo:2000},
+  {team:"Netherlands",metrics:{xg_for:1.93,xg_against:0.77,npxg:1.79,possession_pct:52.8,progressive_passes:47.0,ppda:8.6,big_chances_per90:2.5,setpiece_xg:0.51,aerial_win_pct:57.0,form_last5:3.9},elo:1985},
+  {team:"Germany",metrics:{xg_for:2.01,xg_against:1.09,npxg:1.86,possession_pct:60.0,progressive_passes:52.0,ppda:7.7,big_chances_per90:2.8,setpiece_xg:0.48,aerial_win_pct:53.0,form_last5:3.8},elo:1965}
+];
+function net(t){return Math.round(((t.metrics.xg_for||0)-(t.metrics.xg_against||0))*100)/100;}
+function sNet(v){return (v>0?"+":"")+v;}
+
+function renderBoard(teams){
+  var top=teams.slice().sort(function(a,b){return net(b)-net(a);}).slice(0,8);
+  document.getElementById('hero-board').innerHTML=top.map(function(t,i){
+    return '<div class="lb-row '+(i<3?'top':'')+'">'+
+      '<span class="rk">'+(i+1)+'</span>'+flagImg(t.team)+'<span class="nm">'+t.team+'</span>'+
+      '<span class="col hi">'+sNet(net(t))+'<span class="k">net xG</span></span>'+
+      '<span class="col">'+t.metrics.xg_for+'<span class="k">xG for</span></span></div>';
+  }).join('');
+}
+function renderTiers(teams){
+  var top=teams.slice().sort(function(a,b){return net(b)-net(a);}).slice(0,10);
+  var max=net(top[0])||1;
+  document.getElementById('tier-chart').innerHTML=top.map(function(t){
+    return '<div class="tier"><span class="nm">'+flagImg(t.team,'flag-sm')+t.team+'</span>'+
+      '<div class="track"><i style="width:'+Math.max(4,net(t)/max*100)+'%"></i></div>'+
+      '<span class="v">'+sNet(net(t))+'</span></div>';
+  }).join('');
+}
+function renderScatter(teams){
+  var pts=teams.filter(function(t){return t.metrics.xg_for&&t.metrics.xg_against;});
+  if(!pts.length)return;
+  var W=400,H=300,pad=38;
+  var xs=pts.map(function(t){return t.metrics.xg_for;}),ys=pts.map(function(t){return t.metrics.xg_against;});
+  var xmin=Math.min.apply(null,xs)-0.1,xmax=Math.max.apply(null,xs)+0.1,ymin=Math.min.apply(null,ys)-0.1,ymax=Math.max.apply(null,ys)+0.1;
+  var nets=pts.map(net), nmin=Math.min.apply(null,nets), nmax=Math.max.apply(null,nets), nspan=(nmax-nmin)||1;
+  function X(v){return pad+(v-xmin)/(xmax-xmin)*(W-pad*1.3);}
+  function Yt(v){return pad*0.6+(v-ymin)/(ymax-ymin)*(H-pad*1.9);}
+  var svg='';
+  svg+='<line class="axis" x1="'+pad+'" y1="'+(H-pad)+'" x2="'+(W-pad*0.3)+'" y2="'+(H-pad)+'"/>';
+  svg+='<line class="axis" x1="'+pad+'" y1="'+(pad*0.5)+'" x2="'+pad+'" y2="'+(H-pad)+'"/>';
+  svg+='<text x="'+(W-pad*0.3)+'" y="'+(H-pad+16)+'" text-anchor="end" font-size="9">more attack →</text>';
+  svg+='<text x="'+(pad-6)+'" y="'+(pad*0.5+2)+'" text-anchor="end" font-size="9" transform="rotate(-90 '+(pad-6)+' '+(pad*0.5+2)+')">tighter defense →</text>';
+  pts.forEach(function(t){
+    var nn=(net(t)-nmin)/nspan; var col=nn>=.66?'var(--good)':nn>=.34?'var(--mid)':'var(--low)';
+    var r=net(t)>=1?4.5:3;
+    svg+='<circle class="pt" cx="'+X(t.metrics.xg_for).toFixed(1)+'" cy="'+Yt(t.metrics.xg_against).toFixed(1)+'" r="'+r+'" fill="'+col+'" fill-opacity="0.85"><title>'+t.team+' · xG '+t.metrics.xg_for+' / xGA '+t.metrics.xg_against+' · net '+sNet(net(t))+'</title></circle>';
+  });
+  document.getElementById('scatter').innerHTML=svg;
+}
+
+/* ===== compare tool ===== */
+var CMP_METR=[["xg_for","Attack (xG for)","high"],["xg_against","Defense (xG against)","low"],["npxg","Non-penalty xG","high"],["big_chances_per90","Big chances / 90","high"],["possession_pct","Possession %","high"],["progressive_passes","Progressive passes","high"],["ppda","Pressing (PPDA)","low"],["setpiece_xg","Set-piece xG","high"],["aerial_win_pct","Aerial duels %","high"],["form_last5","Form (last 5)","high"]];
+function byName(n){ for(var i=0;i<TEAMS.length;i++) if(TEAMS[i].team===n) return TEAMS[i]; return null; }
+function fillSelect(sel,def){
+  sel.innerHTML=TEAMS.map(function(t){return '<option'+(t.team===def?' selected':'')+'>'+t.team+'</option>';}).join('');
+}
+function sideHead(t){ return flagImg(t.team)+'<span>'+t.team+'</span>'; }
+function renderCompare(){
+  var A=byName(document.getElementById('cmpA').value), B=byName(document.getElementById('cmpB').value);
+  if(!A||!B)return;
+  document.getElementById('cmpHeadA').innerHTML=sideHead(A);
+  document.getElementById('cmpHeadB').innerHTML=sideHead(B);
+  document.getElementById('cmpOut').innerHTML=CMP_METR.map(function(m){
+    var av=A.metrics[m[0]], bv=B.metrics[m[0]];
+    if(av==null||bv==null)return '';
+    var aWin = m[2]==="low" ? av<=bv : av>=bv;
+    var tot=Math.abs(av)+Math.abs(bv)||1, ap=Math.round(Math.abs(av)/tot*100), bp=100-ap;
+    return '<div class="crow"><div class="ck">'+m[1]+'</div><div class="cbar">'+
+      '<span class="cv lv'+(aWin?' win':'')+'">'+av+'</span>'+
+      '<div class="track"><span class="l'+(aWin?' win':'')+'" style="width:'+ap+'%"></span><span class="r'+(!aWin?' win':'')+'" style="width:'+bp+'%"></span></div>'+
+      '<span class="cv rv'+(!aWin?' win':'')+'">'+bv+'</span></div></div>';
+  }).join('');
+}
+function initCompare(){
+  if(!TEAMS.length)return;
+  var a=document.getElementById('cmpA'), b=document.getElementById('cmpB');
+  var d1=byName("Argentina")?"Argentina":TEAMS[0].team, d2=byName("Brazil")?"Brazil":(TEAMS[1]||TEAMS[0]).team;
+  fillSelect(a,d1); fillSelect(b,d2);
+  a.onchange=renderCompare; b.onchange=renderCompare;
+  renderCompare();
+}
+
+function paintData(teams,label){
+  TEAMS=teams;
+  renderBoard(teams); renderTiers(teams); renderScatter(teams); initCompare();
+  if(label) document.getElementById('board-src').textContent=label;
+}
+paintData(FALLBACK,'sample');
+fetch('worldcup_data.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
+  if(d.teams&&d.teams.length){ paintData(d.teams,'modeled · '+d.teams.length+' teams'); }
+}).catch(function(){ document.getElementById('board-src').textContent='sample data'; });
+
+/* ===== email capture ===== */
+(function(){
+  var form=document.getElementById('signupForm'); if(!form) return;
+  var email=document.getElementById('signupEmail'), btn=document.getElementById('signupBtn'), msg=document.getElementById('signupMsg');
+  function set(cls,t){ msg.className='signup-msg '+cls; msg.textContent=t; }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=(email.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ set('err','Enter a valid email address.'); email.focus(); return; }
+    btn.disabled=true; set('','Signing you up…');
+    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:v,ref:'landing'})})
+      .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok&&j.ok, j:j}; }); })
+      .then(function(res){ btn.disabled=false; if(res.ok){ set('ok',"You're in. Watch your inbox once the tournament starts."); form.reset(); } else { set('err',"Couldn't sign you up right now. Please try again."); } })
+      .catch(function(){ btn.disabled=false; set('err',"Couldn't reach the server. Please try again."); });
+  });
+})();
+
+/* ===== mobile menu + reveal ===== */
+document.querySelector('.menu-toggle').addEventListener('click',function(){document.querySelector('#pricing').scrollIntoView({behavior:'smooth'});});
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.sec, .stripe, .panel').forEach(function(el){el.classList.add('rv');obs.observe(el);});
+}
+</script>
+<!-- consent + analytics (GA4 + Meta Pixel, load only after consent) -->
+<div id="cookie-banner" class="cookie-banner" hidden role="dialog" aria-label="Cookie consent">
+  <p>We use cookies for analytics (Google Analytics, Meta Pixel) to measure traffic and improve the site. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-actions"><button id="cookieDecline" class="cookie-btn ghost" type="button">Decline</button><button id="cookieAccept" class="cookie-btn" type="button">Accept</button></div>
+</div>
+<style>
+  .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;max-width:580px;margin:0 auto;z-index:200;background:#0b1018;border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:15px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;box-shadow:0 24px 60px -24px rgba(0,0,0,.85);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  .cookie-banner p{color:#aeb9cc;font-size:13px;line-height:1.5;flex:1;min-width:230px;margin:0}
+  .cookie-banner a{color:#18d68f;text-decoration:none}
+  .cookie-actions{display:flex;gap:8px;margin-left:auto}
+  .cookie-btn{font-family:inherit;font-size:13px;font-weight:600;padding:9px 16px;border-radius:9px;border:1px solid transparent;cursor:pointer;background:#18d68f;color:#04130d}
+  .cookie-btn.ghost{background:transparent;border-color:rgba(255,255,255,.22);color:#f3f6fb}
+  .cookie-btn:focus-visible{outline:2px solid #18d68f;outline-offset:2px}
+</style>
+<script>
+(function(){
+  /* ===== set your IDs (leave the placeholder text to keep that tool off) ===== */
+  var GA_ID="G-XXXXXXXXXX";          /* Google Analytics 4 Measurement ID */
+  var META_PIXEL_ID="METAPIXELID";   /* Meta (Facebook) Pixel ID */
+  var KEY="cupiq_consent";
+  var loaded=false;
+  function loadAnalytics(){
+    if(loaded) return; loaded=true;
+    if(GA_ID.indexOf("X")<0){
+      var s=document.createElement('script');s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;document.head.appendChild(s);
+      window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};
+      window.gtag('js',new Date());window.gtag('config',GA_ID);
+    }
+    if(/^\d+$/.test(META_PIXEL_ID)){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init',META_PIXEL_ID);window.fbq('track','PageView');
+    }
+  }
+  var banner=document.getElementById('cookie-banner');
+  function choose(v){ try{localStorage.setItem(KEY,v);}catch(e){} if(banner)banner.hidden=true; if(v==='accept')loadAnalytics(); }
+  var prior; try{prior=localStorage.getItem(KEY);}catch(e){}
+  if(prior==='accept') loadAnalytics();
+  else if(prior!=='decline' && banner) banner.hidden=false;
+  var a=document.getElementById('cookieAccept'), d=document.getElementById('cookieDecline');
+  if(a)a.addEventListener('click',function(){choose('accept');});
+  if(d)d.addEventListener('click',function(){choose('decline');});
+  /* fire a conversion event when a buy button is clicked (only if analytics consented/loaded) */
+  document.addEventListener('click',function(e){
+    var el=e.target.closest?e.target.closest('[data-cta]'):null; if(!el) return;
+    var plan=el.getAttribute('data-cta'); if(plan==='free') return;
+    if(window.fbq) window.fbq('track','InitiateCheckout',{content_name:plan});
+    if(window.gtag) window.gtag('event','begin_checkout',{plan:plan});
+  });
+})();
+</script>
+</body>
+</html>

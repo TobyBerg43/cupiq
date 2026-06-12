@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CupIQ — World Cup 2026 Data Stadium</title>
+<meta name="description" content="Live, sortable advanced analytics for all 48 World Cup 2026 teams: xG, xGA, PPDA, possession, form, momentum, and trophy probabilities." />
+<style>
+  :root{
+    --bg:#070b14;--bg-2:#0c1426;--panel:#101a30;--panel-2:#142142;
+    --line:rgba(255,255,255,.08);--txt:#eaf0ff;--muted:#93a1c2;
+    --accent:#22e0a1;--accent-2:#3b82f6;--accent-3:#f7b500;--danger:#ff5d6c;
+    --good:#22e0a1;--mid:#f7b500;--low:#ff5d6c;
+    --radius:16px;--maxw:1320px;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono)}
+  svg.ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+  /* layout */
+  .app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+  /* sidebar */
+  aside{border-right:1px solid var(--line);background:var(--bg-2);padding:20px 16px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em;margin-bottom:26px;padding:4px}
+  .brand .mark{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#04111a;font-weight:900;font-size:15px}
+  .navgrp{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:18px 8px 8px;font-weight:700}
+  .navitem{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;color:var(--muted);font-size:14.5px;font-weight:500;cursor:pointer;transition:all .15s}
+  .navitem:hover{background:rgba(255,255,255,.04);color:var(--txt)}
+  .navitem.active{background:rgba(34,224,161,.12);color:var(--accent)}
+  .navitem.active svg{color:var(--accent)}
+  .side-cta{margin-top:24px;padding:16px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(160deg,rgba(34,224,161,.08),rgba(59,130,246,.06))}
+  .side-cta b{font-size:14px}.side-cta p{font-size:12.5px;color:var(--muted);margin:6px 0 12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-weight:600;font-size:13.5px;padding:9px 14px;border-radius:9px;cursor:pointer;border:1px solid transparent;width:100%;transition:transform .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#15c489);color:#04111a}
+
+  /* main */
+  main{padding:0 28px 60px;max-width:var(--maxw)}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(7,11,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .topbar h1{font-size:21px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  .livechip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--danger);border:1px solid rgba(255,93,108,.3);background:rgba(255,93,108,.08);padding:5px 11px;border-radius:999px}
+  .livechip i{width:7px;height:7px;border-radius:50%;background:var(--danger);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,93,108,.5)}70%{box-shadow:0 0 0 7px rgba(255,93,108,0)}100%{box-shadow:0 0 0 0 rgba(255,93,108,0)}}
+  .src{font-size:11.5px;color:var(--muted)}
+
+  /* summary stat cards */
+  .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+  .scard{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:14px;padding:18px}
+  .scard .lbl{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px;font-weight:600}
+  .scard .n{font-size:27px;font-weight:800;margin-top:8px;letter-spacing:-.02em}
+  .scard .sub{font-size:12px;color:var(--muted);margin-top:3px}
+  .scard .n.grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* section heading */
+  .shead{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:34px 0 16px;flex-wrap:wrap}
+  .shead h2{font-size:18px;font-weight:700;display:flex;align-items:center;gap:9px}
+  .shead .hint{font-size:12.5px;color:var(--muted)}
+
+  /* filter bar */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+  .search{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 13px;flex:1;min-width:200px}
+  .search input{background:none;border:none;color:var(--txt);font-size:14px;width:100%;outline:none}
+  .search input::placeholder{color:var(--muted)}
+  select{background:var(--panel);border:1px solid var(--line);color:var(--txt);font-size:13.5px;padding:9px 12px;border-radius:10px;cursor:pointer;outline:none;font-family:var(--font)}
+
+  /* leaderboard table */
+  .tablewrap{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .scroll-x{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:920px}
+  thead th{text-align:right;padding:13px 14px;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none;background:var(--bg-2)}
+  thead th:first-child,thead th.lft{text-align:left}
+  thead th:hover{color:var(--txt)}
+  thead th .arr{opacity:.5;font-size:10px}
+  thead th.sorted{color:var(--accent)}
+  tbody td{padding:12px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,.04);white-space:nowrap;font-variant-numeric:tabular-nums}
+  tbody td:first-child,tbody td.lft{text-align:left}
+  tbody tr:hover{background:rgba(255,255,255,.03)}
+  tbody tr:last-child td{border-bottom:none}
+  .rank{font-weight:800;color:var(--muted);width:30px}
+  .rank.top{color:var(--accent-3)}
+  .teamcell{display:flex;align-items:center;gap:10px}
+  .code{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;background:rgba(59,130,246,.14);color:#79a8ff;letter-spacing:.02em}
+  .teamname{font-weight:600}
+  .conf{font-size:11px;color:var(--muted)}
+  .prob{font-weight:700;padding:3px 9px;border-radius:7px;display:inline-block;min-width:52px;text-align:center}
+  .p-good{background:rgba(34,224,161,.16);color:var(--good)}
+  .p-mid{background:rgba(247,181,0,.16);color:var(--mid)}
+  .p-low{background:rgba(255,93,108,.16);color:var(--low)}
+  .bar-cell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+  .minibar{width:46px;height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;flex-shrink:0}
+  .minibar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+
+  /* match cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .mcard{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .18s,border-color .18s}
+  .mcard:hover{transform:translateY(-3px);border-color:rgba(34,224,161,.35)}
+  .mc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .mc-comp{font-size:11.5px;color:var(--muted);font-weight:600}
+  .statusbadge{font-size:10.5px;font-weight:800;letter-spacing:.05em;padding:3px 9px;border-radius:6px}
+  .st-live{background:rgba(255,93,108,.16);color:var(--danger)}
+  .st-up{background:rgba(59,130,246,.16);color:#79a8ff}
+  .st-done{background:rgba(255,255,255,.08);color:var(--muted)}
+  .mc-teams{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+  .mc-team{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+  .mc-team .code{font-size:13px;padding:5px 10px}
+  .mc-team .nm{font-size:12.5px;font-weight:600}
+  .mc-vs{font-size:11px;color:var(--muted);font-weight:700}
+  .mc-prob{display:flex;height:8px;border-radius:99px;overflow:hidden;margin-bottom:10px;border:1px solid var(--line)}
+  .mc-prob .h{background:var(--accent)}.mc-prob .d{background:#2a3a5e}.mc-prob .a{background:var(--accent-2)}
+  .mc-line{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:7px}
+  .mc-line b{color:var(--txt)}
+  .mc-actions{display:flex;gap:8px;margin-top:14px}
+  .mc-actions a{flex:1;text-align:center;font-size:12px;font-weight:600;padding:8px;border-radius:8px;border:1px solid var(--line);color:var(--muted)}
+  .mc-actions a.pri{background:rgba(34,224,161,.12);color:var(--accent);border-color:transparent}
+
+  /* feed */
+  .feed{border:1px solid var(--line);border-radius:14px;background:#060a12;overflow:hidden}
+  .feed-list{padding:6px;max-height:340px;overflow:hidden}
+  .fitem{display:flex;gap:11px;padding:11px 13px;border-radius:9px;animation:fadein .5s}
+  .fitem:nth-child(odd){background:rgba(255,255,255,.02)}
+  .fitem .ft{font-family:var(--mono);font-size:11px;color:var(--muted);width:40px;flex-shrink:0;padding-top:1px}
+  .fitem .fb{font-size:13px}.fitem .fb b{font-weight:700}
+  .ftag{font-size:10px;font-weight:700;padding:1px 7px;border-radius:5px;margin-left:6px}
+  .tg-g{background:rgba(34,224,161,.15);color:var(--accent)}
+  .tg-b{background:rgba(59,130,246,.15);color:#79a8ff}
+  .tg-y{background:rgba(247,181,0,.15);color:var(--accent-3)}
+  @keyframes fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  .grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}
+  .glossary{margin-top:14px}
+  .legend-title{font-size:13px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:7px;margin-bottom:10px}
+  .legend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .leg{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+  .leg-h{display:block;font-size:13px;font-weight:700;color:var(--txt);margin-bottom:3px}
+  .leg-h em{font-style:normal;font-weight:500;color:var(--muted);font-size:12px}
+  .leg-d{font-size:12px;color:var(--muted);line-height:1.45}
+  .leg-dir{display:inline-block;margin-top:5px;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:5px}
+  .leg-high{background:rgba(34,224,161,.14);color:var(--accent)}
+  .leg-low{background:rgba(59,130,246,.14);color:#79a8ff}
+  @media(max-width:900px){.legend-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.legend-grid{grid-template-columns:1fr}}
+
+  @media(max-width:1080px){
+    .app{grid-template-columns:1fr}
+    aside{position:static;height:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:4px 16px}
+    .brand,.side-cta{grid-column:1/-1}
+    .summary{grid-template-columns:repeat(2,1fr)}
+    .cards{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr}
+    main{padding:0 16px 50px}
+  }
+  @media(max-width:620px){.summary,.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="brand"><span class="mark">IQ</span> CupIQ</div>
+    <div class="navgrp">Live</div>
+    <div class="navitem active"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg> Leaderboard</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Live Matches</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg> Match Cards</div>
+    <div class="navgrp">Explore</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg> All Teams</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7"/></svg> Stats &amp; Analytics</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 14 2 9.6h7.6z"/></svg> Tournament Overview</div>
+    <div class="navgrp">You</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> My Predictions</div>
+    <div class="navitem"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg> Model Accuracy</div>
+    <div class="side-cta">
+      <b>Unlock the full engine</b>
+      <p>Live xG, momentum &amp; bracket sims for every match.</p>
+      <a class="btn btn-primary">Start 7-day free trial</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="topbar">
+      <h1><svg class="ic" style="width:22px;height:22px;color:var(--accent)" viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg> World Cup 2026 Data Stadium</h1>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <span class="livechip"><i></i> LIVE · tracking xG, momentum, win prob</span>
+        <span class="src" id="srcline">Loading data…</span>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary" id="summary"></div>
+
+    <!-- FEATURED MATCH CARDS -->
+    <div class="shead">
+      <h2><svg class="ic" style="color:var(--accent)" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg> Featured matches</h2>
+      <span class="hint">Model prediction + confidence · status updates live</span>
+    </div>
+    <div class="cards" id="cards"></div>
+
+    <!-- LEADERBOARD -->
+    <div class="shead">
+      <h2><svg class="ic" style="color:var(--accent)" viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg> Team leaderboard</h2>
+      <span class="hint">Click any column to sort · color = win/trophy likelihood</span>
+    </div>
+    <div class="filters">
+      <div class="search">
+        <svg class="ic" style="color:var(--muted)" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="q" placeholder="Search a team…" />
+      </div>
+      <select id="fConf"><option value="">All confederations</option></select>
+      <select id="fGroup"><option value="">All groups</option></select>
+      <select id="fSort">
+        <option value="win_trophy_pct">Sort: Chance to win cup</option>
+        <option value="advance_r32_pct">Sort: Chance to reach knockouts</option>
+        <option value="xg_for">Sort: Attack strength (xG)</option>
+        <option value="xg_against">Sort: Defense strength (xGA)</option>
+        <option value="possession_pct">Sort: Possession</option>
+        <option value="ppda">Sort: Pressing intensity</option>
+        <option value="form_last5">Sort: Recent form</option>
+        <option value="momentum_index">Sort: Momentum</option>
+        <option value="elo">Sort: Overall strength (Elo)</option>
+      </select>
+    </div>
+    <div class="tablewrap"><div class="scroll-x"><table id="board">
+      <thead><tr id="headrow"></tr></thead>
+      <tbody id="body"></tbody>
+    </table></div></div>
+    <div class="glossary" id="glossary"></div>
+
+    <!-- FEED + OVERVIEW -->
+    <div class="shead"><h2><svg class="ic" style="color:var(--accent)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Insights feed</h2><span class="hint">Auto-refreshing match signals</span></div>
+    <div class="grid2">
+      <div class="feed"><div class="feed-list" id="feed"></div></div>
+      <div class="tablewrap" style="padding:18px">
+        <h2 style="font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px"><svg class="ic" style="color:var(--accent-3)" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 14 2 9.6h7.6z"/></svg> Title contenders</h2>
+        <div id="contenders"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+// ---- ISO3 codes (display only, emoji-free) ----
+const CODE={"Argentina":"ARG","Brazil":"BRA","Colombia":"COL","Uruguay":"URU","Ecuador":"ECU","Paraguay":"PAR","France":"FRA","Spain":"ESP","England":"ENG","Portugal":"POR","Netherlands":"NED","Germany":"GER","Belgium":"BEL","Croatia":"CRO","Switzerland":"SUI","Austria":"AUT","Türkiye":"TUR","Norway":"NOR","Sweden":"SWE","Scotland":"SCO","Czechia":"CZE","Bosnia and Herzegovina":"BIH","United States":"USA","Mexico":"MEX","Canada":"CAN","Panama":"PAN","Curaçao":"CUW","Haiti":"HAI","Morocco":"MAR","Senegal":"SEN","Egypt":"EGY","Algeria":"ALG","Côte d'Ivoire":"CIV","Ghana":"GHA","Tunisia":"TUN","South Africa":"RSA","Cabo Verde":"CPV","DR Congo":"COD","Japan":"JPN","Iran":"IRN","South Korea":"KOR","Australia":"AUS","Saudi Arabia":"KSA","Qatar":"QAT","Uzbekistan":"UZB","Jordan":"JOR","Iraq":"IRQ","New Zealand":"NZL"};
+const code=n=>CODE[n]||n.slice(0,3).toUpperCase();
+
+// ---- embedded seed fallback (replaced live when hosted) ----
+const SEED = {
+  "source": "SEED (modeled) - replace via fetch_stats.py for live FBref/Elo data",
+  "generated_utc": "2026-06-08T19:04:00Z",
+  "season": "FIFA World Cup 2026",
+  "team_count": 48,
+  "metric_glossary": {
+    "xg_for": "Expected goals created per match",
+    "xg_against": "Expected goals conceded per match",
+    "npxg": "Non-penalty expected goals per match",
+    "shots_per90": "Shots per 90 minutes",
+    "shots_on_target": "Shots on target per 90",
+    "big_chances_per90": "High-quality chances created per 90",
+    "goals_vs_xg": "Goals scored minus xG (finishing over/underperformance)",
+    "ppda": "Passes allowed per defensive action (lower = more aggressive press)",
+    "possession_pct": "Projected possession share",
+    "progressive_passes": "Progressive passes per match",
+    "aerial_win_pct": "Aerial duels won %",
+    "gk_psxg_minus_ga": "Post-shot xG minus goals allowed (keeper over/underperformance)",
+    "setpiece_xg": "Expected goals from set pieces per match",
+    "form_last5": "Form rating over last 5 matches (0-5)",
+    "momentum_index": "Composite momentum index (0-100)"
+  },
+  "teams": [
+    {
+      "team": "Argentina",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 2105,
+      "metrics": {
+        "xg_for": 2.25,
+        "xg_against": 0.71,
+        "npxg": 2.07,
+        "shots_per90": 18.1,
+        "shots_on_target": 6.0,
+        "big_chances_per90": 3.1,
+        "goals_vs_xg": 0.27,
+        "ppda": 7.2,
+        "possession_pct": 61.8,
+        "progressive_passes": 54.2,
+        "aerial_win_pct": 57.7,
+        "gk_psxg_minus_ga": 1.25,
+        "setpiece_xg": 0.54,
+        "form_last5": 4.7,
+        "momentum_index": 83
+      },
+      "projection": {
+        "advance_r32_pct": 96.6,
+        "reach_quarters_pct": 73.4,
+        "reach_final_pct": 55.0,
+        "win_trophy_pct": 9.2
+      }
+    },
+    {
+      "team": "France",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2070,
+      "metrics": {
+        "xg_for": 2.2,
+        "xg_against": 0.77,
+        "npxg": 2.02,
+        "shots_per90": 17.4,
+        "shots_on_target": 6.6,
+        "big_chances_per90": 3.3,
+        "goals_vs_xg": 0.47,
+        "ppda": 8.32,
+        "possession_pct": 57.5,
+        "progressive_passes": 56.2,
+        "aerial_win_pct": 52.0,
+        "gk_psxg_minus_ga": 1.07,
+        "setpiece_xg": 0.52,
+        "form_last5": 4.4,
+        "momentum_index": 84
+      },
+      "projection": {
+        "advance_r32_pct": 93.8,
+        "reach_quarters_pct": 69.2,
+        "reach_final_pct": 51.1,
+        "win_trophy_pct": 7.4
+      }
+    },
+    {
+      "team": "Spain",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2050,
+      "metrics": {
+        "xg_for": 2.39,
+        "xg_against": 0.98,
+        "npxg": 2.18,
+        "shots_per90": 15.9,
+        "shots_on_target": 5.2,
+        "big_chances_per90": 2.9,
+        "goals_vs_xg": 0.17,
+        "ppda": 6.64,
+        "possession_pct": 59.9,
+        "progressive_passes": 50.1,
+        "aerial_win_pct": 54.4,
+        "gk_psxg_minus_ga": 0.33,
+        "setpiece_xg": 0.38,
+        "form_last5": 4.3,
+        "momentum_index": 89
+      },
+      "projection": {
+        "advance_r32_pct": 92.2,
+        "reach_quarters_pct": 66.8,
+        "reach_final_pct": 47.0,
+        "win_trophy_pct": 6.5
+      }
+    },
+    {
+      "team": "Brazil",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 2030,
+      "metrics": {
+        "xg_for": 2.21,
+        "xg_against": 0.71,
+        "npxg": 2.0,
+        "shots_per90": 15.5,
+        "shots_on_target": 6.0,
+        "big_chances_per90": 3.2,
+        "goals_vs_xg": 0.29,
+        "ppda": 7.17,
+        "possession_pct": 55.8,
+        "progressive_passes": 54.8,
+        "aerial_win_pct": 57.9,
+        "gk_psxg_minus_ga": 1.06,
+        "setpiece_xg": 0.53,
+        "form_last5": 4.1,
+        "momentum_index": 74
+      },
+      "projection": {
+        "advance_r32_pct": 90.5,
+        "reach_quarters_pct": 64.5,
+        "reach_final_pct": 43.0,
+        "win_trophy_pct": 5.8
+      }
+    },
+    {
+      "team": "England",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2010,
+      "metrics": {
+        "xg_for": 1.96,
+        "xg_against": 1.0,
+        "npxg": 1.81,
+        "shots_per90": 15.7,
+        "shots_on_target": 6.0,
+        "big_chances_per90": 3.4,
+        "goals_vs_xg": 0.27,
+        "ppda": 8.51,
+        "possession_pct": 54.5,
+        "progressive_passes": 47.1,
+        "aerial_win_pct": 54.7,
+        "gk_psxg_minus_ga": 0.96,
+        "setpiece_xg": 0.5,
+        "form_last5": 4.0,
+        "momentum_index": 82
+      },
+      "projection": {
+        "advance_r32_pct": 88.9,
+        "reach_quarters_pct": 62.1,
+        "reach_final_pct": 39.1,
+        "win_trophy_pct": 5.1
+      }
+    },
+    {
+      "team": "Portugal",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2000,
+      "metrics": {
+        "xg_for": 1.95,
+        "xg_against": 0.81,
+        "npxg": 1.76,
+        "shots_per90": 16.6,
+        "shots_on_target": 6.5,
+        "big_chances_per90": 2.9,
+        "goals_vs_xg": -0.14,
+        "ppda": 8.71,
+        "possession_pct": 59.7,
+        "progressive_passes": 51.3,
+        "aerial_win_pct": 57.2,
+        "gk_psxg_minus_ga": 0.47,
+        "setpiece_xg": 0.41,
+        "form_last5": 4.2,
+        "momentum_index": 78
+      },
+      "projection": {
+        "advance_r32_pct": 88.1,
+        "reach_quarters_pct": 60.9,
+        "reach_final_pct": 37.3,
+        "win_trophy_pct": 4.8
+      }
+    },
+    {
+      "team": "Netherlands",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1985,
+      "metrics": {
+        "xg_for": 1.93,
+        "xg_against": 0.77,
+        "npxg": 1.79,
+        "shots_per90": 16.1,
+        "shots_on_target": 5.2,
+        "big_chances_per90": 2.7,
+        "goals_vs_xg": 0.04,
+        "ppda": 9.14,
+        "possession_pct": 52.8,
+        "progressive_passes": 47.9,
+        "aerial_win_pct": 52.2,
+        "gk_psxg_minus_ga": 0.42,
+        "setpiece_xg": 0.39,
+        "form_last5": 3.5,
+        "momentum_index": 84
+      },
+      "projection": {
+        "advance_r32_pct": 86.9,
+        "reach_quarters_pct": 59.1,
+        "reach_final_pct": 34.6,
+        "win_trophy_pct": 4.4
+      }
+    },
+    {
+      "team": "Germany",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1965,
+      "metrics": {
+        "xg_for": 2.01,
+        "xg_against": 1.09,
+        "npxg": 1.86,
+        "shots_per90": 14.6,
+        "shots_on_target": 5.1,
+        "big_chances_per90": 2.6,
+        "goals_vs_xg": 0.2,
+        "ppda": 9.14,
+        "possession_pct": 52.5,
+        "progressive_passes": 45.7,
+        "aerial_win_pct": 50.8,
+        "gk_psxg_minus_ga": 0.98,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.8,
+        "momentum_index": 80
+      },
+      "projection": {
+        "advance_r32_pct": 85.3,
+        "reach_quarters_pct": 56.7,
+        "reach_final_pct": 31.2,
+        "win_trophy_pct": 3.9
+      }
+    },
+    {
+      "team": "Belgium",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1940,
+      "metrics": {
+        "xg_for": 1.89,
+        "xg_against": 1.12,
+        "npxg": 1.74,
+        "shots_per90": 14.7,
+        "shots_on_target": 5.7,
+        "big_chances_per90": 2.2,
+        "goals_vs_xg": 0.14,
+        "ppda": 9.7,
+        "possession_pct": 54.9,
+        "progressive_passes": 50.1,
+        "aerial_win_pct": 50.0,
+        "gk_psxg_minus_ga": 0.82,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.5,
+        "momentum_index": 71
+      },
+      "projection": {
+        "advance_r32_pct": 83.3,
+        "reach_quarters_pct": 53.7,
+        "reach_final_pct": 27.2,
+        "win_trophy_pct": 3.3
+      }
+    },
+    {
+      "team": "Uruguay",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1915,
+      "metrics": {
+        "xg_for": 1.84,
+        "xg_against": 1.17,
+        "npxg": 1.65,
+        "shots_per90": 13.6,
+        "shots_on_target": 5.3,
+        "big_chances_per90": 2.3,
+        "goals_vs_xg": 0.05,
+        "ppda": 10.36,
+        "possession_pct": 53.9,
+        "progressive_passes": 44.4,
+        "aerial_win_pct": 48.5,
+        "gk_psxg_minus_ga": 0.12,
+        "setpiece_xg": 0.31,
+        "form_last5": 2.9,
+        "momentum_index": 73
+      },
+      "projection": {
+        "advance_r32_pct": 81.2,
+        "reach_quarters_pct": 50.8,
+        "reach_final_pct": 23.4,
+        "win_trophy_pct": 2.8
+      }
+    },
+    {
+      "team": "Colombia",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1900,
+      "metrics": {
+        "xg_for": 1.74,
+        "xg_against": 1.12,
+        "npxg": 1.58,
+        "shots_per90": 13.2,
+        "shots_on_target": 5.1,
+        "big_chances_per90": 2.6,
+        "goals_vs_xg": 0.15,
+        "ppda": 8.19,
+        "possession_pct": 55.0,
+        "progressive_passes": 42.1,
+        "aerial_win_pct": 51.3,
+        "gk_psxg_minus_ga": 0.25,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.3,
+        "momentum_index": 62
+      },
+      "projection": {
+        "advance_r32_pct": 80.0,
+        "reach_quarters_pct": 49.0,
+        "reach_final_pct": 21.3,
+        "win_trophy_pct": 2.6
+      }
+    },
+    {
+      "team": "Croatia",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1900,
+      "metrics": {
+        "xg_for": 1.64,
+        "xg_against": 1.03,
+        "npxg": 1.48,
+        "shots_per90": 12.6,
+        "shots_on_target": 4.5,
+        "big_chances_per90": 2.7,
+        "goals_vs_xg": 0.04,
+        "ppda": 9.34,
+        "possession_pct": 52.3,
+        "progressive_passes": 43.3,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.65,
+        "setpiece_xg": 0.41,
+        "form_last5": 3.6,
+        "momentum_index": 74
+      },
+      "projection": {
+        "advance_r32_pct": 80.0,
+        "reach_quarters_pct": 49.0,
+        "reach_final_pct": 21.3,
+        "win_trophy_pct": 2.6
+      }
+    },
+    {
+      "team": "Morocco",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1870,
+      "metrics": {
+        "xg_for": 1.84,
+        "xg_against": 1.24,
+        "npxg": 1.67,
+        "shots_per90": 13.2,
+        "shots_on_target": 4.9,
+        "big_chances_per90": 2.1,
+        "goals_vs_xg": 0.37,
+        "ppda": 8.78,
+        "possession_pct": 52.7,
+        "progressive_passes": 45.3,
+        "aerial_win_pct": 52.9,
+        "gk_psxg_minus_ga": 0.22,
+        "setpiece_xg": 0.35,
+        "form_last5": 2.7,
+        "momentum_index": 70
+      },
+      "projection": {
+        "advance_r32_pct": 77.6,
+        "reach_quarters_pct": 45.4,
+        "reach_final_pct": 17.4,
+        "win_trophy_pct": 2.2
+      }
+    },
+    {
+      "team": "Switzerland",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1860,
+      "metrics": {
+        "xg_for": 1.58,
+        "xg_against": 1.34,
+        "npxg": 1.36,
+        "shots_per90": 13.1,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.5,
+        "goals_vs_xg": 0.32,
+        "ppda": 10.33,
+        "possession_pct": 55.5,
+        "progressive_passes": 40.0,
+        "aerial_win_pct": 48.4,
+        "gk_psxg_minus_ga": 0.29,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.1,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 76.8,
+        "reach_quarters_pct": 44.2,
+        "reach_final_pct": 16.2,
+        "win_trophy_pct": 2.0
+      }
+    },
+    {
+      "team": "Austria",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1850,
+      "metrics": {
+        "xg_for": 1.73,
+        "xg_against": 1.22,
+        "npxg": 1.54,
+        "shots_per90": 11.6,
+        "shots_on_target": 3.9,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": 0.11,
+        "ppda": 8.96,
+        "possession_pct": 50.3,
+        "progressive_passes": 45.5,
+        "aerial_win_pct": 48.4,
+        "gk_psxg_minus_ga": 0.38,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.2,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 76.0,
+        "reach_quarters_pct": 43.0,
+        "reach_final_pct": 15.0,
+        "win_trophy_pct": 1.9
+      }
+    },
+    {
+      "team": "Senegal",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1850,
+      "metrics": {
+        "xg_for": 1.5,
+        "xg_against": 1.2,
+        "npxg": 1.34,
+        "shots_per90": 13.3,
+        "shots_on_target": 4.5,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": 0.08,
+        "ppda": 9.56,
+        "possession_pct": 54.8,
+        "progressive_passes": 43.2,
+        "aerial_win_pct": 53.9,
+        "gk_psxg_minus_ga": 0.1,
+        "setpiece_xg": 0.27,
+        "form_last5": 3.3,
+        "momentum_index": 60
+      },
+      "projection": {
+        "advance_r32_pct": 76.0,
+        "reach_quarters_pct": 43.0,
+        "reach_final_pct": 15.0,
+        "win_trophy_pct": 1.9
+      }
+    },
+    {
+      "team": "Ecuador",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1840,
+      "metrics": {
+        "xg_for": 1.76,
+        "xg_against": 1.08,
+        "npxg": 1.57,
+        "shots_per90": 12.2,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 1.9,
+        "goals_vs_xg": 0.34,
+        "ppda": 10.44,
+        "possession_pct": 51.4,
+        "progressive_passes": 40.2,
+        "aerial_win_pct": 54.2,
+        "gk_psxg_minus_ga": 0.66,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.0,
+        "momentum_index": 66
+      },
+      "projection": {
+        "advance_r32_pct": 75.2,
+        "reach_quarters_pct": 41.8,
+        "reach_final_pct": 13.9,
+        "win_trophy_pct": 1.8
+      }
+    },
+    {
+      "team": "Türkiye",
+      "confederation": "UEFA",
+      "group": "D",
+      "elo": 1840,
+      "metrics": {
+        "xg_for": 1.67,
+        "xg_against": 1.22,
+        "npxg": 1.51,
+        "shots_per90": 13.4,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": -0.1,
+        "ppda": 8.98,
+        "possession_pct": 51.1,
+        "progressive_passes": 44.5,
+        "aerial_win_pct": 53.0,
+        "gk_psxg_minus_ga": 0.08,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.5,
+        "momentum_index": 55
+      },
+      "projection": {
+        "advance_r32_pct": 75.2,
+        "reach_quarters_pct": 41.8,
+        "reach_final_pct": 13.9,
+        "win_trophy_pct": 1.8
+      }
+    },
+    {
+      "team": "Norway",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1830,
+      "metrics": {
+        "xg_for": 1.46,
+        "xg_against": 1.31,
+        "npxg": 1.27,
+        "shots_per90": 13.5,
+        "shots_on_target": 4.7,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": 0.14,
+        "ppda": 10.63,
+        "possession_pct": 52.2,
+        "progressive_passes": 44.2,
+        "aerial_win_pct": 49.1,
+        "gk_psxg_minus_ga": -0.15,
+        "setpiece_xg": 0.31,
+        "form_last5": 3.4,
+        "momentum_index": 68
+      },
+      "projection": {
+        "advance_r32_pct": 74.4,
+        "reach_quarters_pct": 40.6,
+        "reach_final_pct": 12.8,
+        "win_trophy_pct": 1.7
+      }
+    },
+    {
+      "team": "Japan",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1820,
+      "metrics": {
+        "xg_for": 1.48,
+        "xg_against": 1.42,
+        "npxg": 1.26,
+        "shots_per90": 12.0,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 1.7,
+        "goals_vs_xg": 0.14,
+        "ppda": 9.6,
+        "possession_pct": 50.8,
+        "progressive_passes": 36.6,
+        "aerial_win_pct": 50.5,
+        "gk_psxg_minus_ga": 0.13,
+        "setpiece_xg": 0.31,
+        "form_last5": 3.1,
+        "momentum_index": 58
+      },
+      "projection": {
+        "advance_r32_pct": 73.6,
+        "reach_quarters_pct": 39.4,
+        "reach_final_pct": 11.7,
+        "win_trophy_pct": 1.6
+      }
+    },
+    {
+      "team": "United States",
+      "confederation": "CONCACAF",
+      "group": "D",
+      "elo": 1810,
+      "metrics": {
+        "xg_for": 1.59,
+        "xg_against": 1.1,
+        "npxg": 1.36,
+        "shots_per90": 11.7,
+        "shots_on_target": 4.7,
+        "big_chances_per90": 2.2,
+        "goals_vs_xg": 0.31,
+        "ppda": 11.57,
+        "possession_pct": 53.6,
+        "progressive_passes": 38.0,
+        "aerial_win_pct": 54.0,
+        "gk_psxg_minus_ga": 0.53,
+        "setpiece_xg": 0.26,
+        "form_last5": 3.1,
+        "momentum_index": 58
+      },
+      "projection": {
+        "advance_r32_pct": 72.8,
+        "reach_quarters_pct": 38.2,
+        "reach_final_pct": 10.7,
+        "win_trophy_pct": 1.5
+      }
+    },
+    {
+      "team": "Sweden",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1800,
+      "metrics": {
+        "xg_for": 1.57,
+        "xg_against": 1.43,
+        "npxg": 1.37,
+        "shots_per90": 13.0,
+        "shots_on_target": 4.5,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": -0.05,
+        "ppda": 11.19,
+        "possession_pct": 50.0,
+        "progressive_passes": 33.7,
+        "aerial_win_pct": 51.6,
+        "gk_psxg_minus_ga": -0.16,
+        "setpiece_xg": 0.36,
+        "form_last5": 3.0,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
+        "win_trophy_pct": 1.4
+      }
+    },
+    {
+      "team": "Mexico",
+      "confederation": "CONCACAF",
+      "group": "A",
+      "elo": 1800,
+      "metrics": {
+        "xg_for": 1.4,
+        "xg_against": 1.25,
+        "npxg": 1.21,
+        "shots_per90": 11.8,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 2.3,
+        "goals_vs_xg": 0.11,
+        "ppda": 9.77,
+        "possession_pct": 51.4,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 53.2,
+        "gk_psxg_minus_ga": 0.5,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.0,
+        "momentum_index": 63
+      },
+      "projection": {
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
+        "win_trophy_pct": 1.4
+      }
+    },
+    {
+      "team": "Iran",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1800,
+      "metrics": {
+        "xg_for": 1.64,
+        "xg_against": 1.29,
+        "npxg": 1.45,
+        "shots_per90": 12.7,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 2.5,
+        "goals_vs_xg": -0.02,
+        "ppda": 10.88,
+        "possession_pct": 50.7,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 50.4,
+        "gk_psxg_minus_ga": 0.53,
+        "setpiece_xg": 0.33,
+        "form_last5": 2.3,
+        "momentum_index": 64
+      },
+      "projection": {
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
+        "win_trophy_pct": 1.4
+      }
+    },
+    {
+      "team": "Scotland",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1790,
+      "metrics": {
+        "xg_for": 1.57,
+        "xg_against": 1.25,
+        "npxg": 1.35,
+        "shots_per90": 11.6,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": 0.2,
+        "ppda": 9.69,
+        "possession_pct": 51.0,
+        "progressive_passes": 34.2,
+        "aerial_win_pct": 46.9,
+        "gk_psxg_minus_ga": -0.13,
+        "setpiece_xg": 0.31,
+        "form_last5": 2.8,
+        "momentum_index": 51
+      },
+      "projection": {
+        "advance_r32_pct": 71.2,
+        "reach_quarters_pct": 35.8,
+        "reach_final_pct": 8.9,
+        "win_trophy_pct": 1.3
+      }
+    },
+    {
+      "team": "Czechia",
+      "confederation": "UEFA",
+      "group": "A",
+      "elo": 1785,
+      "metrics": {
+        "xg_for": 1.49,
+        "xg_against": 1.27,
+        "npxg": 1.32,
+        "shots_per90": 10.5,
+        "shots_on_target": 3.7,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": -0.22,
+        "ppda": 10.86,
+        "possession_pct": 51.1,
+        "progressive_passes": 42.1,
+        "aerial_win_pct": 51.2,
+        "gk_psxg_minus_ga": -0.1,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.2,
+        "momentum_index": 50
+      },
+      "projection": {
+        "advance_r32_pct": 70.8,
+        "reach_quarters_pct": 35.2,
+        "reach_final_pct": 8.4,
+        "win_trophy_pct": 1.3
+      }
+    },
+    {
+      "team": "Egypt",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1790,
+      "metrics": {
+        "xg_for": 1.55,
+        "xg_against": 1.26,
+        "npxg": 1.34,
+        "shots_per90": 11.2,
+        "shots_on_target": 4.3,
+        "big_chances_per90": 1.8,
+        "goals_vs_xg": -0.2,
+        "ppda": 11.32,
+        "possession_pct": 51.3,
+        "progressive_passes": 34.3,
+        "aerial_win_pct": 48.0,
+        "gk_psxg_minus_ga": 0.35,
+        "setpiece_xg": 0.26,
+        "form_last5": 3.0,
+        "momentum_index": 58
+      },
+      "projection": {
+        "advance_r32_pct": 71.2,
+        "reach_quarters_pct": 35.8,
+        "reach_final_pct": 8.9,
+        "win_trophy_pct": 1.3
+      }
+    },
+    {
+      "team": "Algeria",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1785,
+      "metrics": {
+        "xg_for": 1.33,
+        "xg_against": 1.37,
+        "npxg": 1.18,
+        "shots_per90": 12.9,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.1,
+        "ppda": 10.64,
+        "possession_pct": 49.3,
+        "progressive_passes": 33.0,
+        "aerial_win_pct": 51.5,
+        "gk_psxg_minus_ga": 0.17,
+        "setpiece_xg": 0.26,
+        "form_last5": 2.8,
+        "momentum_index": 65
+      },
+      "projection": {
+        "advance_r32_pct": 70.8,
+        "reach_quarters_pct": 35.2,
+        "reach_final_pct": 8.4,
+        "win_trophy_pct": 1.3
+      }
+    },
+    {
+      "team": "South Korea",
+      "confederation": "AFC",
+      "group": "A",
+      "elo": 1790,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.16,
+        "npxg": 1.33,
+        "shots_per90": 10.0,
+        "shots_on_target": 3.8,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": -0.18,
+        "ppda": 10.09,
+        "possession_pct": 50.4,
+        "progressive_passes": 36.6,
+        "aerial_win_pct": 49.5,
+        "gk_psxg_minus_ga": -0.3,
+        "setpiece_xg": 0.21,
+        "form_last5": 2.3,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 71.2,
+        "reach_quarters_pct": 35.8,
+        "reach_final_pct": 8.9,
+        "win_trophy_pct": 1.3
+      }
+    },
+    {
+      "team": "Canada",
+      "confederation": "CONCACAF",
+      "group": "B",
+      "elo": 1770,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.4,
+        "npxg": 1.39,
+        "shots_per90": 10.7,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": 0.2,
+        "ppda": 12.22,
+        "possession_pct": 46.2,
+        "progressive_passes": 34.2,
+        "aerial_win_pct": 52.3,
+        "gk_psxg_minus_ga": 0.04,
+        "setpiece_xg": 0.28,
+        "form_last5": 3.0,
+        "momentum_index": 55
+      },
+      "projection": {
+        "advance_r32_pct": 69.5,
+        "reach_quarters_pct": 33.5,
+        "reach_final_pct": 7.2,
+        "win_trophy_pct": 1.2
+      }
+    },
+    {
+      "team": "Côte d'Ivoire",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1775,
+      "metrics": {
+        "xg_for": 1.58,
+        "xg_against": 1.47,
+        "npxg": 1.35,
+        "shots_per90": 11.7,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": -0.06,
+        "ppda": 10.42,
+        "possession_pct": 52.7,
+        "progressive_passes": 39.5,
+        "aerial_win_pct": 45.6,
+        "gk_psxg_minus_ga": 0.03,
+        "setpiece_xg": 0.23,
+        "form_last5": 2.4,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 69.9,
+        "reach_quarters_pct": 34.1,
+        "reach_final_pct": 7.6,
+        "win_trophy_pct": 1.2
+      }
+    },
+    {
+      "team": "Paraguay",
+      "confederation": "CONMEBOL",
+      "group": "D",
+      "elo": 1760,
+      "metrics": {
+        "xg_for": 1.32,
+        "xg_against": 1.48,
+        "npxg": 1.14,
+        "shots_per90": 10.9,
+        "shots_on_target": 4.3,
+        "big_chances_per90": 1.7,
+        "goals_vs_xg": -0.11,
+        "ppda": 10.44,
+        "possession_pct": 46.0,
+        "progressive_passes": 38.1,
+        "aerial_win_pct": 50.0,
+        "gk_psxg_minus_ga": -0.12,
+        "setpiece_xg": 0.27,
+        "form_last5": 2.4,
+        "momentum_index": 62
+      },
+      "projection": {
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.3,
+        "reach_final_pct": 6.4,
+        "win_trophy_pct": 1.1
+      }
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "confederation": "UEFA",
+      "group": "B",
+      "elo": 1760,
+      "metrics": {
+        "xg_for": 1.31,
+        "xg_against": 1.37,
+        "npxg": 1.15,
+        "shots_per90": 10.3,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 1.9,
+        "goals_vs_xg": 0.27,
+        "ppda": 11.18,
+        "possession_pct": 50.3,
+        "progressive_passes": 41.1,
+        "aerial_win_pct": 49.4,
+        "gk_psxg_minus_ga": -0.31,
+        "setpiece_xg": 0.29,
+        "form_last5": 2.7,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.3,
+        "reach_final_pct": 6.4,
+        "win_trophy_pct": 1.1
+      }
+    },
+    {
+      "team": "Australia",
+      "confederation": "AFC",
+      "group": "D",
+      "elo": 1760,
+      "metrics": {
+        "xg_for": 1.44,
+        "xg_against": 1.37,
+        "npxg": 1.26,
+        "shots_per90": 9.4,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": 0.06,
+        "ppda": 10.95,
+        "possession_pct": 51.0,
+        "progressive_passes": 33.1,
+        "aerial_win_pct": 47.9,
+        "gk_psxg_minus_ga": 0.14,
+        "setpiece_xg": 0.19,
+        "form_last5": 2.0,
+        "momentum_index": 49
+      },
+      "projection": {
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.3,
+        "reach_final_pct": 6.4,
+        "win_trophy_pct": 1.1
+      }
+    },
+    {
+      "team": "Ghana",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1740,
+      "metrics": {
+        "xg_for": 1.3,
+        "xg_against": 1.51,
+        "npxg": 1.12,
+        "shots_per90": 11.8,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 1.2,
+        "goals_vs_xg": -0.17,
+        "ppda": 10.28,
+        "possession_pct": 51.1,
+        "progressive_passes": 33.2,
+        "aerial_win_pct": 45.0,
+        "gk_psxg_minus_ga": -0.43,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.1,
+        "momentum_index": 56
+      },
+      "projection": {
+        "advance_r32_pct": 67.1,
+        "reach_quarters_pct": 29.9,
+        "reach_final_pct": 5.0,
+        "win_trophy_pct": 1.0
+      }
+    },
+    {
+      "team": "Tunisia",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1730,
+      "metrics": {
+        "xg_for": 1.15,
+        "xg_against": 1.5,
+        "npxg": 0.97,
+        "shots_per90": 8.9,
+        "shots_on_target": 2.9,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.18,
+        "ppda": 11.29,
+        "possession_pct": 49.1,
+        "progressive_passes": 31.7,
+        "aerial_win_pct": 47.2,
+        "gk_psxg_minus_ga": -0.1,
+        "setpiece_xg": 0.28,
+        "form_last5": 2.4,
+        "momentum_index": 54
+      },
+      "projection": {
+        "advance_r32_pct": 66.3,
+        "reach_quarters_pct": 28.7,
+        "reach_final_pct": 4.3,
+        "win_trophy_pct": 0.9
+      }
+    },
+    {
+      "team": "Panama",
+      "confederation": "CONCACAF",
+      "group": "-",
+      "elo": 1700,
+      "metrics": {
+        "xg_for": 1.38,
+        "xg_against": 1.49,
+        "npxg": 1.19,
+        "shots_per90": 8.8,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.1,
+        "goals_vs_xg": 0.17,
+        "ppda": 11.3,
+        "possession_pct": 45.7,
+        "progressive_passes": 28.9,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.03,
+        "setpiece_xg": 0.17,
+        "form_last5": 1.9,
+        "momentum_index": 51
+      },
+      "projection": {
+        "advance_r32_pct": 63.9,
+        "reach_quarters_pct": 25.1,
+        "reach_final_pct": 2.7,
+        "win_trophy_pct": 0.8
+      }
+    },
+    {
+      "team": "South Africa",
+      "confederation": "CAF",
+      "group": "A",
+      "elo": 1700,
+      "metrics": {
+        "xg_for": 1.08,
+        "xg_against": 1.41,
+        "npxg": 0.91,
+        "shots_per90": 8.9,
+        "shots_on_target": 3.4,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": 0.34,
+        "ppda": 12.8,
+        "possession_pct": 48.5,
+        "progressive_passes": 31.9,
+        "aerial_win_pct": 46.9,
+        "gk_psxg_minus_ga": -0.15,
+        "setpiece_xg": 0.18,
+        "form_last5": 2.5,
+        "momentum_index": 56
+      },
+      "projection": {
+        "advance_r32_pct": 63.9,
+        "reach_quarters_pct": 25.1,
+        "reach_final_pct": 2.7,
+        "win_trophy_pct": 0.8
+      }
+    },
+    {
+      "team": "DR Congo",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1680,
+      "metrics": {
+        "xg_for": 1.22,
+        "xg_against": 1.59,
+        "npxg": 1.01,
+        "shots_per90": 8.9,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.0,
+        "goals_vs_xg": 0.0,
+        "ppda": 12.02,
+        "possession_pct": 45.5,
+        "progressive_passes": 30.7,
+        "aerial_win_pct": 46.4,
+        "gk_psxg_minus_ga": -0.64,
+        "setpiece_xg": 0.29,
+        "form_last5": 2.3,
+        "momentum_index": 43
+      },
+      "projection": {
+        "advance_r32_pct": 62.3,
+        "reach_quarters_pct": 22.7,
+        "reach_final_pct": 1.8,
+        "win_trophy_pct": 0.7
+      }
+    },
+    {
+      "team": "Saudi Arabia",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1690,
+      "metrics": {
+        "xg_for": 1.22,
+        "xg_against": 1.58,
+        "npxg": 1.01,
+        "shots_per90": 9.0,
+        "shots_on_target": 3.4,
+        "big_chances_per90": 1.1,
+        "goals_vs_xg": -0.22,
+        "ppda": 12.67,
+        "possession_pct": 46.5,
+        "progressive_passes": 32.3,
+        "aerial_win_pct": 50.6,
+        "gk_psxg_minus_ga": -0.62,
+        "setpiece_xg": 0.17,
+        "form_last5": 2.5,
+        "momentum_index": 45
+      },
+      "projection": {
+        "advance_r32_pct": 63.1,
+        "reach_quarters_pct": 23.9,
+        "reach_final_pct": 2.2,
+        "win_trophy_pct": 0.7
+      }
+    },
+    {
+      "team": "Qatar",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1680,
+      "metrics": {
+        "xg_for": 1.04,
+        "xg_against": 1.7,
+        "npxg": 0.87,
+        "shots_per90": 9.3,
+        "shots_on_target": 3.6,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": 0.32,
+        "ppda": 12.3,
+        "possession_pct": 46.4,
+        "progressive_passes": 37.0,
+        "aerial_win_pct": 48.6,
+        "gk_psxg_minus_ga": -0.73,
+        "setpiece_xg": 0.27,
+        "form_last5": 2.2,
+        "momentum_index": 42
+      },
+      "projection": {
+        "advance_r32_pct": 62.3,
+        "reach_quarters_pct": 22.7,
+        "reach_final_pct": 1.8,
+        "win_trophy_pct": 0.7
+      }
+    },
+    {
+      "team": "Uzbekistan",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1660,
+      "metrics": {
+        "xg_for": 0.95,
+        "xg_against": 1.64,
+        "npxg": 0.76,
+        "shots_per90": 8.1,
+        "shots_on_target": 2.7,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.23,
+        "ppda": 13.36,
+        "possession_pct": 49.5,
+        "progressive_passes": 26.8,
+        "aerial_win_pct": 51.1,
+        "gk_psxg_minus_ga": -0.24,
+        "setpiece_xg": 0.26,
+        "form_last5": 2.1,
+        "momentum_index": 43
+      },
+      "projection": {
+        "advance_r32_pct": 60.7,
+        "reach_quarters_pct": 20.3,
+        "reach_final_pct": 1.1,
+        "win_trophy_pct": 0.6
+      }
+    },
+    {
+      "team": "Curaçao",
+      "confederation": "CONCACAF",
+      "group": "-",
+      "elo": 1620,
+      "metrics": {
+        "xg_for": 0.94,
+        "xg_against": 1.81,
+        "npxg": 0.79,
+        "shots_per90": 9.3,
+        "shots_on_target": 3.0,
+        "big_chances_per90": 1.2,
+        "goals_vs_xg": -0.05,
+        "ppda": 12.45,
+        "possession_pct": 47.1,
+        "progressive_passes": 33.5,
+        "aerial_win_pct": 50.4,
+        "gk_psxg_minus_ga": -0.01,
+        "setpiece_xg": 0.12,
+        "form_last5": 1.6,
+        "momentum_index": 38
+      },
+      "projection": {
+        "advance_r32_pct": 57.4,
+        "reach_quarters_pct": 15.6,
+        "reach_final_pct": 0.2,
+        "win_trophy_pct": 0.5
+      }
+    },
+    {
+      "team": "Cabo Verde",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1640,
+      "metrics": {
+        "xg_for": 0.88,
+        "xg_against": 1.6,
+        "npxg": 0.75,
+        "shots_per90": 9.9,
+        "shots_on_target": 3.4,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.24,
+        "ppda": 11.83,
+        "possession_pct": 47.9,
+        "progressive_passes": 29.5,
+        "aerial_win_pct": 44.7,
+        "gk_psxg_minus_ga": -0.89,
+        "setpiece_xg": 0.17,
+        "form_last5": 1.3,
+        "momentum_index": 48
+      },
+      "projection": {
+        "advance_r32_pct": 59.0,
+        "reach_quarters_pct": 18.0,
+        "reach_final_pct": 0.6,
+        "win_trophy_pct": 0.5
+      }
+    },
+    {
+      "team": "Jordan",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1640,
+      "metrics": {
+        "xg_for": 1.0,
+        "xg_against": 1.43,
+        "npxg": 0.82,
+        "shots_per90": 10.1,
+        "shots_on_target": 3.9,
+        "big_chances_per90": 1.2,
+        "goals_vs_xg": -0.28,
+        "ppda": 13.19,
+        "possession_pct": 46.0,
+        "progressive_passes": 35.2,
+        "aerial_win_pct": 46.6,
+        "gk_psxg_minus_ga": -0.34,
+        "setpiece_xg": 0.2,
+        "form_last5": 2.1,
+        "momentum_index": 47
+      },
+      "projection": {
+        "advance_r32_pct": 59.0,
+        "reach_quarters_pct": 18.0,
+        "reach_final_pct": 0.6,
+        "win_trophy_pct": 0.5
+      }
+    },
+    {
+      "team": "Iraq",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1635,
+      "metrics": {
+        "xg_for": 0.97,
+        "xg_against": 1.53,
+        "npxg": 0.77,
+        "shots_per90": 8.7,
+        "shots_on_target": 3.0,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.01,
+        "ppda": 12.56,
+        "possession_pct": 42.6,
+        "progressive_passes": 28.0,
+        "aerial_win_pct": 43.2,
+        "gk_psxg_minus_ga": -0.37,
+        "setpiece_xg": 0.11,
+        "form_last5": 2.1,
+        "momentum_index": 45
+      },
+      "projection": {
+        "advance_r32_pct": 58.6,
+        "reach_quarters_pct": 17.4,
+        "reach_final_pct": 0.4,
+        "win_trophy_pct": 0.5
+      }
+    },
+    {
+      "team": "New Zealand",
+      "confederation": "OFC",
+      "group": "-",
+      "elo": 1620,
+      "metrics": {
+        "xg_for": 0.95,
+        "xg_against": 1.69,
+        "npxg": 0.76,
+        "shots_per90": 8.4,
+        "shots_on_target": 3.0,
+        "big_chances_per90": 0.7,
+        "goals_vs_xg": 0.24,
+        "ppda": 11.7,
+        "possession_pct": 42.2,
+        "progressive_passes": 25.4,
+        "aerial_win_pct": 46.9,
+        "gk_psxg_minus_ga": -0.75,
+        "setpiece_xg": 0.25,
+        "form_last5": 1.8,
+        "momentum_index": 36
+      },
+      "projection": {
+        "advance_r32_pct": 57.4,
+        "reach_quarters_pct": 15.6,
+        "reach_final_pct": 0.2,
+        "win_trophy_pct": 0.5
+      }
+    },
+    {
+      "team": "Haiti",
+      "confederation": "CONCACAF",
+      "group": "-",
+      "elo": 1600,
+      "metrics": {
+        "xg_for": 0.94,
+        "xg_against": 1.56,
+        "npxg": 0.72,
+        "shots_per90": 8.2,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.2,
+        "goals_vs_xg": -0.39,
+        "ppda": 12.56,
+        "possession_pct": 43.4,
+        "progressive_passes": 25.7,
+        "aerial_win_pct": 43.4,
+        "gk_psxg_minus_ga": -0.46,
+        "setpiece_xg": 0.1,
+        "form_last5": 1.9,
+        "momentum_index": 41
+      },
+      "projection": {
+        "advance_r32_pct": 55.8,
+        "reach_quarters_pct": 13.2,
+        "reach_final_pct": 0.0,
+        "win_trophy_pct": 0.4
+      }
+    }
+  ]
+};
+
+let DATA=null, sortKey="win_trophy_pct", sortDir=-1;
+
+const COLS=[
+  {k:"_rank",l:"#",t:"rank"},
+  {k:"team",l:"Team",t:"team",name:"Team",tip:"National team, confederation and group"},
+  {k:"win_trophy_pct",l:"Win cup",t:"prob",name:"Win the tournament",tip:"Modeled chance of lifting the trophy",better:"high"},
+  {k:"advance_r32_pct",l:"Reach KO",t:"prob",name:"Reach the knockouts",tip:"Chance of getting out of the group into the round of 32",better:"high"},
+  {k:"xg_for",l:"Attack (xG)",t:"bar",max:2.6,name:"Expected goals for",tip:"Quality of chances created per match — higher means a more dangerous attack",better:"high"},
+  {k:"xg_against",l:"Defense (xGA)",t:"num",name:"Expected goals against",tip:"Quality of chances allowed per match — lower means a stronger defense",better:"low"},
+  {k:"possession_pct",l:"Possession",t:"num",name:"Possession",tip:"Projected share of the ball, %",better:"high"},
+  {k:"ppda",l:"Pressing",t:"num",name:"Pressing intensity (PPDA)",tip:"How aggressively a team wins the ball back — a lower number means it presses harder",better:"low"},
+  {k:"progressive_passes",l:"Forward play",t:"num",name:"Progressive passes",tip:"Passes that move the ball meaningfully toward goal, per match",better:"high"},
+  {k:"setpiece_xg",l:"Set pieces",t:"num",name:"Set-piece threat (xG)",tip:"Goal threat created from corners and free-kicks per match",better:"high"},
+  {k:"form_last5",l:"Recent form",t:"num",name:"Form (last 5)",tip:"Rating of results over the last five matches, scale 0–5",better:"high"},
+  {k:"momentum_index",l:"Momentum",t:"bar",max:100,name:"Momentum",tip:"How well a team is trending right now, scale 0–100",better:"high"},
+  {k:"elo",l:"Strength",t:"num",name:"Elo strength rating",tip:"Overall team strength rating the model is built on",better:"high"}
+];
+
+function val(t,k){
+  if(k==="_rank")return 0;
+  if(k==="team")return t.team;
+  if(k==="elo")return t.elo;
+  if(t.metrics&&k in t.metrics)return t.metrics[k];
+  if(t.projection&&k in t.projection)return t.projection[k];
+  return 0;
+}
+function probClass(key,v){
+  // trophy odds are small in absolute terms (favorite ~9%), so scale separately
+  if(key==="win_trophy_pct")return v>=4?"p-good":v>=1.5?"p-mid":"p-low";
+  return v>=60?"p-good":v>=40?"p-mid":"p-low"; // advance % etc. use real percentage
+}
+
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const fc=document.getElementById('fConf').value, fg=document.getElementById('fGroup').value;
+  let rows=DATA.teams.filter(t=>t.team.toLowerCase().includes(q)
+    &&(!fc||t.confederation===fc)&&(!fg||t.group===fg));
+  rows.sort((a,b)=>{const x=val(a,sortKey),y=val(b,sortKey);
+    return (typeof x==="string")?sortDir*x.localeCompare(y):sortDir*(x-y)});
+  const body=document.getElementById('body');body.innerHTML="";
+  rows.forEach((t,i)=>{
+    const tr=document.createElement('tr');
+    let html="";
+    COLS.forEach(c=>{
+      if(c.k==="_rank"){html+=`<td class="rank ${i<3?'top':''}">${i+1}</td>`;}
+      else if(c.k==="team"){html+=`<td class="lft"><div class="teamcell"><span class="code">${code(t.team)}</span><div><div class="teamname">${t.team}</div><div class="conf">${t.confederation}${t.group!=="-"?" · Grp "+t.group:""}</div></div></div></td>`;}
+      else if(c.t==="prob"){const v=val(t,c.k);html+=`<td><span class="prob ${probClass(c.k,v)}">${v}%</span></td>`;}
+      else if(c.t==="bar"){const v=val(t,c.k);html+=`<td><div class="bar-cell"><div class="minibar"><i style="width:${Math.min(100,v/c.max*100)}%"></i></div><b>${v}</b></div></td>`;}
+      else{html+=`<td>${val(t,c.k)}</td>`;}
+    });
+    tr.innerHTML=html;body.appendChild(tr);
+  });
+  // header
+  const hr=document.getElementById('headrow');hr.innerHTML="";
+  COLS.forEach(c=>{
+    const th=document.createElement('th');
+    if(c.k==="team"||c.k==="_rank")th.className="lft";
+    if(c.k===sortKey)th.classList.add('sorted');
+    if(c.tip)th.title=(c.name?c.name+" — ":"")+c.tip+(c.better?(c.better==="high"?"  (higher is better)":"  (lower is better)"):"");
+    th.innerHTML=c.l+(c.k===sortKey?` <span class="arr">${sortDir<0?'▼':'▲'}</span>`:"");
+    if(c.k!=="_rank")th.onclick=()=>{if(sortKey===c.k)sortDir*=-1;else{sortKey=c.k;sortDir=(c.k==='team'||c.better==='low')?1:-1}render();};
+    hr.appendChild(th);
+  });
+}
+
+function buildSummary(){
+  const ts=DATA.teams,n=ts.length;
+  const avgXg=(ts.reduce((s,t)=>s+t.metrics.xg_for,0)/n).toFixed(2);
+  const top=ts[0];
+  const press=[...ts].sort((a,b)=>a.metrics.ppda-b.metrics.ppda)[0];
+  document.getElementById('summary').innerHTML=`
+    <div class="scard"><div class="lbl"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg> Teams tracked</div><div class="n grad">${n}</div><div class="sub">All confederations</div></div>
+    <div class="scard"><div class="lbl"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 14 2 9.6h7.6z"/></svg> Top contender</div><div class="n">${code(top.team)}</div><div class="sub">${top.team} · ${top.projection.win_trophy_pct}% trophy</div></div>
+    <div class="scard"><div class="lbl"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7"/></svg> Avg xG / match</div><div class="n">${avgXg}</div><div class="sub">Across all teams</div></div>
+    <div class="scard"><div class="lbl"><svg class="ic" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg> Most aggressive press</div><div class="n">${code(press.team)}</div><div class="sub">PPDA ${press.metrics.ppda}</div></div>`;
+}
+
+function buildCards(){
+  // pair top teams into illustrative featured matchups
+  const t=DATA.teams;
+  const pairs=[[t[0],t[1],"LIVE","st-live","Group stage"],[t[2],t[3],"UPCOMING","st-up","Group stage"],[t[4],t[5],"UPCOMING","st-up","Group stage"]];
+  document.getElementById('cards').innerHTML=pairs.map(([h,a,st,cls,comp])=>{
+    const ph=Math.round(60*h.projection.win_trophy_pct/(h.projection.win_trophy_pct+a.projection.win_trophy_pct))+20;
+    const pa=95-ph, pd=100-ph-pa;
+    const fav=ph>=pa?h:a, conf=Math.max(ph,pa);
+    return `<div class="mcard">
+      <div class="mc-top"><span class="mc-comp">${comp} · ${h.confederation==a.confederation?h.confederation:"Cross-conf"}</span><span class="statusbadge ${cls}">${st}</span></div>
+      <div class="mc-teams">
+        <div class="mc-team"><span class="code">${code(h.team)}</span><span class="nm">${h.team}</span></div>
+        <span class="mc-vs">vs</span>
+        <div class="mc-team"><span class="code">${code(a.team)}</span><span class="nm">${a.team}</span></div>
+      </div>
+      <div class="mc-prob"><span class="h" style="width:${ph}%"></span><span class="d" style="width:${pd}%"></span><span class="a" style="width:${pa}%"></span></div>
+      <div class="mc-line"><span>${code(h.team)} <b>${ph}%</b></span><span>Draw ${pd}%</span><span><b>${pa}%</b> ${code(a.team)}</span></div>
+      <div class="mc-line"><span>Model projection</span><span><b>${code(fav.team)}</b> most likely · ${conf}%</span></div>
+      <div class="mc-line"><span>Key metric</span><span>${code(h.team)} xG <b>${h.metrics.xg_for}</b> · ${code(a.team)} <b>${a.metrics.xg_for}</b></span></div>
+      <div class="mc-actions"><a class="pri">View analysis</a><a>Track live</a></div>
+    </div>`;
+  }).join("");
+}
+
+function buildContenders(){
+  document.getElementById('contenders').innerHTML=DATA.teams.slice(0,8).map((t,i)=>`
+    <div style="display:flex;align-items:center;gap:11px;padding:9px 4px;border-bottom:1px solid rgba(255,255,255,.05)">
+      <span class="rank ${i<3?'top':''}" style="width:20px">${i+1}</span>
+      <span class="code">${code(t.team)}</span>
+      <span style="flex:1;font-size:13.5px;font-weight:600">${t.team}</span>
+      <div class="minibar" style="width:60px"><i style="width:${t.projection.win_trophy_pct/DATA.teams[0].projection.win_trophy_pct*100}%"></i></div>
+      <span class="prob ${probClass('win_trophy_pct',t.projection.win_trophy_pct)}" style="min-width:44px">${t.projection.win_trophy_pct}%</span>
+    </div>`).join("");
+}
+
+function buildGlossary(){
+  const items=COLS.filter(c=>c.tip&&c.k!=="team");
+  document.getElementById('glossary').innerHTML=
+    '<div class="legend-title"><svg class="ic" style="width:15px;height:15px;color:var(--accent)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> What each column means</div>'+
+    '<div class="legend-grid">'+items.map(c=>
+      `<div class="leg"><span class="leg-h">${c.l}${c.name&&c.name!==c.l?` <em>(${c.name})</em>`:''}</span>`+
+      `<span class="leg-d">${c.tip}${c.better?` <span class="leg-dir leg-${c.better}">${c.better==='high'?'higher = better':'lower = better'}</span>`:''}</span></div>`
+    ).join("")+'</div>';
+}
+
+// ---- live feed ----
+const FEED=[
+  {t:"LIVE",b:"Model recalibrated after lineup confirmation",g:"tg-g",tag:"UPDATED"},
+  {t:"+3'",b:"<b>Argentina</b> high press forcing turnovers",g:"tg-b",tag:"PPDA 6.8"},
+  {t:"+6'",b:"Big chance created, xG spike",g:"tg-y",tag:"xG .39"},
+  {t:"+9'",b:"Possession tilting <b>Spain</b>",g:"tg-b",tag:"63%"},
+  {t:"+11'",b:"Model trend: <b>over 2.5 goals</b> likely",g:"tg-y",tag:"xG 2.7"},
+  {t:"+14'",b:"<b>France</b> momentum climbing",g:"tg-g",tag:"MO 88"},
+  {t:"+18'",b:"Set-piece threat detected",g:"tg-b",tag:"SP xG"},
+  {t:"+21'",b:"Win probability shift",g:"tg-g",tag:"+6%"}
+];
+let fi=0;
+function pushFeed(){
+  const d=FEED[fi%FEED.length],el=document.createElement('div');
+  el.className="fitem";
+  el.innerHTML=`<span class="ft">${d.t}</span><span class="fb">${d.b}<span class="ftag ${d.g}">${d.tag}</span></span>`;
+  const f=document.getElementById('feed');f.insertBefore(el,f.firstChild);
+  while(f.children.length>8)f.removeChild(f.lastChild);
+  fi++;
+}
+
+function boot(data){
+  DATA=data;
+  document.getElementById('srcline').textContent="Source: "+(data.source||"").slice(0,70);
+  const confs=[...new Set(data.teams.map(t=>t.confederation))].sort();
+  const groups=[...new Set(data.teams.map(t=>t.group).filter(g=>g!=="-"))].sort();
+  document.getElementById('fConf').innerHTML='<option value="">All confederations</option>'+confs.map(c=>`<option>${c}</option>`).join("");
+  document.getElementById('fGroup').innerHTML='<option value="">All groups</option>'+groups.map(g=>`<option value="${g}">Group ${g}</option>`).join("");
+  ['q','fConf','fGroup'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  document.getElementById('fSort').addEventListener('change',e=>{sortKey=e.target.value;const col=COLS.find(c=>c.k===sortKey);sortDir=(col&&col.better==='low')?1:-1;render();});
+  buildSummary();buildCards();buildContenders();buildGlossary();render();
+  for(let i=0;i<7;i++)pushFeed();setInterval(pushFeed,2800);
+}
+
+fetch('worldcup_data.json').then(r=>{if(!r.ok)throw 0;return r.json()})
+  .then(boot).catch(()=>{ if(SEED) boot(SEED); else document.getElementById('srcline').textContent="Run generate_seed.py to load data."; });
+</script>
+</body>
+</html>

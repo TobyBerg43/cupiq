@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /pro-k9x3f7q2a8.html
+Disallow: /unlock.html
+Disallow: /api/
+
+Sitemap: https://cupiq.app/sitemap.xml

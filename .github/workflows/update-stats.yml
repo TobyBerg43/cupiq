@@ -1,0 +1,42 @@
+name: Update World Cup stats (free)
+
+# Auto-refreshes worldcup_data.json from free sources (FBref + ClubElo).
+# The hosted dashboard fetches this JSON at load, so refreshing the file is all
+# that's needed — each commit triggers a Cloudflare Pages redeploy automatically.
+#
+# Schedule = every 3 hours. On match days, change to "*/15 * * * *" for ~15-min
+# freshness (still inside GitHub's free Actions minutes for one tournament).
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch: {}   # manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install free dependencies
+        run: pip install soccerdata pandas requests
+
+      - name: Pull live stats (falls back to seed if a source is down)
+        run: |
+          python generate_seed.py        # ensures team list + safe fallbacks exist
+          python fetch_stats.py || echo "Live fetch had issues; seed retained."
+
+      - name: Commit refreshed data if it changed
+        run: |
+          git config user.name  "cupiq-bot"
+          git config user.email "bot@cupiq.local"
+          git add worldcup_data.json
+          git commit -m "chore: refresh World Cup stats [skip ci]" || echo "No changes"
+          git push

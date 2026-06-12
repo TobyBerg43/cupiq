@@ -1,0 +1,17 @@
+# secrets — never commit these
+keys.txt
+.dev.vars
+.env
+.env.*
+*.secret
+
+# backups & build artifacts
+*.bak
+__pycache__/
+*.pyc
+node_modules/
+_*.js
+_*.css
+_*.html
+.DS_Store
+Thumbs.db

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CupIQ — The Most Advanced World Cup 2026 Analytics Engine</title>
+<meta name="description" content="CupIQ turns millions of data points into clear win probabilities, xG models, and match insights for the 2026 World Cup. Advanced football analytics for fans, analysts, and bettors worldwide." />
+<meta name="keywords" content="World Cup 2026, football analytics, xG, win probability, soccer stats, match predictions, advanced statistics" />
+<meta property="og:title" content="CupIQ — World Cup 2026 Analytics Engine" />
+<meta property="og:description" content="Millions of data points. One intelligence. Every match of the 2026 World Cup, decoded." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#070b14;
+    --bg-2:#0c1426;
+    --panel:#101a30;
+    --panel-2:#142142;
+    --line:rgba(255,255,255,.08);
+    --txt:#eaf0ff;
+    --muted:#93a1c2;
+    --accent:#22e0a1;      /* pitch electric green */
+    --accent-2:#3b82f6;    /* analytics blue */
+    --accent-3:#f7b500;    /* gold */
+    --danger:#ff5d6c;
+    --radius:18px;
+    --maxw:1180px;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular',ui-monospace,'JetBrains Mono',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--txt);
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .accent{color:var(--accent)}
+  .accent2{color:var(--accent-2)}
+  .gold{color:var(--accent-3)}
+  .mono{font-family:var(--mono)}
+  section{position:relative}
+
+  /* ---------- background glow ---------- */
+  .bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .blob.a{width:520px;height:520px;background:radial-gradient(circle,#13694f,transparent 70%);top:-120px;left:-80px}
+  .blob.b{width:480px;height:480px;background:radial-gradient(circle,#1e3a8a,transparent 70%);top:240px;right:-120px}
+  .blob.c{width:420px;height:420px;background:radial-gradient(circle,#3a2d00,transparent 70%);bottom:-80px;left:30%}
+  .grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 75%);opacity:.35}
+  .content{position:relative;z-index:2}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(7,11,20,.7);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .logo .mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#04111a;font-weight:900;font-size:17px}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{color:var(--muted);font-size:15px;font-weight:500;transition:color .2s}
+  .navlinks a:hover{color:var(--txt)}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
+    padding:11px 20px;border-radius:12px;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ghost{color:var(--txt);border-color:var(--line);background:rgba(255,255,255,.03)}
+  .btn-ghost:hover{background:rgba(255,255,255,.07)}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#15c489);color:#04111a;
+    box-shadow:0 8px 28px rgba(34,224,161,.28)}
+  .btn-primary:hover{box-shadow:0 12px 34px rgba(34,224,161,.4)}
+  .btn-lg{padding:15px 28px;font-size:16px}
+  .menu-toggle{display:none;background:none;border:none;color:var(--txt);font-size:24px;cursor:pointer}
+
+  /* ---------- hero ---------- */
+  .hero{padding:78px 0 40px}
+  .badge{display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(34,224,161,.08);font-size:13.5px;color:var(--accent);font-weight:600;margin-bottom:26px}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(34,224,161,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,224,161,.6)}70%{box-shadow:0 0 0 10px rgba(34,224,161,0)}100%{box-shadow:0 0 0 0 rgba(34,224,161,0)}}
+  h1{font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.03em;font-weight:800;max-width:14ch}
+  h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2) 60%,var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:54ch;margin:24px 0 34px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .trust{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;align-items:center}
+  .trust .ti{display:flex;flex-direction:column}
+  .trust .ti b{font-size:24px;font-weight:800}
+  .trust .ti span{font-size:13px;color:var(--muted)}
+  .stars{color:var(--accent-3);font-size:16px;letter-spacing:2px}
+
+  /* ticker */
+  .ticker{margin-top:46px;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));position:relative}
+  .ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:3;pointer-events:none}
+  .ticker::before{left:0;background:linear-gradient(90deg,var(--bg-2),transparent)}
+  .ticker::after{right:0;background:linear-gradient(270deg,var(--bg-2),transparent)}
+  .ticker-row{display:flex;gap:40px;white-space:nowrap;padding:14px 0;animation:scroll 38s linear infinite;width:max-content}
+  .ticker-item{display:inline-flex;align-items:center;gap:9px;font-size:14px;color:var(--muted)}
+  .ticker-item b{color:var(--txt);font-weight:600}
+  .ti-pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px}
+  .pill-green{background:rgba(34,224,161,.14);color:var(--accent)}
+  .pill-blue{background:rgba(59,130,246,.14);color:#79a8ff}
+  .pill-gold{background:rgba(247,181,0,.14);color:var(--accent-3)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- section headers ---------- */
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.025em;font-weight:800;line-height:1.08}
+  .section-lead{color:var(--muted);font-size:18px;max-width:60ch;margin-top:16px}
+  .sec{padding:84px 0}
+  .center{text-align:center}
+  .center .section-lead{margin-left:auto;margin-right:auto}
+
+  /* ---------- feature grid ---------- */
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);
+    border-radius:var(--radius);padding:28px;transition:transform .2s,border-color .2s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(34,224,161,.35)}
+  .card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;margin-bottom:18px;
+    background:rgba(34,224,161,.1);border:1px solid rgba(34,224,161,.2)}
+  .card h3{font-size:19px;font-weight:700;margin-bottom:9px}
+  .card p{color:var(--muted);font-size:15px}
+  .card.wide{grid-column:span 2}
+  .card.tall{grid-row:span 2}
+
+  /* code/terminal mini */
+  .terminal{background:#060a12;border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:18px;font-family:var(--mono);font-size:12.5px}
+  .terminal .ln{margin:4px 0;color:var(--muted)}
+  .terminal .ln .c{color:var(--accent)}
+  .terminal .ln .ok{color:#79a8ff}
+  .terminal .ln .g{color:var(--accent-3)}
+
+  /* ---------- interactive demo ---------- */
+  .demo{background:linear-gradient(180deg,var(--panel-2),var(--bg-2));border:1px solid var(--line);border-radius:24px;
+    padding:34px;display:grid;grid-template-columns:1.05fr 1fr;gap:34px;margin-top:48px;align-items:center}
+  .match-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .comp{font-size:13px;color:var(--muted);font-weight:600}
+  .matchup{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:22px 0}
+  .team{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;cursor:pointer;padding:14px 6px;border-radius:14px;transition:background .2s}
+  .team:hover{background:rgba(255,255,255,.04)}
+  .team .flag{font-size:46px;line-height:1}
+  .team .nm{font-weight:700;font-size:16px}
+  .team .rk{font-size:12px;color:var(--muted)}
+  .vs{font-weight:800;color:var(--muted);font-size:14px}
+  .scenario-tabs{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+  .stab{flex:1;min-width:90px;text-align:center;padding:9px;border-radius:10px;border:1px solid var(--line);font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);transition:all .2s;background:rgba(255,255,255,.02)}
+  .stab.active{color:#04111a;background:linear-gradient(135deg,var(--accent),#15c489);border-color:transparent}
+  /* win prob bar */
+  .winbar{display:flex;height:46px;border-radius:12px;overflow:hidden;margin:20px 0 8px;border:1px solid var(--line)}
+  .winbar div{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;transition:width .6s cubic-bezier(.2,.8,.2,1);color:#04111a}
+  .wb-home{background:linear-gradient(135deg,var(--accent),#15c489)}
+  .wb-draw{background:#2a3a5e;color:var(--txt)}
+  .wb-away{background:linear-gradient(135deg,var(--accent-2),#2563eb);color:#fff}
+  .winlabels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+  .statline{display:flex;align-items:center;gap:12px;margin:14px 0}
+  .statline .lbl{width:120px;font-size:13px;color:var(--muted);flex-shrink:0}
+  .statline .track{flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden;position:relative}
+  .statline .fillh{height:100%;background:var(--accent);border-radius:99px;transition:width .6s}
+  .statline .val{width:54px;text-align:right;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+  .demo-right{display:flex;flex-direction:column;gap:14px}
+  .conf-ring{display:flex;align-items:center;gap:18px}
+  .ring{width:96px;height:96px;flex-shrink:0}
+  .conf-txt b{font-size:15px}
+  .conf-txt p{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .insight{background:#060a12;border:1px solid var(--line);border-radius:12px;padding:16px}
+  .insight h4{font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .insight p{font-size:13.5px;color:var(--muted)}
+  .keyfacts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .kf{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kf .n{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+  .kf .l{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+  /* ---------- stat depth strip ---------- */
+  .depth{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+  .depth .d{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:24px}
+  .depth .d .big{font-size:34px;font-weight:800;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .depth .d .t{font-weight:700;margin:10px 0 6px;font-size:16px}
+  .depth .d p{font-size:13.5px;color:var(--muted)}
+
+  /* ---------- live feed ---------- */
+  .live{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:40px}
+  .feed{background:#060a12;border:1px solid var(--line);border-radius:18px;padding:8px;height:330px;overflow:hidden;position:relative}
+  .feed-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .feed-head .live-dot{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--danger)}
+  .feed-head .live-dot i{width:8px;height:8px;border-radius:50%;background:var(--danger);animation:pulse 1.4s infinite}
+  .feed-list{padding:6px}
+  .fitem{display:flex;gap:12px;padding:11px 12px;border-radius:10px;animation:fadein .5s ease}
+  .fitem:nth-child(odd){background:rgba(255,255,255,.02)}
+  .fitem .ftime{font-family:var(--mono);font-size:11px;color:var(--muted);width:42px;flex-shrink:0;padding-top:2px}
+  .fitem .fbody{font-size:13.5px}
+  .fitem .fbody b{font-weight:700}
+  .fitem .ftag{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:5px;margin-left:6px}
+  @keyframes fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  /* ---------- pricing ---------- */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px;align-items:stretch}
+  .plan{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:22px;padding:30px;display:flex;flex-direction:column}
+  .plan.feat{border-color:var(--accent);box-shadow:0 12px 50px rgba(34,224,161,.16);position:relative}
+  .plan.feat .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),#15c489);color:#04111a;font-size:12px;font-weight:800;padding:5px 16px;border-radius:999px}
+  .plan .pname{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .plan .pprice{font-size:42px;font-weight:800;margin:14px 0 2px}
+  .plan .pprice span{font-size:16px;color:var(--muted);font-weight:600}
+  .plan .pdesc{color:var(--muted);font-size:14.5px;margin-bottom:20px;min-height:42px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex:1}
+  .plan li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start}
+  .plan li .ck{color:var(--accent);flex-shrink:0;font-weight:800}
+  .plan li.off{color:var(--muted);opacity:.6}
+  .plan .btn{width:100%;justify-content:center}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:760px;margin:50px auto 0}
+  .qa{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--panel)}
+  .qa summary{padding:20px 22px;font-weight:600;font-size:16.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+";font-size:24px;color:var(--accent);font-weight:400;transition:transform .2s}
+  .qa[open] summary::after{transform:rotate(45deg)}
+  .qa .ans{padding:0 22px 20px;color:var(--muted);font-size:15px}
+
+  /* ---------- final cta ---------- */
+  .finalcta{text-align:center;padding:90px 0}
+  .finalcta .box{background:linear-gradient(135deg,rgba(34,224,161,.1),rgba(59,130,246,.1));border:1px solid var(--line);border-radius:28px;padding:64px 30px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:54px 0 34px;background:var(--bg-2)}
+  .fcols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+  .fcols h5{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;font-weight:700}
+  .fcols a{display:block;color:var(--muted);font-size:14.5px;margin-bottom:10px;transition:color .2s}
+  .fcols a:hover{color:var(--txt)}
+  .fcols p{color:var(--muted);font-size:14px;max-width:34ch;margin-top:14px}
+  .fbottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .disclaimer{font-size:12.5px;color:var(--muted);background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:24px;line-height:1.6}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .fgrid,.depth,.price-grid,.fcols{grid-template-columns:1fr 1fr}
+    .demo,.live{grid-template-columns:1fr}
+    .card.wide{grid-column:span 2}
+    .navlinks{display:none}
+  }
+  @media(max-width:640px){
+    .fgrid,.depth,.price-grid,.fcols{grid-template-columns:1fr}
+    .card.wide,.card.tall{grid-column:span 1;grid-row:span 1}
+    .nav-cta .btn-ghost{display:none}
+    .menu-toggle{display:block}
+    .trust{gap:20px}
+    .demo,.live{padding:22px}
+  }
+</style>
+</head>
+<body>
+<div class="bgfx"><div class="blob a"></div><div class="blob b"></div><div class="blob c"></div></div>
+<div class="grid-overlay"></div>
+
+<div class="content">
+<!-- NAV -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo"><span class="mark">IQ</span> CupIQ</a>
+      <div class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#stats">Stats Engine</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#" class="btn btn-ghost">Sign in</a>
+        <a href="#pricing" class="btn btn-primary">Start free</a>
+        <button class="menu-toggle" aria-label="menu">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> Live for the 2026 World Cup · 48 teams · 104 matches</div>
+    <h1>Every match of the World Cup, <span class="grad">decoded by data.</span></h1>
+    <p class="sub">CupIQ ingests millions of data points per match — xG, form, fatigue, travel, weather, lineups — and turns them into clear win probabilities and insights you can actually understand. No black box. Just the sharpest World Cup analytics on the planet.</p>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn btn-primary btn-lg">Start free — 7 days →</a>
+      <a href="#demo" class="btn btn-ghost btn-lg">▶ See it live</a>
+    </div>
+    <div class="trust">
+      <div class="ti"><div class="stars">★★★★★</div><span>4.9 from 1,200+ analysts</span></div>
+      <div class="ti"><b>11.4M+</b><span>data points / match</span></div>
+      <div class="ti"><b>104</b><span>matches modeled</span></div>
+      <div class="ti"><b>🔒</b><span>Secure Stripe checkout</span></div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker">
+      <div class="ticker-row" id="ticker">
+        <span class="ticker-item">🇦🇷 <b>Argentina</b> win prob vs MEX <span class="ti-pill pill-green">61%</span></span>
+        <span class="ticker-item">📈 <b>France</b> xG trend up 3 matches <span class="ti-pill pill-blue">+0.41</span></span>
+        <span class="ticker-item">⚡ Model updated for <b>England</b> lineup <span class="ti-pill pill-gold">LIVE</span></span>
+        <span class="ticker-item">🇧🇷 <b>Brazil</b> projected to top Group <span class="ti-pill pill-green">78%</span></span>
+        <span class="ticker-item">🎯 <b>Spain</b> projected goals per match <span class="ti-pill pill-blue">2.4 xG</span></span>
+        <span class="ticker-item">🇺🇸 <b>USA</b> advance probability <span class="ti-pill pill-gold">54%</span></span>
+        <span class="ticker-item">🔥 <b>Portugal</b> momentum index high <span class="ti-pill pill-green">92</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="eyebrow">The Engine</div>
+    <h2>Built for the people who take the<br/>World Cup seriously.</h2>
+    <p class="section-lead">Whether you're a fan settling debates, an analyst building a model, or a bettor hunting an edge — CupIQ gives you depth no broadcast graphic ever will.</p>
+
+    <div class="fgrid">
+      <div class="card wide">
+        <div class="ic">🛰️</div>
+        <h3>Massive data ingestion</h3>
+        <p>Our pipeline pulls in event-level data on every touch, pass, shot and pressing action — plus rankings, recent form, squad availability, travel distance between host cities, altitude, kickoff temperature and humidity. Over 11 million signals per fixture, refreshed continuously.</p>
+        <div class="terminal">
+          <div class="ln"><span class="c">cupiq_core ~ %</span> ingest --match ARG-MEX</div>
+          <div class="ln"><span class="ok">[OK]</span> 11,482,310 events loaded · 0 gaps</div>
+          <div class="ln"><span class="c">cupiq_core ~ %</span> model --simulate 50000</div>
+          <div class="ln"><span class="g">→ ARG 61% · Draw 23% · MEX 16%</span></div>
+        </div>
+      </div>
+      <div class="card tall">
+        <div class="ic">🎲</div>
+        <h3>50,000-run match simulation</h3>
+        <p>Every fixture is played out tens of thousands of times in a Monte Carlo engine, accounting for lineup strength, fatigue and game state. The result: calibrated win, draw and scoreline probabilities — not a pundit's gut feeling.</p>
+        <div class="keyfacts" style="margin-top:18px">
+          <div class="kf"><div class="n">50k</div><div class="l">simulations / match</div></div>
+          <div class="kf"><div class="n">±2.1%</div><div class="l">calibration error</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ic">📊</div>
+        <h3>True xG & xGA models</h3>
+        <p>Shot-quality models trained on a decade of international football, adjusted for opponent strength and tournament pressure.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🧭</div>
+        <h3>Bracket & group projections</h3>
+        <p>Live probability of advancing, winning the group, and lifting the trophy — updated after every result.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔍</div>
+        <h3>Total transparency</h3>
+        <p>Every projection comes with the "why." See the exact factors driving each number. No black box, ever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE DEMO -->
+<section class="sec" id="demo">
+  <div class="wrap center">
+    <div class="eyebrow">Interactive Demo</div>
+    <h2>One match. Infinite depth.</h2>
+    <p class="section-lead">Tap a scenario to watch the model re-weight in real time. This is a live sample of what you get on every fixture.</p>
+  </div>
+  <div class="wrap">
+    <div class="demo">
+      <div class="demo-left">
+        <div class="match-head">
+          <span class="comp">⚽ Group A · MetLife Stadium</span>
+          <span class="comp mono" id="kickoff">Kickoff 20:00 ET</span>
+        </div>
+        <div class="matchup">
+          <div class="team"><div class="flag">🇦🇷</div><div class="nm">Argentina</div><div class="rk">FIFA #1</div></div>
+          <div class="vs">VS</div>
+          <div class="team"><div class="flag">🇲🇽</div><div class="nm">Mexico</div><div class="rk">FIFA #14</div></div>
+        </div>
+
+        <div class="scenario-tabs">
+          <div class="stab active" data-s="base">Base model</div>
+          <div class="stab" data-s="injury">Key injury</div>
+          <div class="stab" data-s="weather">Heat 34°C</div>
+          <div class="stab" data-s="form">MEX hot streak</div>
+        </div>
+
+        <div class="winbar">
+          <div class="wb-home" id="wb-h" style="width:61%">61%</div>
+          <div class="wb-draw" id="wb-d" style="width:23%">23%</div>
+          <div class="wb-away" id="wb-a" style="width:16%">16%</div>
+        </div>
+        <div class="winlabels"><span>Argentina win</span><span>Draw</span><span>Mexico win</span></div>
+
+        <div style="margin-top:22px">
+          <div class="statline"><div class="lbl">Expected goals</div><div class="track"><div class="fillh" id="bar-xg" style="width:64%"></div></div><div class="val" id="v-xg">1.9</div></div>
+          <div class="statline"><div class="lbl">Form (last 5)</div><div class="track"><div class="fillh" id="bar-form" style="width:82%"></div></div><div class="val" id="v-form">4.1</div></div>
+          <div class="statline"><div class="lbl">Possession proj.</div><div class="track"><div class="fillh" id="bar-pos" style="width:58%"></div></div><div class="val" id="v-pos">58%</div></div>
+          <div class="statline"><div class="lbl">Momentum index</div><div class="track"><div class="fillh" id="bar-mo" style="width:88%"></div></div><div class="val" id="v-mo">88</div></div>
+        </div>
+      </div>
+
+      <div class="demo-right">
+        <div class="conf-ring">
+          <svg class="ring" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="12"/>
+            <circle id="ringfill" cx="60" cy="60" r="50" fill="none" stroke="url(#g1)" stroke-width="12"
+              stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="63" transform="rotate(-90 60 60)"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22e0a1"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
+            <text id="ringtxt" x="60" y="66" text-anchor="middle" font-size="26" font-weight="800" fill="#eaf0ff">89%</text>
+          </svg>
+          <div class="conf-txt">
+            <b>Model confidence</b>
+            <p id="conf-note">High agreement across simulations. Argentina's pressing structure exploits Mexico's build-up under pressure.</p>
+          </div>
+        </div>
+        <div class="insight">
+          <h4>🧠 Why this number</h4>
+          <p id="insight-txt">Argentina ranks top-3 in progressive passes into the final third and converts 28% of high-value chances. Mexico concedes 1.4 xGA per match against top-10 sides. The model favors an early Argentina lead.</p>
+        </div>
+        <div class="keyfacts">
+          <div class="kf"><div class="n" id="kf1">2.6</div><div class="l">projected total goals</div></div>
+          <div class="kf"><div class="n" id="kf2">61%</div><div class="l">model win probability</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS DEPTH -->
+<section class="sec" id="stats">
+  <div class="wrap center">
+    <div class="eyebrow">Stats Engine</div>
+    <h2>The deepest World Cup<br/>dataset, made readable.</h2>
+    <p class="section-lead">We don't just show you more numbers. We show you the ones that move the needle — and explain what they mean.</p>
+  </div>
+  <div class="wrap">
+    <div class="depth">
+      <div class="d"><div class="big">xG / xGA</div><div class="t">Chance quality</div><p>Opponent-adjusted expected goals for and against, weighted for tournament intensity.</p></div>
+      <div class="d"><div class="big">PPDA</div><div class="t">Pressing intensity</div><p>Passes allowed per defensive action — how aggressively a side hunts the ball.</p></div>
+      <div class="d"><div class="big">H2H</div><div class="t">Head-to-head depth</div><p>Historical and recent matchup dynamics, surface and venue weighted.</p></div>
+      <div class="d"><div class="big">Fatigue</div><div class="t">Load & travel</div><p>Minutes played, days of rest, and cross-host-city travel between fixtures.</p></div>
+      <div class="d"><div class="big">Set-piece</div><div class="t">Dead-ball edge</div><p>Goals and threat generated from corners and free-kicks, per 90.</p></div>
+      <div class="d"><div class="big">GK rating</div><div class="t">Shot-stopping</div><p>Post-shot xG minus goals conceded — who's actually overperforming.</p></div>
+      <div class="d"><div class="big">Momentum</div><div class="t">In-match swing</div><p>Live momentum index tracking who's controlling the game right now.</p></div>
+      <div class="d"><div class="big">Trophy %</div><div class="t">Path to the final</div><p>Probability of advancing, winning the group, and lifting the cup.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE FEED -->
+<section class="sec">
+  <div class="wrap">
+    <div class="live">
+      <div>
+        <div class="eyebrow">Real-time</div>
+        <h2>Live signals,<br/>match minute by minute.</h2>
+        <p class="section-lead">During every game, CupIQ's feed updates win probabilities, momentum, and value alerts the instant the data changes. Watch the model think.</p>
+        <a href="#pricing" class="btn btn-primary btn-lg" style="margin-top:24px">Get live access →</a>
+      </div>
+      <div class="feed">
+        <div class="feed-head">
+          <span class="live-dot"><i></i> LIVE FEED</span>
+          <span class="comp mono">ARG 1 — 0 MEX · 27'</span>
+        </div>
+        <div class="feed-list" id="feed"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap center">
+    <div class="eyebrow">Pricing</div>
+    <h2>Start free. See the whole tournament.</h2>
+    <p class="section-lead">No hidden fees. Cancel anytime. The World Cup happens once every four years — don't watch it blind.</p>
+  </div>
+  <div class="wrap">
+    <div class="price-grid">
+      <div class="plan">
+        <div class="pname">Fan</div>
+        <div class="pprice">$0</div>
+        <div class="pdesc">Follow the tournament with core stats and daily projections.</div>
+        <ul>
+          <li><span class="ck">✓</span> Win probabilities for every match</li>
+          <li><span class="ck">✓</span> Group standings projections</li>
+          <li><span class="ck">✓</span> Daily match previews</li>
+          <li class="off"><span class="ck">✕</span> Advanced xG & simulation depth</li>
+          <li class="off"><span class="ck">✕</span> Live in-match feed</li>
+        </ul>
+        <a href="#" class="btn btn-ghost" data-cta="free">Get started free</a>
+      </div>
+      <div class="plan feat">
+        <div class="tag">MOST POPULAR</div>
+        <div class="pname">Analyst</div>
+        <div class="pprice">$19<span>/mo</span></div>
+        <div class="pdesc">The full engine — every metric, every match, all tournament long.</div>
+        <ul>
+          <li><span class="ck">✓</span> Everything in Fan</li>
+          <li><span class="ck">✓</span> Full xG/xGA & 50k simulations</li>
+          <li><span class="ck">✓</span> Live in-match feed & momentum</li>
+          <li><span class="ck">✓</span> Bracket & trophy projections</li>
+          <li><span class="ck">✓</span> Per-team advanced metric deep-dives</li>
+        </ul>
+        <a href="#" class="btn btn-primary" data-cta="analyst">Start 7-day free trial</a>
+      </div>
+      <div class="plan">
+        <div class="pname">Tournament Pass</div>
+        <div class="pprice">$49<span>/once</span></div>
+        <div class="pdesc">All Analyst features, one payment, through the final whistle.</div>
+        <ul>
+          <li><span class="ck">✓</span> Everything in Analyst</li>
+          <li><span class="ck">✓</span> Full access through July 19</li>
+          <li><span class="ck">✓</span> Data export (CSV / API)</li>
+          <li><span class="ck">✓</span> Priority support</li>
+          <li><span class="ck">✓</span> Best value vs monthly</li>
+        </ul>
+        <a href="#" class="btn btn-ghost" data-cta="pass">Buy tournament pass</a>
+      </div>
+    </div>
+    <p class="center" style="color:var(--muted);font-size:14px;margin-top:26px">Trusted by 1,200+ fans, analysts and content creators across 40+ countries.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap center">
+    <div class="eyebrow">FAQ</div>
+    <h2>Questions, answered.</h2>
+  </div>
+  <div class="wrap">
+    <div class="faq">
+      <details class="qa" open><summary>Is CupIQ a betting product?</summary><div class="ans">No. CupIQ is a sports analytics and data platform. We provide statistical models, probabilities and insights to help you understand matches more deeply. We don't take bets or handle wagers. Any betting decisions are entirely your own.</div></details>
+      <details class="qa"><summary>Where does the data come from?</summary><div class="ans">We aggregate event-level match data, official FIFA rankings, squad and lineup information, and environmental factors like host-city weather and travel. Everything is processed through our own modeling pipeline and refreshed continuously.</div></details>
+      <details class="qa"><summary>What exactly am I paying for?</summary><div class="ans">Access to the data and analysis — every advanced metric, probability and projection for all 48 teams, all tournament long. You are not buying winning bets or guaranteed outcomes. CupIQ is a research tool: it makes you better informed, it does not promise results.</div></details>
+      <details class="qa"><summary>How should I read the probabilities?</summary><div class="ans">As estimates, not certainties. Our model is calibrated so that, over many matches, a "60%" happens about 60% of the time — but any single match can go the other way. Football is unpredictable by design; we give you the sharpest probabilities available, never a guarantee.</div></details>
+      <details class="qa"><summary>Can I cancel anytime?</summary><div class="ans">Yes. The Analyst plan is monthly and cancellable in one click. The Tournament Pass is a single payment with no recurring charge.</div></details>
+      <details class="qa"><summary>Do you cover every World Cup match?</summary><div class="ans">All 104 matches across all 48 teams — from the opening match through the final, including group stage, knockouts and the third-place playoff.</div></details>
+      <details class="qa"><summary>Is there an API?</summary><div class="ans">Yes — Tournament Pass and Analyst subscribers can export data via CSV and access our read-only API for win probabilities and core metrics.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="finalcta">
+  <div class="wrap">
+    <div class="box">
+      <h2>Don't watch the World Cup blind.</h2>
+      <p class="section-lead center" style="margin:16px auto 30px">Join thousands of fans and analysts who see the game in a whole new dimension. Free for 7 days.</p>
+      <a href="#pricing" class="btn btn-primary btn-lg">Start free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a href="#" class="logo"><span class="mark">IQ</span> CupIQ</a>
+        <p>The most advanced World Cup 2026 analytics engine. Millions of data points, one intelligence — built for fans who want to understand the game, not just watch it.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#stats">Stats Engine</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Responsible use</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      CupIQ provides statistical analysis and probabilities for informational and entertainment purposes only. We are not a gambling operator and do not accept wagers. Predictions are estimates based on data models and do not guarantee any outcome. If you choose to bet, please do so responsibly and only where legal in your jurisdiction. 21+ where applicable. If gambling is a problem for you, call 1-800-GAMBLER.
+    </div>
+    <div class="fbottom">
+      <span>© 2026 CupIQ. All rights reserved. Not affiliated with FIFA or the World Cup.</span>
+      <span>Made for the 2026 World Cup 🌎</span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+/* =====================================================================
+   STRIPE CHECKOUT LINKS  —  PASTE YOUR PAYMENT LINK URLs BELOW
+   Create them in Stripe (Payment Links), then replace the "" values.
+   They must start with https://buy.stripe.com/...  Leave "" to keep
+   the button pointing at the pricing section until you have a link.
+   ===================================================================== */
+const STRIPE_LINKS = {
+  free:    "",   // optional: your free signup page (or leave blank)
+  analyst: "",   // CupIQ Analyst  — $19/month subscription link
+  pass:    ""    // CupIQ Tournament Pass — $49 one-time link
+};
+document.querySelectorAll('[data-cta]').forEach(function(a){
+  var url = STRIPE_LINKS[a.getAttribute('data-cta')];
+  if(url){ a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+});
+
+/* ---------- duplicate ticker for seamless loop ---------- */
+(function(){
+  var t=document.getElementById('ticker');
+  t.innerHTML += t.innerHTML;
+})();
+
+/* ---------- interactive demo scenarios ---------- */
+var scenarios={
+  base:{h:61,d:23,a:16,conf:89,xg:[64,'1.9'],form:[82,'4.1'],pos:[58,'58%'],mo:[88,'88'],
+    note:"High agreement across simulations. Argentina's pressing structure exploits Mexico's build-up under pressure.",
+    insight:"Argentina ranks top-3 in progressive passes into the final third and converts 28% of high-value chances. Mexico concedes 1.4 xGA per match against top-10 sides. The model favors an early Argentina lead.",
+    kf1:'2.6',kf2:'61%'},
+  injury:{h:48,d:27,a:25,conf:71,xg:[52,'1.5'],form:[70,'3.4'],pos:[54,'54%'],mo:[64,'64'],
+    note:"Removing Argentina's primary playmaker flattens the projection. Mexico's draw equity rises sharply.",
+    insight:"Without their creative hub, Argentina's chance creation drops ~22%. Mexico's compact mid-block becomes far more effective, and the model widens toward a tighter, lower-scoring match.",
+    kf1:'2.2',kf2:'48%'},
+  weather:{h:55,d:26,a:19,conf:78,xg:[48,'1.4'],form:[82,'4.1'],pos:[51,'51%'],mo:[72,'72'],
+    note:"34°C heat compresses tempo. Fewer high-intensity sprints favor the more compact side and lower totals.",
+    insight:"Extreme heat reduces pressing volume and total distance covered by ~9%. The simulation lowers expected goals for both teams and slightly narrows Argentina's edge.",
+    kf1:'2.1',kf2:'55%'},
+  form:{h:52,d:24,a:24,conf:69,xg:[58,'1.7'],form:[88,'4.5'],pos:[55,'55%'],mo:[81,'81'],
+    note:"Mexico arriving on a hot streak lifts their attacking output and shrinks the gap considerably.",
+    insight:"Mexico's last-5 xG sits 0.6 above season baseline. The model rewards current form heavily in tournament settings, pulling this toward a near coin-flip with real Mexico upset equity.",
+    kf1:'2.5',kf2:'52%'}
+};
+var tabs=document.querySelectorAll('.stab');
+function applyScenario(s){
+  var d=scenarios[s];
+  document.getElementById('wb-h').style.width=d.h+'%';document.getElementById('wb-h').textContent=d.h+'%';
+  document.getElementById('wb-d').style.width=d.d+'%';document.getElementById('wb-d').textContent=d.d+'%';
+  document.getElementById('wb-a').style.width=d.a+'%';document.getElementById('wb-a').textContent=d.a+'%';
+  document.getElementById('bar-xg').style.width=d.xg[0]+'%';document.getElementById('v-xg').textContent=d.xg[1];
+  document.getElementById('bar-form').style.width=d.form[0]+'%';document.getElementById('v-form').textContent=d.form[1];
+  document.getElementById('bar-pos').style.width=d.pos[0]+'%';document.getElementById('v-pos').textContent=d.pos[1];
+  document.getElementById('bar-mo').style.width=d.mo[0]+'%';document.getElementById('v-mo').textContent=d.mo[1];
+  document.getElementById('conf-note').textContent=d.note;
+  document.getElementById('insight-txt').textContent=d.insight;
+  document.getElementById('kf1').textContent=d.kf1;document.getElementById('kf2').textContent=d.kf2;
+  // confidence ring
+  var off=314-(314*d.conf/100);
+  document.getElementById('ringfill').style.strokeDashoffset=off;
+  document.getElementById('ringtxt').textContent=d.conf+'%';
+}
+tabs.forEach(function(tab){
+  tab.addEventListener('click',function(){
+    tabs.forEach(function(t){t.classList.remove('active')});
+    tab.classList.add('active');
+    applyScenario(tab.dataset.s);
+  });
+});
+
+/* ---------- live feed simulation ---------- */
+var feedData=[
+  {t:"27'",b:"<b>Argentina goal!</b> Win prob jumps",tag:"+18%",cls:"pill-green"},
+  {t:"24'",b:"Momentum swings <b>Argentina</b>",tag:"MO 88",cls:"pill-blue"},
+  {t:"21'",b:"Model trend: <b>Over 2.5</b> goals likely",tag:"xG 2.7",cls:"pill-gold"},
+  {t:"18'",b:"<b>Mexico</b> high press detected",tag:"PPDA 7.2",cls:"pill-blue"},
+  {t:"14'",b:"xG update: ARG <b>0.8</b> · MEX 0.3",tag:"LIVE",cls:"pill-green"},
+  {t:"09'",b:"<b>Big chance</b> Argentina, post!",tag:"xG .42",cls:"pill-gold"},
+  {t:"04'",b:"Match model recalibrated",tag:"61%",cls:"pill-green"},
+  {t:"01'",b:"Kickoff · <b>live tracking on</b>",tag:"LIVE",cls:"pill-blue"}
+];
+var feed=document.getElementById('feed');
+var fi=0;
+function pushFeed(){
+  var d=feedData[fi%feedData.length];
+  var el=document.createElement('div');
+  el.className='fitem';
+  el.innerHTML='<span class="ftime">'+d.t+'</span><span class="fbody">'+d.b+'<span class="ftag '+d.cls+'">'+d.tag+'</span></span>';
+  feed.insertBefore(el,feed.firstChild);
+  while(feed.children.length>7){feed.removeChild(feed.lastChild);}
+  fi++;
+}
+for(var i=0;i<6;i++) pushFeed();
+setInterval(pushFeed,2600);
+
+/* ---------- mobile menu ---------- */
+document.querySelector('.menu-toggle').addEventListener('click',function(){
+  document.querySelector('#pricing').scrollIntoView({behavior:'smooth'});
+});
+
+/* ---------- reveal on scroll ---------- */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';}});
+},{threshold:.12});
+document.querySelectorAll('.card,.d,.plan,.qa').forEach(function(el){
+  el.style.opacity=0;el.style.transform='translateY(18px)';el.style.transition='opacity .5s, transform .5s';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
