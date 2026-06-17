@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-17T20:18:11Z",
+  "generated_utc": "2026-06-17T22:49:59Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -115,7 +115,7 @@
       "team": "England",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2024,
+      "elo": 2055,
       "metrics": {
         "xg_for": 1.96,
         "xg_against": 1.0,
@@ -134,40 +134,10 @@
         "momentum_index": 82
       },
       "projection": {
-        "advance_r32_pct": 90.1,
-        "reach_quarters_pct": 63.7,
-        "reach_final_pct": 41.8,
-        "win_trophy_pct": 5.6
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Portugal",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1989,
-      "metrics": {
-        "xg_for": 1.95,
-        "xg_against": 0.81,
-        "npxg": 1.76,
-        "shots_per90": 16.6,
-        "shots_on_target": 6.5,
-        "big_chances_per90": 2.9,
-        "goals_vs_xg": -0.14,
-        "ppda": 8.71,
-        "possession_pct": 59.7,
-        "progressive_passes": 51.3,
-        "aerial_win_pct": 57.2,
-        "gk_psxg_minus_ga": 0.47,
-        "setpiece_xg": 0.41,
-        "form_last5": 4.2,
-        "momentum_index": 78
-      },
-      "projection": {
-        "advance_r32_pct": 87.2,
-        "reach_quarters_pct": 59.6,
-        "reach_final_pct": 35.3,
-        "win_trophy_pct": 4.5
+        "advance_r32_pct": 92.6,
+        "reach_quarters_pct": 67.4,
+        "reach_final_pct": 48.0,
+        "win_trophy_pct": 6.7
       },
       "_live_metrics": []
     },
@@ -228,6 +198,36 @@
         "reach_quarters_pct": 58.3,
         "reach_final_pct": 33.4,
         "win_trophy_pct": 4.2
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Portugal",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1967,
+      "metrics": {
+        "xg_for": 1.95,
+        "xg_against": 0.81,
+        "npxg": 1.76,
+        "shots_per90": 16.6,
+        "shots_on_target": 6.5,
+        "big_chances_per90": 2.9,
+        "goals_vs_xg": -0.14,
+        "ppda": 8.71,
+        "possession_pct": 59.7,
+        "progressive_passes": 51.3,
+        "aerial_win_pct": 57.2,
+        "gk_psxg_minus_ga": 0.47,
+        "setpiece_xg": 0.41,
+        "form_last5": 4.2,
+        "momentum_index": 78
+      },
+      "projection": {
+        "advance_r32_pct": 85.5,
+        "reach_quarters_pct": 57.0,
+        "reach_final_pct": 31.5,
+        "win_trophy_pct": 3.9
       },
       "_live_metrics": []
     },
@@ -322,36 +322,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Croatia",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1912,
-      "metrics": {
-        "xg_for": 1.64,
-        "xg_against": 1.03,
-        "npxg": 1.48,
-        "shots_per90": 12.6,
-        "shots_on_target": 4.5,
-        "big_chances_per90": 2.7,
-        "goals_vs_xg": 0.04,
-        "ppda": 9.34,
-        "possession_pct": 52.3,
-        "progressive_passes": 43.3,
-        "aerial_win_pct": 48.9,
-        "gk_psxg_minus_ga": 0.65,
-        "setpiece_xg": 0.41,
-        "form_last5": 3.6,
-        "momentum_index": 74
-      },
-      "projection": {
-        "advance_r32_pct": 81.0,
-        "reach_quarters_pct": 50.4,
-        "reach_final_pct": 23.0,
-        "win_trophy_pct": 2.8
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Japan",
       "confederation": "AFC",
       "group": "-",
@@ -437,6 +407,36 @@
         "advance_r32_pct": 78.3,
         "reach_quarters_pct": 46.5,
         "reach_final_pct": 18.5,
+        "win_trophy_pct": 2.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Croatia",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1881,
+      "metrics": {
+        "xg_for": 1.64,
+        "xg_against": 1.03,
+        "npxg": 1.48,
+        "shots_per90": 12.6,
+        "shots_on_target": 4.5,
+        "big_chances_per90": 2.7,
+        "goals_vs_xg": 0.04,
+        "ppda": 9.34,
+        "possession_pct": 52.3,
+        "progressive_passes": 43.3,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.65,
+        "setpiece_xg": 0.41,
+        "form_last5": 3.6,
+        "momentum_index": 74
+      },
+      "projection": {
+        "advance_r32_pct": 78.5,
+        "reach_quarters_pct": 46.7,
+        "reach_final_pct": 18.8,
         "win_trophy_pct": 2.3
       },
       "_live_metrics": []
@@ -1045,7 +1045,7 @@
       "team": "DR Congo",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1652,
+      "elo": 1674,
       "metrics": {
         "xg_for": 1.22,
         "xg_against": 1.59,
@@ -1064,9 +1064,9 @@
         "momentum_index": 43
       },
       "projection": {
-        "advance_r32_pct": 60.0,
-        "reach_quarters_pct": 19.4,
-        "reach_final_pct": 0.9,
+        "advance_r32_pct": 61.8,
+        "reach_quarters_pct": 22.0,
+        "reach_final_pct": 1.6,
         "win_trophy_pct": 0.6
       },
       "_live_metrics": []
