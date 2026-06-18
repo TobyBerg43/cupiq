@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-18T04:12:31Z",
+  "generated_utc": "2026-06-18T10:27:29Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -47,7 +47,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.5
+        "win_trophy_pct": 9.4
       },
       "_live_metrics": []
     },
@@ -77,7 +77,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.5
+        "win_trophy_pct": 9.4
       },
       "_live_metrics": []
     },
@@ -107,7 +107,7 @@
         "advance_r32_pct": 94.9,
         "reach_quarters_pct": 70.9,
         "reach_final_pct": 54.1,
-        "win_trophy_pct": 8.1
+        "win_trophy_pct": 8.0
       },
       "_live_metrics": []
     },
@@ -145,7 +145,7 @@
       "team": "Colombia",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 1982,
+      "elo": 1998,
       "metrics": {
         "xg_for": 1.74,
         "xg_against": 1.12,
@@ -164,10 +164,10 @@
         "momentum_index": 62
       },
       "projection": {
-        "advance_r32_pct": 86.7,
-        "reach_quarters_pct": 58.7,
-        "reach_final_pct": 34.1,
-        "win_trophy_pct": 4.3
+        "advance_r32_pct": 88.0,
+        "reach_quarters_pct": 60.6,
+        "reach_final_pct": 36.9,
+        "win_trophy_pct": 4.7
       },
       "_live_metrics": []
     },
@@ -922,36 +922,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Panama",
-      "confederation": "CONCACAF",
-      "group": "-",
-      "elo": 1730,
-      "metrics": {
-        "xg_for": 1.38,
-        "xg_against": 1.49,
-        "npxg": 1.19,
-        "shots_per90": 8.8,
-        "shots_on_target": 3.2,
-        "big_chances_per90": 1.1,
-        "goals_vs_xg": 0.17,
-        "ppda": 11.3,
-        "possession_pct": 45.7,
-        "progressive_passes": 28.9,
-        "aerial_win_pct": 48.9,
-        "gk_psxg_minus_ga": 0.03,
-        "setpiece_xg": 0.17,
-        "form_last5": 1.9,
-        "momentum_index": 51
-      },
-      "projection": {
-        "advance_r32_pct": 66.3,
-        "reach_quarters_pct": 28.7,
-        "reach_final_pct": 4.3,
-        "win_trophy_pct": 0.9
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Czechia",
       "confederation": "UEFA",
       "group": "A",
@@ -1012,10 +982,40 @@
       "_live_metrics": []
     },
     {
+      "team": "Panama",
+      "confederation": "CONCACAF",
+      "group": "-",
+      "elo": 1683,
+      "metrics": {
+        "xg_for": 1.38,
+        "xg_against": 1.49,
+        "npxg": 1.19,
+        "shots_per90": 8.8,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.1,
+        "goals_vs_xg": 0.17,
+        "ppda": 11.3,
+        "possession_pct": 45.7,
+        "progressive_passes": 28.9,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.03,
+        "setpiece_xg": 0.17,
+        "form_last5": 1.9,
+        "momentum_index": 51
+      },
+      "projection": {
+        "advance_r32_pct": 62.5,
+        "reach_quarters_pct": 23.1,
+        "reach_final_pct": 1.9,
+        "win_trophy_pct": 0.7
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Uzbekistan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1714,
+      "elo": 1698,
       "metrics": {
         "xg_for": 0.95,
         "xg_against": 1.64,
@@ -1034,10 +1034,10 @@
         "momentum_index": 43
       },
       "projection": {
-        "advance_r32_pct": 65.0,
-        "reach_quarters_pct": 26.8,
-        "reach_final_pct": 3.4,
-        "win_trophy_pct": 0.8
+        "advance_r32_pct": 63.7,
+        "reach_quarters_pct": 24.9,
+        "reach_final_pct": 2.6,
+        "win_trophy_pct": 0.7
       },
       "_live_metrics": []
     },
@@ -1165,7 +1165,7 @@
       "team": "Ghana",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1510,
+      "elo": 1557,
       "metrics": {
         "xg_for": 1.3,
         "xg_against": 1.51,
