@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-18T23:00:55Z",
+  "generated_utc": "2026-06-19T04:30:56Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -742,6 +742,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Canada",
+      "confederation": "CONCACAF",
+      "group": "B",
+      "elo": 1777,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.4,
+        "npxg": 1.39,
+        "shots_per90": 10.7,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": 0.2,
+        "ppda": 12.22,
+        "possession_pct": 46.2,
+        "progressive_passes": 34.2,
+        "aerial_win_pct": 52.3,
+        "gk_psxg_minus_ga": 0.04,
+        "setpiece_xg": 0.28,
+        "form_last5": 3.0,
+        "momentum_index": 55
+      },
+      "projection": {
+        "advance_r32_pct": 70.1,
+        "reach_quarters_pct": 34.3,
+        "reach_final_pct": 7.8,
+        "win_trophy_pct": 1.2
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Paraguay",
       "confederation": "CONMEBOL",
       "group": "D",
@@ -857,36 +887,6 @@
         "advance_r32_pct": 68.7,
         "reach_quarters_pct": 32.1,
         "reach_final_pct": 6.3,
-        "win_trophy_pct": 1.1
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Canada",
-      "confederation": "CONCACAF",
-      "group": "B",
-      "elo": 1767,
-      "metrics": {
-        "xg_for": 1.53,
-        "xg_against": 1.4,
-        "npxg": 1.39,
-        "shots_per90": 10.7,
-        "shots_on_target": 4.1,
-        "big_chances_per90": 1.5,
-        "goals_vs_xg": 0.2,
-        "ppda": 12.22,
-        "possession_pct": 46.2,
-        "progressive_passes": 34.2,
-        "aerial_win_pct": 52.3,
-        "gk_psxg_minus_ga": 0.04,
-        "setpiece_xg": 0.28,
-        "form_last5": 3.0,
-        "momentum_index": 55
-      },
-      "projection": {
-        "advance_r32_pct": 69.3,
-        "reach_quarters_pct": 33.1,
-        "reach_final_pct": 7.0,
         "win_trophy_pct": 1.1
       },
       "_live_metrics": []
@@ -1285,7 +1285,7 @@
       "team": "Qatar",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1447,
+      "elo": 1437,
       "metrics": {
         "xg_for": 1.04,
         "xg_against": 1.7,
