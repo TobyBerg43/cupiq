@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-19T22:09:19Z",
+  "generated_utc": "2026-06-20T03:55:54Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -532,6 +532,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Morocco",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1866,
+      "metrics": {
+        "xg_for": 1.84,
+        "xg_against": 1.24,
+        "npxg": 1.67,
+        "shots_per90": 13.2,
+        "shots_on_target": 4.9,
+        "big_chances_per90": 2.1,
+        "goals_vs_xg": 0.37,
+        "ppda": 8.78,
+        "possession_pct": 52.7,
+        "progressive_passes": 45.3,
+        "aerial_win_pct": 52.9,
+        "gk_psxg_minus_ga": 0.22,
+        "setpiece_xg": 0.35,
+        "form_last5": 2.7,
+        "momentum_index": 70
+      },
+      "projection": {
+        "advance_r32_pct": 77.3,
+        "reach_quarters_pct": 44.9,
+        "reach_final_pct": 16.9,
+        "win_trophy_pct": 2.1
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Austria",
       "confederation": "UEFA",
       "group": "-",
@@ -592,36 +622,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Morocco",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1840,
-      "metrics": {
-        "xg_for": 1.84,
-        "xg_against": 1.24,
-        "npxg": 1.67,
-        "shots_per90": 13.2,
-        "shots_on_target": 4.9,
-        "big_chances_per90": 2.1,
-        "goals_vs_xg": 0.37,
-        "ppda": 8.78,
-        "possession_pct": 52.7,
-        "progressive_passes": 45.3,
-        "aerial_win_pct": 52.9,
-        "gk_psxg_minus_ga": 0.22,
-        "setpiece_xg": 0.35,
-        "form_last5": 2.7,
-        "momentum_index": 70
-      },
-      "projection": {
-        "advance_r32_pct": 75.2,
-        "reach_quarters_pct": 41.8,
-        "reach_final_pct": 13.9,
-        "win_trophy_pct": 1.8
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Senegal",
       "confederation": "CAF",
       "group": "-",
@@ -652,40 +652,10 @@
       "_live_metrics": []
     },
     {
-      "team": "Australia",
-      "confederation": "AFC",
-      "group": "D",
-      "elo": 1839,
-      "metrics": {
-        "xg_for": 1.44,
-        "xg_against": 1.37,
-        "npxg": 1.26,
-        "shots_per90": 9.4,
-        "shots_on_target": 3.2,
-        "big_chances_per90": 1.6,
-        "goals_vs_xg": 0.06,
-        "ppda": 10.95,
-        "possession_pct": 51.0,
-        "progressive_passes": 33.1,
-        "aerial_win_pct": 47.9,
-        "gk_psxg_minus_ga": 0.14,
-        "setpiece_xg": 0.19,
-        "form_last5": 2.0,
-        "momentum_index": 49
-      },
-      "projection": {
-        "advance_r32_pct": 75.1,
-        "reach_quarters_pct": 41.7,
-        "reach_final_pct": 13.8,
-        "win_trophy_pct": 1.8
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "United States",
       "confederation": "CONCACAF",
       "group": "D",
-      "elo": 1780,
+      "elo": 1820,
       "metrics": {
         "xg_for": 1.59,
         "xg_against": 1.1,
@@ -704,10 +674,40 @@
         "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 70.3,
-        "reach_quarters_pct": 34.7,
-        "reach_final_pct": 8.0,
-        "win_trophy_pct": 1.2
+        "advance_r32_pct": 73.6,
+        "reach_quarters_pct": 39.4,
+        "reach_final_pct": 11.7,
+        "win_trophy_pct": 1.6
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Australia",
+      "confederation": "AFC",
+      "group": "D",
+      "elo": 1799,
+      "metrics": {
+        "xg_for": 1.44,
+        "xg_against": 1.37,
+        "npxg": 1.26,
+        "shots_per90": 9.4,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": 0.06,
+        "ppda": 10.95,
+        "possession_pct": 51.0,
+        "progressive_passes": 33.1,
+        "aerial_win_pct": 47.9,
+        "gk_psxg_minus_ga": 0.14,
+        "setpiece_xg": 0.19,
+        "form_last5": 2.0,
+        "momentum_index": 49
+      },
+      "projection": {
+        "advance_r32_pct": 71.9,
+        "reach_quarters_pct": 36.9,
+        "reach_final_pct": 9.7,
+        "win_trophy_pct": 1.4
       },
       "_live_metrics": []
     },
