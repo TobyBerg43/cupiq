@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-20T09:22:18Z",
+  "generated_utc": "2026-06-20T14:11:29Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -175,7 +175,7 @@
       "team": "Brazil",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 1978,
+      "elo": 1986,
       "metrics": {
         "xg_for": 2.21,
         "xg_against": 0.71,
@@ -194,10 +194,10 @@
         "momentum_index": 74
       },
       "projection": {
-        "advance_r32_pct": 86.3,
-        "reach_quarters_pct": 58.3,
-        "reach_final_pct": 33.4,
-        "win_trophy_pct": 4.2
+        "advance_r32_pct": 87.0,
+        "reach_quarters_pct": 59.2,
+        "reach_final_pct": 34.8,
+        "win_trophy_pct": 4.4
       },
       "_live_metrics": []
     },
@@ -382,36 +382,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Switzerland",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1885,
-      "metrics": {
-        "xg_for": 1.58,
-        "xg_against": 1.34,
-        "npxg": 1.36,
-        "shots_per90": 13.1,
-        "shots_on_target": 4.6,
-        "big_chances_per90": 2.5,
-        "goals_vs_xg": 0.32,
-        "ppda": 10.33,
-        "possession_pct": 55.5,
-        "progressive_passes": 40.0,
-        "aerial_win_pct": 48.4,
-        "gk_psxg_minus_ga": 0.29,
-        "setpiece_xg": 0.34,
-        "form_last5": 3.1,
-        "momentum_index": 59
-      },
-      "projection": {
-        "advance_r32_pct": 78.8,
-        "reach_quarters_pct": 47.2,
-        "reach_final_pct": 19.3,
-        "win_trophy_pct": 2.4
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Ecuador",
       "confederation": "CONMEBOL",
       "group": "-",
@@ -497,6 +467,36 @@
         "advance_r32_pct": 78.5,
         "reach_quarters_pct": 46.7,
         "reach_final_pct": 18.8,
+        "win_trophy_pct": 2.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Switzerland",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1885,
+      "metrics": {
+        "xg_for": 1.58,
+        "xg_against": 1.34,
+        "npxg": 1.36,
+        "shots_per90": 13.1,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.5,
+        "goals_vs_xg": 0.32,
+        "ppda": 10.33,
+        "possession_pct": 55.5,
+        "progressive_passes": 40.0,
+        "aerial_win_pct": 48.4,
+        "gk_psxg_minus_ga": 0.29,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.1,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 78.8,
+        "reach_quarters_pct": 47.2,
+        "reach_final_pct": 19.3,
         "win_trophy_pct": 2.3
       },
       "_live_metrics": []
@@ -592,36 +592,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Türkiye",
-      "confederation": "UEFA",
-      "group": "D",
-      "elo": 1849,
-      "metrics": {
-        "xg_for": 1.67,
-        "xg_against": 1.22,
-        "npxg": 1.51,
-        "shots_per90": 13.4,
-        "shots_on_target": 4.6,
-        "big_chances_per90": 2.0,
-        "goals_vs_xg": -0.1,
-        "ppda": 8.98,
-        "possession_pct": 51.1,
-        "progressive_passes": 44.5,
-        "aerial_win_pct": 53.0,
-        "gk_psxg_minus_ga": 0.08,
-        "setpiece_xg": 0.24,
-        "form_last5": 2.5,
-        "momentum_index": 55
-      },
-      "projection": {
-        "advance_r32_pct": 75.9,
-        "reach_quarters_pct": 42.9,
-        "reach_final_pct": 14.9,
-        "win_trophy_pct": 1.9
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Senegal",
       "confederation": "CAF",
       "group": "-",
@@ -678,6 +648,66 @@
         "reach_quarters_pct": 39.4,
         "reach_final_pct": 11.7,
         "win_trophy_pct": 1.6
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Türkiye",
+      "confederation": "UEFA",
+      "group": "D",
+      "elo": 1813,
+      "metrics": {
+        "xg_for": 1.67,
+        "xg_against": 1.22,
+        "npxg": 1.51,
+        "shots_per90": 13.4,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": -0.1,
+        "ppda": 8.98,
+        "possession_pct": 51.1,
+        "progressive_passes": 44.5,
+        "aerial_win_pct": 53.0,
+        "gk_psxg_minus_ga": 0.08,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.5,
+        "momentum_index": 55
+      },
+      "projection": {
+        "advance_r32_pct": 73.0,
+        "reach_quarters_pct": 38.6,
+        "reach_final_pct": 11.0,
+        "win_trophy_pct": 1.5
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Paraguay",
+      "confederation": "CONMEBOL",
+      "group": "D",
+      "elo": 1816,
+      "metrics": {
+        "xg_for": 1.32,
+        "xg_against": 1.48,
+        "npxg": 1.14,
+        "shots_per90": 10.9,
+        "shots_on_target": 4.3,
+        "big_chances_per90": 1.7,
+        "goals_vs_xg": -0.11,
+        "ppda": 10.44,
+        "possession_pct": 46.0,
+        "progressive_passes": 38.1,
+        "aerial_win_pct": 50.0,
+        "gk_psxg_minus_ga": -0.12,
+        "setpiece_xg": 0.27,
+        "form_last5": 2.4,
+        "momentum_index": 62
+      },
+      "projection": {
+        "advance_r32_pct": 73.3,
+        "reach_quarters_pct": 38.9,
+        "reach_final_pct": 11.3,
+        "win_trophy_pct": 1.5
       },
       "_live_metrics": []
     },
@@ -767,36 +797,6 @@
         "advance_r32_pct": 70.1,
         "reach_quarters_pct": 34.3,
         "reach_final_pct": 7.8,
-        "win_trophy_pct": 1.2
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Paraguay",
-      "confederation": "CONMEBOL",
-      "group": "D",
-      "elo": 1780,
-      "metrics": {
-        "xg_for": 1.32,
-        "xg_against": 1.48,
-        "npxg": 1.14,
-        "shots_per90": 10.9,
-        "shots_on_target": 4.3,
-        "big_chances_per90": 1.7,
-        "goals_vs_xg": -0.11,
-        "ppda": 10.44,
-        "possession_pct": 46.0,
-        "progressive_passes": 38.1,
-        "aerial_win_pct": 50.0,
-        "gk_psxg_minus_ga": -0.12,
-        "setpiece_xg": 0.27,
-        "form_last5": 2.4,
-        "momentum_index": 62
-      },
-      "projection": {
-        "advance_r32_pct": 70.3,
-        "reach_quarters_pct": 34.7,
-        "reach_final_pct": 8.0,
         "win_trophy_pct": 1.2
       },
       "_live_metrics": []
@@ -1435,7 +1435,7 @@
       "team": "Haiti",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1536,
+      "elo": 1528,
       "metrics": {
         "xg_for": 0.94,
         "xg_against": 1.56,
