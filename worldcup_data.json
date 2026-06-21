@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-21T09:56:57Z",
+  "generated_utc": "2026-06-21T14:18:10Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -325,7 +325,7 @@
       "team": "Japan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1910,
+      "elo": 1925,
       "metrics": {
         "xg_for": 1.48,
         "xg_against": 1.42,
@@ -344,10 +344,10 @@
         "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 80.8,
-        "reach_quarters_pct": 50.2,
-        "reach_final_pct": 22.7,
-        "win_trophy_pct": 2.7
+        "advance_r32_pct": 82.1,
+        "reach_quarters_pct": 51.9,
+        "reach_final_pct": 24.9,
+        "win_trophy_pct": 3.0
       },
       "_live_metrics": []
     },
@@ -378,36 +378,6 @@
         "reach_quarters_pct": 48.5,
         "reach_final_pct": 20.8,
         "win_trophy_pct": 2.5
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Ecuador",
-      "confederation": "CONMEBOL",
-      "group": "-",
-      "elo": 1890,
-      "metrics": {
-        "xg_for": 1.76,
-        "xg_against": 1.08,
-        "npxg": 1.57,
-        "shots_per90": 12.2,
-        "shots_on_target": 4.4,
-        "big_chances_per90": 1.9,
-        "goals_vs_xg": 0.34,
-        "ppda": 10.44,
-        "possession_pct": 51.4,
-        "progressive_passes": 40.2,
-        "aerial_win_pct": 54.2,
-        "gk_psxg_minus_ga": 0.66,
-        "setpiece_xg": 0.33,
-        "form_last5": 3.0,
-        "momentum_index": 66
-      },
-      "projection": {
-        "advance_r32_pct": 79.2,
-        "reach_quarters_pct": 47.8,
-        "reach_final_pct": 20.0,
-        "win_trophy_pct": 2.4
       },
       "_live_metrics": []
     },
@@ -587,6 +557,36 @@
         "advance_r32_pct": 76.6,
         "reach_quarters_pct": 43.8,
         "reach_final_pct": 15.8,
+        "win_trophy_pct": 2.0
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Ecuador",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1864,
+      "metrics": {
+        "xg_for": 1.76,
+        "xg_against": 1.08,
+        "npxg": 1.57,
+        "shots_per90": 12.2,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 1.9,
+        "goals_vs_xg": 0.34,
+        "ppda": 10.44,
+        "possession_pct": 51.4,
+        "progressive_passes": 40.2,
+        "aerial_win_pct": 54.2,
+        "gk_psxg_minus_ga": 0.66,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.0,
+        "momentum_index": 66
+      },
+      "projection": {
+        "advance_r32_pct": 77.1,
+        "reach_quarters_pct": 44.7,
+        "reach_final_pct": 16.7,
         "win_trophy_pct": 2.0
       },
       "_live_metrics": []
@@ -1195,7 +1195,7 @@
       "team": "Tunisia",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1585,
+      "elo": 1570,
       "metrics": {
         "xg_for": 1.15,
         "xg_against": 1.5,
@@ -1315,7 +1315,7 @@
       "team": "Curaçao",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1427,
+      "elo": 1453,
       "metrics": {
         "xg_for": 0.94,
         "xg_against": 1.81,
