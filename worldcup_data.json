@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-22T17:14:07Z",
+  "generated_utc": "2026-06-22T20:54:59Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -25,7 +25,7 @@
       "team": "Argentina",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 2128,
+      "elo": 2144,
       "metrics": {
         "xg_for": 2.25,
         "xg_against": 0.71,
@@ -107,7 +107,7 @@
         "advance_r32_pct": 94.9,
         "reach_quarters_pct": 70.9,
         "reach_final_pct": 54.1,
-        "win_trophy_pct": 7.9
+        "win_trophy_pct": 8.0
       },
       "_live_metrics": []
     },
@@ -137,7 +137,7 @@
         "advance_r32_pct": 92.6,
         "reach_quarters_pct": 67.4,
         "reach_final_pct": 48.0,
-        "win_trophy_pct": 6.6
+        "win_trophy_pct": 6.7
       },
       "_live_metrics": []
     },
@@ -197,7 +197,7 @@
         "advance_r32_pct": 87.0,
         "reach_quarters_pct": 59.2,
         "reach_final_pct": 34.8,
-        "win_trophy_pct": 4.3
+        "win_trophy_pct": 4.4
       },
       "_live_metrics": []
     },
@@ -532,36 +532,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Austria",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1857,
-      "metrics": {
-        "xg_for": 1.73,
-        "xg_against": 1.22,
-        "npxg": 1.54,
-        "shots_per90": 11.6,
-        "shots_on_target": 3.9,
-        "big_chances_per90": 2.0,
-        "goals_vs_xg": 0.11,
-        "ppda": 8.96,
-        "possession_pct": 50.3,
-        "progressive_passes": 45.5,
-        "aerial_win_pct": 48.4,
-        "gk_psxg_minus_ga": 0.38,
-        "setpiece_xg": 0.37,
-        "form_last5": 3.2,
-        "momentum_index": 59
-      },
-      "projection": {
-        "advance_r32_pct": 76.6,
-        "reach_quarters_pct": 43.8,
-        "reach_final_pct": 15.8,
-        "win_trophy_pct": 2.0
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Uruguay",
       "confederation": "CONMEBOL",
       "group": "-",
@@ -588,6 +558,36 @@
         "reach_quarters_pct": 43.1,
         "reach_final_pct": 15.1,
         "win_trophy_pct": 1.9
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Austria",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1841,
+      "metrics": {
+        "xg_for": 1.73,
+        "xg_against": 1.22,
+        "npxg": 1.54,
+        "shots_per90": 11.6,
+        "shots_on_target": 3.9,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": 0.11,
+        "ppda": 8.96,
+        "possession_pct": 50.3,
+        "progressive_passes": 45.5,
+        "aerial_win_pct": 48.4,
+        "gk_psxg_minus_ga": 0.38,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.2,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 75.3,
+        "reach_quarters_pct": 41.9,
+        "reach_final_pct": 14.0,
+        "win_trophy_pct": 1.8
       },
       "_live_metrics": []
     },
