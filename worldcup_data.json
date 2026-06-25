@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-25T03:46:46Z",
+  "generated_utc": "2026-06-25T09:28:44Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -347,7 +347,7 @@
         "advance_r32_pct": 82.1,
         "reach_quarters_pct": 51.9,
         "reach_final_pct": 24.9,
-        "win_trophy_pct": 2.9
+        "win_trophy_pct": 3.0
       },
       "_live_metrics": []
     },
@@ -382,6 +382,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Mexico",
+      "confederation": "CONCACAF",
+      "group": "A",
+      "elo": 1912,
+      "metrics": {
+        "xg_for": 1.4,
+        "xg_against": 1.25,
+        "npxg": 1.21,
+        "shots_per90": 11.8,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 2.3,
+        "goals_vs_xg": 0.11,
+        "ppda": 9.77,
+        "possession_pct": 51.4,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 53.2,
+        "gk_psxg_minus_ga": 0.5,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.0,
+        "momentum_index": 63
+      },
+      "projection": {
+        "advance_r32_pct": 81.0,
+        "reach_quarters_pct": 50.4,
+        "reach_final_pct": 23.0,
+        "win_trophy_pct": 2.7
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Croatia",
       "confederation": "UEFA",
       "group": "-",
@@ -402,36 +432,6 @@
         "setpiece_xg": 0.41,
         "form_last5": 3.6,
         "momentum_index": 74
-      },
-      "projection": {
-        "advance_r32_pct": 79.7,
-        "reach_quarters_pct": 48.5,
-        "reach_final_pct": 20.8,
-        "win_trophy_pct": 2.5
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Mexico",
-      "confederation": "CONCACAF",
-      "group": "A",
-      "elo": 1896,
-      "metrics": {
-        "xg_for": 1.4,
-        "xg_against": 1.25,
-        "npxg": 1.21,
-        "shots_per90": 11.8,
-        "shots_on_target": 4.2,
-        "big_chances_per90": 2.3,
-        "goals_vs_xg": 0.11,
-        "ppda": 9.77,
-        "possession_pct": 51.4,
-        "progressive_passes": 35.0,
-        "aerial_win_pct": 53.2,
-        "gk_psxg_minus_ga": 0.5,
-        "setpiece_xg": 0.34,
-        "form_last5": 3.0,
-        "momentum_index": 63
       },
       "projection": {
         "advance_r32_pct": 79.7,
@@ -802,36 +802,6 @@
       "_live_metrics": []
     },
     {
-      "team": "South Korea",
-      "confederation": "AFC",
-      "group": "A",
-      "elo": 1771,
-      "metrics": {
-        "xg_for": 1.53,
-        "xg_against": 1.16,
-        "npxg": 1.33,
-        "shots_per90": 10.0,
-        "shots_on_target": 3.8,
-        "big_chances_per90": 2.4,
-        "goals_vs_xg": -0.18,
-        "ppda": 10.09,
-        "possession_pct": 50.4,
-        "progressive_passes": 36.6,
-        "aerial_win_pct": 49.5,
-        "gk_psxg_minus_ga": -0.3,
-        "setpiece_xg": 0.21,
-        "form_last5": 2.3,
-        "momentum_index": 53
-      },
-      "projection": {
-        "advance_r32_pct": 69.6,
-        "reach_quarters_pct": 33.6,
-        "reach_final_pct": 7.3,
-        "win_trophy_pct": 1.1
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Canada",
       "confederation": "CONCACAF",
       "group": "B",
@@ -922,6 +892,36 @@
       "_live_metrics": []
     },
     {
+      "team": "South Korea",
+      "confederation": "AFC",
+      "group": "A",
+      "elo": 1723,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.16,
+        "npxg": 1.33,
+        "shots_per90": 10.0,
+        "shots_on_target": 3.8,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": -0.18,
+        "ppda": 10.09,
+        "possession_pct": 50.4,
+        "progressive_passes": 36.6,
+        "aerial_win_pct": 49.5,
+        "gk_psxg_minus_ga": -0.3,
+        "setpiece_xg": 0.21,
+        "form_last5": 2.3,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 65.7,
+        "reach_quarters_pct": 27.9,
+        "reach_final_pct": 3.9,
+        "win_trophy_pct": 0.9
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Côte d'Ivoire",
       "confederation": "CAF",
       "group": "-",
@@ -955,7 +955,7 @@
       "team": "Czechia",
       "confederation": "UEFA",
       "group": "A",
-      "elo": 1696,
+      "elo": 1680,
       "metrics": {
         "xg_for": 1.49,
         "xg_against": 1.27,
@@ -974,9 +974,9 @@
         "momentum_index": 50
       },
       "projection": {
-        "advance_r32_pct": 63.6,
-        "reach_quarters_pct": 24.6,
-        "reach_final_pct": 2.5,
+        "advance_r32_pct": 62.3,
+        "reach_quarters_pct": 22.7,
+        "reach_final_pct": 1.8,
         "win_trophy_pct": 0.7
       },
       "_live_metrics": []
@@ -1255,7 +1255,7 @@
       "team": "South Africa",
       "confederation": "CAF",
       "group": "A",
-      "elo": 1527,
+      "elo": 1575,
       "metrics": {
         "xg_for": 1.08,
         "xg_against": 1.41,
