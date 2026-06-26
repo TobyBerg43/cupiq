@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-26T09:34:59Z",
+  "generated_utc": "2026-06-26T14:31:57Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -107,7 +107,7 @@
         "advance_r32_pct": 95.4,
         "reach_quarters_pct": 71.6,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 8.2
+        "win_trophy_pct": 8.1
       },
       "_live_metrics": []
     },
@@ -167,7 +167,7 @@
         "advance_r32_pct": 88.8,
         "reach_quarters_pct": 62.0,
         "reach_final_pct": 39.0,
-        "win_trophy_pct": 5.0
+        "win_trophy_pct": 4.9
       },
       "_live_metrics": []
     },
@@ -227,7 +227,7 @@
         "advance_r32_pct": 87.1,
         "reach_quarters_pct": 59.5,
         "reach_final_pct": 35.1,
-        "win_trophy_pct": 4.4
+        "win_trophy_pct": 4.3
       },
       "_live_metrics": []
     },
@@ -562,6 +562,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Türkiye",
+      "confederation": "UEFA",
+      "group": "D",
+      "elo": 1852,
+      "metrics": {
+        "xg_for": 1.67,
+        "xg_against": 1.22,
+        "npxg": 1.51,
+        "shots_per90": 13.4,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": -0.1,
+        "ppda": 8.98,
+        "possession_pct": 51.1,
+        "progressive_passes": 44.5,
+        "aerial_win_pct": 53.0,
+        "gk_psxg_minus_ga": 0.08,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.5,
+        "momentum_index": 55
+      },
+      "projection": {
+        "advance_r32_pct": 76.2,
+        "reach_quarters_pct": 43.2,
+        "reach_final_pct": 15.2,
+        "win_trophy_pct": 1.9
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Austria",
       "confederation": "UEFA",
       "group": "-",
@@ -622,70 +652,10 @@
       "_live_metrics": []
     },
     {
-      "team": "Türkiye",
-      "confederation": "UEFA",
-      "group": "D",
-      "elo": 1813,
-      "metrics": {
-        "xg_for": 1.67,
-        "xg_against": 1.22,
-        "npxg": 1.51,
-        "shots_per90": 13.4,
-        "shots_on_target": 4.6,
-        "big_chances_per90": 2.0,
-        "goals_vs_xg": -0.1,
-        "ppda": 8.98,
-        "possession_pct": 51.1,
-        "progressive_passes": 44.5,
-        "aerial_win_pct": 53.0,
-        "gk_psxg_minus_ga": 0.08,
-        "setpiece_xg": 0.24,
-        "form_last5": 2.5,
-        "momentum_index": 55
-      },
-      "projection": {
-        "advance_r32_pct": 73.0,
-        "reach_quarters_pct": 38.6,
-        "reach_final_pct": 11.0,
-        "win_trophy_pct": 1.5
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "United States",
-      "confederation": "CONCACAF",
-      "group": "D",
-      "elo": 1820,
-      "metrics": {
-        "xg_for": 1.59,
-        "xg_against": 1.1,
-        "npxg": 1.36,
-        "shots_per90": 11.7,
-        "shots_on_target": 4.7,
-        "big_chances_per90": 2.2,
-        "goals_vs_xg": 0.31,
-        "ppda": 11.57,
-        "possession_pct": 53.6,
-        "progressive_passes": 38.0,
-        "aerial_win_pct": 54.0,
-        "gk_psxg_minus_ga": 0.53,
-        "setpiece_xg": 0.26,
-        "form_last5": 3.1,
-        "momentum_index": 58
-      },
-      "projection": {
-        "advance_r32_pct": 73.6,
-        "reach_quarters_pct": 39.4,
-        "reach_final_pct": 11.7,
-        "win_trophy_pct": 1.5
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Paraguay",
       "confederation": "CONMEBOL",
       "group": "D",
-      "elo": 1816,
+      "elo": 1815,
       "metrics": {
         "xg_for": 1.32,
         "xg_against": 1.48,
@@ -704,9 +674,9 @@
         "momentum_index": 62
       },
       "projection": {
-        "advance_r32_pct": 73.3,
-        "reach_quarters_pct": 38.9,
-        "reach_final_pct": 11.3,
+        "advance_r32_pct": 73.2,
+        "reach_quarters_pct": 38.8,
+        "reach_final_pct": 11.2,
         "win_trophy_pct": 1.5
       },
       "_live_metrics": []
@@ -715,7 +685,7 @@
       "team": "Australia",
       "confederation": "AFC",
       "group": "D",
-      "elo": 1799,
+      "elo": 1800,
       "metrics": {
         "xg_for": 1.44,
         "xg_against": 1.37,
@@ -734,10 +704,40 @@
         "momentum_index": 49
       },
       "projection": {
-        "advance_r32_pct": 71.9,
-        "reach_quarters_pct": 36.9,
-        "reach_final_pct": 9.7,
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
         "win_trophy_pct": 1.4
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "United States",
+      "confederation": "CONCACAF",
+      "group": "D",
+      "elo": 1781,
+      "metrics": {
+        "xg_for": 1.59,
+        "xg_against": 1.1,
+        "npxg": 1.36,
+        "shots_per90": 11.7,
+        "shots_on_target": 4.7,
+        "big_chances_per90": 2.2,
+        "goals_vs_xg": 0.31,
+        "ppda": 11.57,
+        "possession_pct": 53.6,
+        "progressive_passes": 38.0,
+        "aerial_win_pct": 54.0,
+        "gk_psxg_minus_ga": 0.53,
+        "setpiece_xg": 0.26,
+        "form_last5": 3.1,
+        "momentum_index": 58
+      },
+      "projection": {
+        "advance_r32_pct": 70.4,
+        "reach_quarters_pct": 34.8,
+        "reach_final_pct": 8.1,
+        "win_trophy_pct": 1.2
       },
       "_live_metrics": []
     },
