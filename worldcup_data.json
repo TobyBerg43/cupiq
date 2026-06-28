@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-28T08:58:34Z",
+  "generated_utc": "2026-06-28T11:13:04Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -25,7 +25,7 @@
       "team": "Argentina",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 2144,
+      "elo": 2148,
       "metrics": {
         "xg_for": 2.25,
         "xg_against": 0.71,
@@ -595,7 +595,7 @@
       "team": "Austria",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1841,
+      "elo": 1836,
       "metrics": {
         "xg_for": 1.73,
         "xg_against": 1.22,
@@ -614,9 +614,9 @@
         "momentum_index": 59
       },
       "projection": {
-        "advance_r32_pct": 75.3,
-        "reach_quarters_pct": 41.9,
-        "reach_final_pct": 14.0,
+        "advance_r32_pct": 74.9,
+        "reach_quarters_pct": 41.3,
+        "reach_final_pct": 13.4,
         "win_trophy_pct": 1.7
       },
       "_live_metrics": []
@@ -745,7 +745,7 @@
       "team": "Algeria",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1780,
+      "elo": 1785,
       "metrics": {
         "xg_for": 1.33,
         "xg_against": 1.37,
@@ -764,9 +764,9 @@
         "momentum_index": 65
       },
       "projection": {
-        "advance_r32_pct": 70.3,
-        "reach_quarters_pct": 34.7,
-        "reach_final_pct": 8.0,
+        "advance_r32_pct": 70.8,
+        "reach_quarters_pct": 35.2,
+        "reach_final_pct": 8.4,
         "win_trophy_pct": 1.2
       },
       "_live_metrics": []
@@ -1135,7 +1135,7 @@
       "team": "Jordan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1632,
+      "elo": 1628,
       "metrics": {
         "xg_for": 1.0,
         "xg_against": 1.43,
@@ -1154,9 +1154,9 @@
         "momentum_index": 47
       },
       "projection": {
-        "advance_r32_pct": 58.4,
-        "reach_quarters_pct": 17.0,
-        "reach_final_pct": 0.4,
+        "advance_r32_pct": 58.1,
+        "reach_quarters_pct": 16.5,
+        "reach_final_pct": 0.3,
         "win_trophy_pct": 0.5
       },
       "_live_metrics": []
