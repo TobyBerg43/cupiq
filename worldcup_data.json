@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-30T20:05:09Z",
+  "generated_utc": "2026-06-30T22:20:08Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -257,7 +257,7 @@
         "advance_r32_pct": 85.8,
         "reach_quarters_pct": 57.4,
         "reach_final_pct": 32.2,
-        "win_trophy_pct": 3.9
+        "win_trophy_pct": 3.8
       },
       "_live_metrics": []
     },
@@ -265,7 +265,7 @@
       "team": "Norway",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1918,
+      "elo": 1934,
       "metrics": {
         "xg_for": 1.46,
         "xg_against": 1.31,
@@ -284,10 +284,10 @@
         "momentum_index": 68
       },
       "projection": {
-        "advance_r32_pct": 81.5,
-        "reach_quarters_pct": 51.1,
-        "reach_final_pct": 23.9,
-        "win_trophy_pct": 2.8
+        "advance_r32_pct": 82.8,
+        "reach_quarters_pct": 53.0,
+        "reach_final_pct": 26.3,
+        "win_trophy_pct": 3.1
       },
       "_live_metrics": []
     },
@@ -677,7 +677,7 @@
         "advance_r32_pct": 73.8,
         "reach_quarters_pct": 39.8,
         "reach_final_pct": 12.0,
-        "win_trophy_pct": 1.6
+        "win_trophy_pct": 1.5
       },
       "_live_metrics": []
     },
@@ -895,7 +895,7 @@
       "team": "Côte d'Ivoire",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1743,
+      "elo": 1727,
       "metrics": {
         "xg_for": 1.58,
         "xg_against": 1.47,
@@ -914,9 +914,9 @@
         "momentum_index": 59
       },
       "projection": {
-        "advance_r32_pct": 67.4,
-        "reach_quarters_pct": 30.2,
-        "reach_final_pct": 5.2,
+        "advance_r32_pct": 66.1,
+        "reach_quarters_pct": 28.3,
+        "reach_final_pct": 4.2,
         "win_trophy_pct": 0.9
       },
       "_live_metrics": []
@@ -1042,36 +1042,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Bosnia and Herzegovina",
-      "confederation": "UEFA",
-      "group": "B",
-      "elo": 1622,
-      "metrics": {
-        "xg_for": 1.31,
-        "xg_against": 1.37,
-        "npxg": 1.15,
-        "shots_per90": 10.3,
-        "shots_on_target": 4.1,
-        "big_chances_per90": 1.9,
-        "goals_vs_xg": 0.27,
-        "ppda": 11.18,
-        "possession_pct": 50.3,
-        "progressive_passes": 41.1,
-        "aerial_win_pct": 49.4,
-        "gk_psxg_minus_ga": -0.31,
-        "setpiece_xg": 0.29,
-        "form_last5": 2.7,
-        "momentum_index": 53
-      },
-      "projection": {
-        "advance_r32_pct": 57.6,
-        "reach_quarters_pct": 15.8,
-        "reach_final_pct": 0.2,
-        "win_trophy_pct": 0.5
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Uzbekistan",
       "confederation": "AFC",
       "group": "-",
@@ -1097,36 +1067,6 @@
         "advance_r32_pct": 58.3,
         "reach_quarters_pct": 16.9,
         "reach_final_pct": 0.4,
-        "win_trophy_pct": 0.5
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Cabo Verde",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1622,
-      "metrics": {
-        "xg_for": 0.88,
-        "xg_against": 1.6,
-        "npxg": 0.75,
-        "shots_per90": 9.9,
-        "shots_on_target": 3.4,
-        "big_chances_per90": 1.5,
-        "goals_vs_xg": -0.24,
-        "ppda": 11.83,
-        "possession_pct": 47.9,
-        "progressive_passes": 29.5,
-        "aerial_win_pct": 44.7,
-        "gk_psxg_minus_ga": -0.89,
-        "setpiece_xg": 0.17,
-        "form_last5": 1.3,
-        "momentum_index": 48
-      },
-      "projection": {
-        "advance_r32_pct": 57.6,
-        "reach_quarters_pct": 15.8,
-        "reach_final_pct": 0.2,
         "win_trophy_pct": 0.5
       },
       "_live_metrics": []
@@ -1187,6 +1127,36 @@
         "advance_r32_pct": 55.0,
         "reach_quarters_pct": 12.0,
         "reach_final_pct": 0.0,
+        "win_trophy_pct": 0.4
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "confederation": "UEFA",
+      "group": "B",
+      "elo": 1622,
+      "metrics": {
+        "xg_for": 1.31,
+        "xg_against": 1.37,
+        "npxg": 1.15,
+        "shots_per90": 10.3,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 1.9,
+        "goals_vs_xg": 0.27,
+        "ppda": 11.18,
+        "possession_pct": 50.3,
+        "progressive_passes": 41.1,
+        "aerial_win_pct": 49.4,
+        "gk_psxg_minus_ga": -0.31,
+        "setpiece_xg": 0.29,
+        "form_last5": 2.7,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 57.6,
+        "reach_quarters_pct": 15.8,
+        "reach_final_pct": 0.2,
         "win_trophy_pct": 0.4
       },
       "_live_metrics": []
@@ -1367,6 +1337,36 @@
         "advance_r32_pct": 55.0,
         "reach_quarters_pct": 12.0,
         "reach_final_pct": 0.0,
+        "win_trophy_pct": 0.4
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Cabo Verde",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1622,
+      "metrics": {
+        "xg_for": 0.88,
+        "xg_against": 1.6,
+        "npxg": 0.75,
+        "shots_per90": 9.9,
+        "shots_on_target": 3.4,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.24,
+        "ppda": 11.83,
+        "possession_pct": 47.9,
+        "progressive_passes": 29.5,
+        "aerial_win_pct": 44.7,
+        "gk_psxg_minus_ga": -0.89,
+        "setpiece_xg": 0.17,
+        "form_last5": 1.3,
+        "momentum_index": 48
+      },
+      "projection": {
+        "advance_r32_pct": 57.6,
+        "reach_quarters_pct": 15.8,
+        "reach_final_pct": 0.2,
         "win_trophy_pct": 0.4
       },
       "_live_metrics": []
