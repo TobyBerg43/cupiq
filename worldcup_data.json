@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-29T22:13:19Z",
+  "generated_utc": "2026-06-30T03:52:07Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -292,36 +292,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Germany",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1916,
-      "metrics": {
-        "xg_for": 2.01,
-        "xg_against": 1.09,
-        "npxg": 1.86,
-        "shots_per90": 14.6,
-        "shots_on_target": 5.1,
-        "big_chances_per90": 2.6,
-        "goals_vs_xg": 0.2,
-        "ppda": 9.14,
-        "possession_pct": 52.5,
-        "progressive_passes": 45.7,
-        "aerial_win_pct": 50.8,
-        "gk_psxg_minus_ga": 0.98,
-        "setpiece_xg": 0.33,
-        "form_last5": 3.8,
-        "momentum_index": 80
-      },
-      "projection": {
-        "advance_r32_pct": 81.3,
-        "reach_quarters_pct": 50.9,
-        "reach_final_pct": 23.6,
-        "win_trophy_pct": 2.7
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Switzerland",
       "confederation": "UEFA",
       "group": "-",
@@ -378,6 +348,36 @@
         "reach_quarters_pct": 50.4,
         "reach_final_pct": 23.0,
         "win_trophy_pct": 2.7
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Germany",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1908,
+      "metrics": {
+        "xg_for": 2.01,
+        "xg_against": 1.09,
+        "npxg": 1.86,
+        "shots_per90": 14.6,
+        "shots_on_target": 5.1,
+        "big_chances_per90": 2.6,
+        "goals_vs_xg": 0.2,
+        "ppda": 9.14,
+        "possession_pct": 52.5,
+        "progressive_passes": 45.7,
+        "aerial_win_pct": 50.8,
+        "gk_psxg_minus_ga": 0.98,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.8,
+        "momentum_index": 80
+      },
+      "projection": {
+        "advance_r32_pct": 80.7,
+        "reach_quarters_pct": 49.9,
+        "reach_final_pct": 22.4,
+        "win_trophy_pct": 2.6
       },
       "_live_metrics": []
     },
@@ -655,7 +655,7 @@
       "team": "Paraguay",
       "confederation": "CONMEBOL",
       "group": "D",
-      "elo": 1815,
+      "elo": 1823,
       "metrics": {
         "xg_for": 1.32,
         "xg_against": 1.48,
@@ -674,9 +674,9 @@
         "momentum_index": 62
       },
       "projection": {
-        "advance_r32_pct": 73.2,
-        "reach_quarters_pct": 38.8,
-        "reach_final_pct": 11.2,
+        "advance_r32_pct": 73.8,
+        "reach_quarters_pct": 39.8,
+        "reach_final_pct": 12.0,
         "win_trophy_pct": 1.5
       },
       "_live_metrics": []
