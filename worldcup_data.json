@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-06-30T22:20:08Z",
+  "generated_utc": "2026-07-01T04:06:52Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -55,7 +55,7 @@
       "team": "France",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2123,
+      "elo": 2134,
       "metrics": {
         "xg_for": 2.2,
         "xg_against": 0.77,
@@ -257,7 +257,7 @@
         "advance_r32_pct": 85.8,
         "reach_quarters_pct": 57.4,
         "reach_final_pct": 32.2,
-        "win_trophy_pct": 3.8
+        "win_trophy_pct": 3.9
       },
       "_live_metrics": []
     },
@@ -835,7 +835,7 @@
       "team": "Sweden",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1742,
+      "elo": 1731,
       "metrics": {
         "xg_for": 1.57,
         "xg_against": 1.43,
@@ -854,9 +854,9 @@
         "momentum_index": 53
       },
       "projection": {
-        "advance_r32_pct": 67.3,
-        "reach_quarters_pct": 30.1,
-        "reach_final_pct": 5.1,
+        "advance_r32_pct": 66.4,
+        "reach_quarters_pct": 28.8,
+        "reach_final_pct": 4.4,
         "win_trophy_pct": 0.9
       },
       "_live_metrics": []
