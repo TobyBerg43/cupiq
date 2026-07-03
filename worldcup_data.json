@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-02T22:12:30Z",
+  "generated_utc": "2026-07-03T03:28:10Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -85,7 +85,7 @@
       "team": "Spain",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2144,
+      "elo": 2159,
       "metrics": {
         "xg_for": 2.39,
         "xg_against": 0.98,
@@ -172,6 +172,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Portugal",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2013,
+      "metrics": {
+        "xg_for": 1.95,
+        "xg_against": 0.81,
+        "npxg": 1.76,
+        "shots_per90": 16.6,
+        "shots_on_target": 6.5,
+        "big_chances_per90": 2.9,
+        "goals_vs_xg": -0.14,
+        "ppda": 8.71,
+        "possession_pct": 59.7,
+        "progressive_passes": 51.3,
+        "aerial_win_pct": 57.2,
+        "gk_psxg_minus_ga": 0.47,
+        "setpiece_xg": 0.41,
+        "form_last5": 4.2,
+        "momentum_index": 78
+      },
+      "projection": {
+        "advance_r32_pct": 89.2,
+        "reach_quarters_pct": 62.4,
+        "reach_final_pct": 39.7,
+        "win_trophy_pct": 4.9
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Colombia",
       "confederation": "CONMEBOL",
       "group": "-",
@@ -198,36 +228,6 @@
         "reach_quarters_pct": 61.4,
         "reach_final_pct": 38.0,
         "win_trophy_pct": 4.7
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Portugal",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1990,
-      "metrics": {
-        "xg_for": 1.95,
-        "xg_against": 0.81,
-        "npxg": 1.76,
-        "shots_per90": 16.6,
-        "shots_on_target": 6.5,
-        "big_chances_per90": 2.9,
-        "goals_vs_xg": -0.14,
-        "ppda": 8.71,
-        "possession_pct": 59.7,
-        "progressive_passes": 51.3,
-        "aerial_win_pct": 57.2,
-        "gk_psxg_minus_ga": 0.47,
-        "setpiece_xg": 0.41,
-        "form_last5": 4.2,
-        "momentum_index": 78
-      },
-      "projection": {
-        "advance_r32_pct": 87.3,
-        "reach_quarters_pct": 59.7,
-        "reach_final_pct": 35.5,
-        "win_trophy_pct": 4.3
       },
       "_live_metrics": []
     },
@@ -412,36 +412,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Croatia",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1905,
-      "metrics": {
-        "xg_for": 1.64,
-        "xg_against": 1.03,
-        "npxg": 1.48,
-        "shots_per90": 12.6,
-        "shots_on_target": 4.5,
-        "big_chances_per90": 2.7,
-        "goals_vs_xg": 0.04,
-        "ppda": 9.34,
-        "possession_pct": 52.3,
-        "progressive_passes": 43.3,
-        "aerial_win_pct": 48.9,
-        "gk_psxg_minus_ga": 0.65,
-        "setpiece_xg": 0.41,
-        "form_last5": 3.6,
-        "momentum_index": 74
-      },
-      "projection": {
-        "advance_r32_pct": 80.4,
-        "reach_quarters_pct": 49.6,
-        "reach_final_pct": 22.0,
-        "win_trophy_pct": 2.6
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Morocco",
       "confederation": "CAF",
       "group": "-",
@@ -498,6 +468,36 @@
         "reach_quarters_pct": 47.5,
         "reach_final_pct": 19.7,
         "win_trophy_pct": 2.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Croatia",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1882,
+      "metrics": {
+        "xg_for": 1.64,
+        "xg_against": 1.03,
+        "npxg": 1.48,
+        "shots_per90": 12.6,
+        "shots_on_target": 4.5,
+        "big_chances_per90": 2.7,
+        "goals_vs_xg": 0.04,
+        "ppda": 9.34,
+        "possession_pct": 52.3,
+        "progressive_passes": 43.3,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.65,
+        "setpiece_xg": 0.41,
+        "form_last5": 3.6,
+        "momentum_index": 74
+      },
+      "projection": {
+        "advance_r32_pct": 78.6,
+        "reach_quarters_pct": 46.8,
+        "reach_final_pct": 18.9,
+        "win_trophy_pct": 2.2
       },
       "_live_metrics": []
     },
@@ -595,7 +595,7 @@
       "team": "Austria",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1836,
+      "elo": 1821,
       "metrics": {
         "xg_for": 1.73,
         "xg_against": 1.22,
@@ -614,10 +614,10 @@
         "momentum_index": 59
       },
       "projection": {
-        "advance_r32_pct": 74.9,
-        "reach_quarters_pct": 41.3,
-        "reach_final_pct": 13.4,
-        "win_trophy_pct": 1.7
+        "advance_r32_pct": 73.7,
+        "reach_quarters_pct": 39.5,
+        "reach_final_pct": 11.8,
+        "win_trophy_pct": 1.5
       },
       "_live_metrics": []
     },
