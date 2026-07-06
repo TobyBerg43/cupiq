@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-05T22:07:40Z",
+  "generated_utc": "2026-07-06T03:45:07Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -47,7 +47,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 8.9
+        "win_trophy_pct": 9.0
       },
       "_live_metrics": []
     },
@@ -77,7 +77,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 8.9
+        "win_trophy_pct": 9.0
       },
       "_live_metrics": []
     },
@@ -107,7 +107,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 8.9
+        "win_trophy_pct": 9.0
       },
       "_live_metrics": []
     },
@@ -138,36 +138,6 @@
         "reach_quarters_pct": 66.4,
         "reach_final_pct": 46.1,
         "win_trophy_pct": 6.0
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Brazil",
-      "confederation": "CONMEBOL",
-      "group": "-",
-      "elo": 2031,
-      "metrics": {
-        "xg_for": 2.21,
-        "xg_against": 0.71,
-        "npxg": 2.0,
-        "shots_per90": 15.5,
-        "shots_on_target": 6.0,
-        "big_chances_per90": 3.2,
-        "goals_vs_xg": 0.29,
-        "ppda": 7.17,
-        "possession_pct": 55.8,
-        "progressive_passes": 54.8,
-        "aerial_win_pct": 57.9,
-        "gk_psxg_minus_ga": 1.06,
-        "setpiece_xg": 0.53,
-        "form_last5": 4.1,
-        "momentum_index": 74
-      },
-      "projection": {
-        "advance_r32_pct": 90.6,
-        "reach_quarters_pct": 64.6,
-        "reach_final_pct": 43.2,
-        "win_trophy_pct": 5.5
       },
       "_live_metrics": []
     },
@@ -232,6 +202,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Brazil",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1993,
+      "metrics": {
+        "xg_for": 2.21,
+        "xg_against": 0.71,
+        "npxg": 2.0,
+        "shots_per90": 15.5,
+        "shots_on_target": 6.0,
+        "big_chances_per90": 3.2,
+        "goals_vs_xg": 0.29,
+        "ppda": 7.17,
+        "possession_pct": 55.8,
+        "progressive_passes": 54.8,
+        "aerial_win_pct": 57.9,
+        "gk_psxg_minus_ga": 1.06,
+        "setpiece_xg": 0.53,
+        "form_last5": 4.1,
+        "momentum_index": 74
+      },
+      "projection": {
+        "advance_r32_pct": 87.6,
+        "reach_quarters_pct": 60.1,
+        "reach_final_pct": 36.0,
+        "win_trophy_pct": 4.4
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Netherlands",
       "confederation": "UEFA",
       "group": "-",
@@ -257,6 +257,36 @@
         "advance_r32_pct": 85.8,
         "reach_quarters_pct": 57.4,
         "reach_final_pct": 32.2,
+        "win_trophy_pct": 3.8
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Norway",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1972,
+      "metrics": {
+        "xg_for": 1.46,
+        "xg_against": 1.31,
+        "npxg": 1.27,
+        "shots_per90": 13.5,
+        "shots_on_target": 4.7,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": 0.14,
+        "ppda": 10.63,
+        "possession_pct": 52.2,
+        "progressive_passes": 44.2,
+        "aerial_win_pct": 49.1,
+        "gk_psxg_minus_ga": -0.15,
+        "setpiece_xg": 0.31,
+        "form_last5": 3.4,
+        "momentum_index": 68
+      },
+      "projection": {
+        "advance_r32_pct": 85.9,
+        "reach_quarters_pct": 57.5,
+        "reach_final_pct": 32.4,
         "win_trophy_pct": 3.8
       },
       "_live_metrics": []
@@ -318,36 +348,6 @@
         "reach_quarters_pct": 54.1,
         "reach_final_pct": 27.6,
         "win_trophy_pct": 3.2
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Norway",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1934,
-      "metrics": {
-        "xg_for": 1.46,
-        "xg_against": 1.31,
-        "npxg": 1.27,
-        "shots_per90": 13.5,
-        "shots_on_target": 4.7,
-        "big_chances_per90": 2.4,
-        "goals_vs_xg": 0.14,
-        "ppda": 10.63,
-        "possession_pct": 52.2,
-        "progressive_passes": 44.2,
-        "aerial_win_pct": 49.1,
-        "gk_psxg_minus_ga": -0.15,
-        "setpiece_xg": 0.31,
-        "form_last5": 3.4,
-        "momentum_index": 68
-      },
-      "projection": {
-        "advance_r32_pct": 82.8,
-        "reach_quarters_pct": 53.0,
-        "reach_final_pct": 26.3,
-        "win_trophy_pct": 3.0
       },
       "_live_metrics": []
     },
