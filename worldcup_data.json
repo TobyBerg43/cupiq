@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-07T14:41:49Z",
+  "generated_utc": "2026-07-07T17:19:30Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -475,7 +475,7 @@
       "team": "Croatia",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1881,
+      "elo": 1882,
       "metrics": {
         "xg_for": 1.64,
         "xg_against": 1.03,
@@ -494,9 +494,9 @@
         "momentum_index": 74
       },
       "projection": {
-        "advance_r32_pct": 78.5,
-        "reach_quarters_pct": 46.7,
-        "reach_final_pct": 18.8,
+        "advance_r32_pct": 78.6,
+        "reach_quarters_pct": 46.8,
+        "reach_final_pct": 18.9,
         "win_trophy_pct": 2.2
       },
       "_live_metrics": []
