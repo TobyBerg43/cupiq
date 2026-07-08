@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-07T22:15:45Z",
+  "generated_utc": "2026-07-08T02:52:40Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -145,7 +145,7 @@
       "team": "Colombia",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 2009,
+      "elo": 2003,
       "metrics": {
         "xg_for": 1.74,
         "xg_against": 1.12,
@@ -164,10 +164,10 @@
         "momentum_index": 62
       },
       "projection": {
-        "advance_r32_pct": 88.8,
-        "reach_quarters_pct": 62.0,
-        "reach_final_pct": 39.0,
-        "win_trophy_pct": 4.8
+        "advance_r32_pct": 88.4,
+        "reach_quarters_pct": 61.2,
+        "reach_final_pct": 37.8,
+        "win_trophy_pct": 4.6
       },
       "_live_metrics": []
     },
@@ -325,7 +325,7 @@
       "team": "Switzerland",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1943,
+      "elo": 1949,
       "metrics": {
         "xg_for": 1.58,
         "xg_against": 1.34,
@@ -344,10 +344,10 @@
         "momentum_index": 59
       },
       "projection": {
-        "advance_r32_pct": 83.5,
-        "reach_quarters_pct": 54.1,
-        "reach_final_pct": 27.6,
-        "win_trophy_pct": 3.2
+        "advance_r32_pct": 84.0,
+        "reach_quarters_pct": 54.8,
+        "reach_final_pct": 28.6,
+        "win_trophy_pct": 3.3
       },
       "_live_metrics": []
     },
@@ -382,6 +382,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Germany",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1907,
+      "metrics": {
+        "xg_for": 2.01,
+        "xg_against": 1.09,
+        "npxg": 1.86,
+        "shots_per90": 14.6,
+        "shots_on_target": 5.1,
+        "big_chances_per90": 2.6,
+        "goals_vs_xg": 0.2,
+        "ppda": 9.14,
+        "possession_pct": 52.5,
+        "progressive_passes": 45.7,
+        "aerial_win_pct": 50.8,
+        "gk_psxg_minus_ga": 0.98,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.8,
+        "momentum_index": 80
+      },
+      "projection": {
+        "advance_r32_pct": 80.6,
+        "reach_quarters_pct": 49.8,
+        "reach_final_pct": 22.3,
+        "win_trophy_pct": 2.6
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Mexico",
       "confederation": "CONCACAF",
       "group": "A",
@@ -408,36 +438,6 @@
         "reach_quarters_pct": 50.5,
         "reach_final_pct": 23.1,
         "win_trophy_pct": 2.6
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Germany",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1907,
-      "metrics": {
-        "xg_for": 2.01,
-        "xg_against": 1.09,
-        "npxg": 1.86,
-        "shots_per90": 14.6,
-        "shots_on_target": 5.1,
-        "big_chances_per90": 2.6,
-        "goals_vs_xg": 0.2,
-        "ppda": 9.14,
-        "possession_pct": 52.5,
-        "progressive_passes": 45.7,
-        "aerial_win_pct": 50.8,
-        "gk_psxg_minus_ga": 0.98,
-        "setpiece_xg": 0.33,
-        "form_last5": 3.8,
-        "momentum_index": 80
-      },
-      "projection": {
-        "advance_r32_pct": 80.6,
-        "reach_quarters_pct": 49.8,
-        "reach_final_pct": 22.3,
-        "win_trophy_pct": 2.5
       },
       "_live_metrics": []
     },
