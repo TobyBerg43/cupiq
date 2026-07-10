@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-09T22:32:27Z",
+  "generated_utc": "2026-07-10T03:32:14Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -55,7 +55,7 @@
       "team": "France",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2143,
+      "elo": 2163,
       "metrics": {
         "xg_for": 2.2,
         "xg_against": 0.77,
@@ -352,32 +352,32 @@
       "_live_metrics": []
     },
     {
-      "team": "Morocco",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1921,
+      "team": "Mexico",
+      "confederation": "CONCACAF",
+      "group": "A",
+      "elo": 1913,
       "metrics": {
-        "xg_for": 1.84,
-        "xg_against": 1.24,
-        "npxg": 1.67,
-        "shots_per90": 13.2,
-        "shots_on_target": 4.9,
-        "big_chances_per90": 2.1,
-        "goals_vs_xg": 0.37,
-        "ppda": 8.78,
-        "possession_pct": 52.7,
-        "progressive_passes": 45.3,
-        "aerial_win_pct": 52.9,
-        "gk_psxg_minus_ga": 0.22,
-        "setpiece_xg": 0.35,
-        "form_last5": 2.7,
-        "momentum_index": 70
+        "xg_for": 1.4,
+        "xg_against": 1.25,
+        "npxg": 1.21,
+        "shots_per90": 11.8,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 2.3,
+        "goals_vs_xg": 0.11,
+        "ppda": 9.77,
+        "possession_pct": 51.4,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 53.2,
+        "gk_psxg_minus_ga": 0.5,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.0,
+        "momentum_index": 63
       },
       "projection": {
-        "advance_r32_pct": 81.7,
-        "reach_quarters_pct": 51.5,
-        "reach_final_pct": 24.3,
-        "win_trophy_pct": 2.8
+        "advance_r32_pct": 81.1,
+        "reach_quarters_pct": 50.5,
+        "reach_final_pct": 23.1,
+        "win_trophy_pct": 2.7
       },
       "_live_metrics": []
     },
@@ -412,32 +412,32 @@
       "_live_metrics": []
     },
     {
-      "team": "Mexico",
-      "confederation": "CONCACAF",
-      "group": "A",
-      "elo": 1913,
+      "team": "Morocco",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1901,
       "metrics": {
-        "xg_for": 1.4,
-        "xg_against": 1.25,
-        "npxg": 1.21,
-        "shots_per90": 11.8,
-        "shots_on_target": 4.2,
-        "big_chances_per90": 2.3,
-        "goals_vs_xg": 0.11,
-        "ppda": 9.77,
-        "possession_pct": 51.4,
-        "progressive_passes": 35.0,
-        "aerial_win_pct": 53.2,
-        "gk_psxg_minus_ga": 0.5,
-        "setpiece_xg": 0.34,
-        "form_last5": 3.0,
-        "momentum_index": 63
+        "xg_for": 1.84,
+        "xg_against": 1.24,
+        "npxg": 1.67,
+        "shots_per90": 13.2,
+        "shots_on_target": 4.9,
+        "big_chances_per90": 2.1,
+        "goals_vs_xg": 0.37,
+        "ppda": 8.78,
+        "possession_pct": 52.7,
+        "progressive_passes": 45.3,
+        "aerial_win_pct": 52.9,
+        "gk_psxg_minus_ga": 0.22,
+        "setpiece_xg": 0.35,
+        "form_last5": 2.7,
+        "momentum_index": 70
       },
       "projection": {
-        "advance_r32_pct": 81.1,
-        "reach_quarters_pct": 50.5,
-        "reach_final_pct": 23.1,
-        "win_trophy_pct": 2.6
+        "advance_r32_pct": 80.1,
+        "reach_quarters_pct": 49.1,
+        "reach_final_pct": 21.5,
+        "win_trophy_pct": 2.5
       },
       "_live_metrics": []
     },
@@ -527,7 +527,7 @@
         "advance_r32_pct": 77.7,
         "reach_quarters_pct": 45.5,
         "reach_final_pct": 17.5,
-        "win_trophy_pct": 2.0
+        "win_trophy_pct": 2.1
       },
       "_live_metrics": []
     },
