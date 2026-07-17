@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-16T22:08:42Z",
+  "generated_utc": "2026-07-17T02:48:30Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -1225,7 +1225,7 @@
       "team": "South Africa",
       "confederation": "CAF",
       "group": "A",
-      "elo": 1560,
+      "elo": 1559,
       "metrics": {
         "xg_for": 1.08,
         "xg_against": 1.41,
