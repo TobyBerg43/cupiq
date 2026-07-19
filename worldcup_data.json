@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-18T21:56:48Z",
+  "generated_utc": "2026-07-19T02:54:05Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -47,37 +47,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.0
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "France",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 2121,
-      "metrics": {
-        "xg_for": 2.2,
-        "xg_against": 0.77,
-        "npxg": 2.02,
-        "shots_per90": 17.4,
-        "shots_on_target": 6.6,
-        "big_chances_per90": 3.3,
-        "goals_vs_xg": 0.47,
-        "ppda": 8.32,
-        "possession_pct": 57.5,
-        "progressive_passes": 56.2,
-        "aerial_win_pct": 52.0,
-        "gk_psxg_minus_ga": 1.07,
-        "setpiece_xg": 0.52,
-        "form_last5": 4.4,
-        "momentum_index": 84
-      },
-      "projection": {
-        "advance_r32_pct": 97.0,
-        "reach_quarters_pct": 74.0,
-        "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.0
+        "win_trophy_pct": 9.1
       },
       "_live_metrics": []
     },
@@ -107,7 +77,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.0
+        "win_trophy_pct": 9.1
       },
       "_live_metrics": []
     },
@@ -115,7 +85,7 @@
       "team": "England",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2074,
+      "elo": 2125,
       "metrics": {
         "xg_for": 1.96,
         "xg_against": 1.0,
@@ -134,10 +104,40 @@
         "momentum_index": 82
       },
       "projection": {
-        "advance_r32_pct": 94.1,
-        "reach_quarters_pct": 69.7,
-        "reach_final_pct": 52.0,
-        "win_trophy_pct": 7.2
+        "advance_r32_pct": 97.0,
+        "reach_quarters_pct": 74.0,
+        "reach_final_pct": 55.0,
+        "win_trophy_pct": 9.1
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "France",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2070,
+      "metrics": {
+        "xg_for": 2.2,
+        "xg_against": 0.77,
+        "npxg": 2.02,
+        "shots_per90": 17.4,
+        "shots_on_target": 6.6,
+        "big_chances_per90": 3.3,
+        "goals_vs_xg": 0.47,
+        "ppda": 8.32,
+        "possession_pct": 57.5,
+        "progressive_passes": 56.2,
+        "aerial_win_pct": 52.0,
+        "gk_psxg_minus_ga": 1.07,
+        "setpiece_xg": 0.52,
+        "form_last5": 4.4,
+        "momentum_index": 84
+      },
+      "projection": {
+        "advance_r32_pct": 93.8,
+        "reach_quarters_pct": 69.2,
+        "reach_final_pct": 51.1,
+        "win_trophy_pct": 7.1
       },
       "_live_metrics": []
     },
@@ -347,7 +347,7 @@
         "advance_r32_pct": 82.3,
         "reach_quarters_pct": 52.3,
         "reach_final_pct": 25.4,
-        "win_trophy_pct": 2.9
+        "win_trophy_pct": 3.0
       },
       "_live_metrics": []
     },
@@ -557,7 +557,7 @@
         "advance_r32_pct": 76.2,
         "reach_quarters_pct": 43.2,
         "reach_final_pct": 15.2,
-        "win_trophy_pct": 1.8
+        "win_trophy_pct": 1.9
       },
       "_live_metrics": []
     },
