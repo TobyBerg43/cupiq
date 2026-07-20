@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-19T21:58:29Z",
+  "generated_utc": "2026-07-20T03:23:02Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -25,7 +25,7 @@
       "team": "Argentina",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 2200,
+      "elo": 2173,
       "metrics": {
         "xg_for": 2.25,
         "xg_against": 0.71,
@@ -55,7 +55,7 @@
       "team": "Spain",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2232,
+      "elo": 2259,
       "metrics": {
         "xg_for": 2.39,
         "xg_against": 0.98,
