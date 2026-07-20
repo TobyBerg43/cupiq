@@ -1,6 +1,6 @@
 {
-  "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-20T16:28:58Z",
+  "source": "Strength: live Elo from eloratings.net (0 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
+  "generated_utc": "2026-07-20T19:49:13Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -25,7 +25,7 @@
       "team": "Argentina",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 2173,
+      "elo": 2105,
       "metrics": {
         "xg_for": 2.25,
         "xg_against": 0.71,
@@ -44,70 +44,10 @@
         "momentum_index": 83
       },
       "projection": {
-        "advance_r32_pct": 97.0,
-        "reach_quarters_pct": 74.0,
+        "advance_r32_pct": 96.6,
+        "reach_quarters_pct": 73.4,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.1
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Spain",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 2259,
-      "metrics": {
-        "xg_for": 2.39,
-        "xg_against": 0.98,
-        "npxg": 2.18,
-        "shots_per90": 15.9,
-        "shots_on_target": 5.2,
-        "big_chances_per90": 2.9,
-        "goals_vs_xg": 0.17,
-        "ppda": 6.64,
-        "possession_pct": 59.9,
-        "progressive_passes": 50.1,
-        "aerial_win_pct": 54.4,
-        "gk_psxg_minus_ga": 0.33,
-        "setpiece_xg": 0.38,
-        "form_last5": 4.3,
-        "momentum_index": 89
-      },
-      "projection": {
-        "advance_r32_pct": 97.0,
-        "reach_quarters_pct": 74.0,
-        "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.1
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "England",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 2125,
-      "metrics": {
-        "xg_for": 1.96,
-        "xg_against": 1.0,
-        "npxg": 1.81,
-        "shots_per90": 15.7,
-        "shots_on_target": 6.0,
-        "big_chances_per90": 3.4,
-        "goals_vs_xg": 0.27,
-        "ppda": 8.51,
-        "possession_pct": 54.5,
-        "progressive_passes": 47.1,
-        "aerial_win_pct": 54.7,
-        "gk_psxg_minus_ga": 0.96,
-        "setpiece_xg": 0.5,
-        "form_last5": 4.0,
-        "momentum_index": 82
-      },
-      "projection": {
-        "advance_r32_pct": 97.0,
-        "reach_quarters_pct": 74.0,
-        "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.1
+        "win_trophy_pct": 9.2
       },
       "_live_metrics": []
     },
@@ -137,67 +77,37 @@
         "advance_r32_pct": 93.8,
         "reach_quarters_pct": 69.2,
         "reach_final_pct": 51.1,
-        "win_trophy_pct": 7.1
+        "win_trophy_pct": 7.4
       },
       "_live_metrics": []
     },
     {
-      "team": "Colombia",
-      "confederation": "CONMEBOL",
-      "group": "-",
-      "elo": 2003,
-      "metrics": {
-        "xg_for": 1.74,
-        "xg_against": 1.12,
-        "npxg": 1.58,
-        "shots_per90": 13.2,
-        "shots_on_target": 5.1,
-        "big_chances_per90": 2.6,
-        "goals_vs_xg": 0.15,
-        "ppda": 8.19,
-        "possession_pct": 55.0,
-        "progressive_passes": 42.1,
-        "aerial_win_pct": 51.3,
-        "gk_psxg_minus_ga": 0.25,
-        "setpiece_xg": 0.37,
-        "form_last5": 3.3,
-        "momentum_index": 62
-      },
-      "projection": {
-        "advance_r32_pct": 88.4,
-        "reach_quarters_pct": 61.2,
-        "reach_final_pct": 37.8,
-        "win_trophy_pct": 4.7
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Portugal",
+      "team": "Spain",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1995,
+      "elo": 2050,
       "metrics": {
-        "xg_for": 1.95,
-        "xg_against": 0.81,
-        "npxg": 1.76,
-        "shots_per90": 16.6,
-        "shots_on_target": 6.5,
+        "xg_for": 2.39,
+        "xg_against": 0.98,
+        "npxg": 2.18,
+        "shots_per90": 15.9,
+        "shots_on_target": 5.2,
         "big_chances_per90": 2.9,
-        "goals_vs_xg": -0.14,
-        "ppda": 8.71,
-        "possession_pct": 59.7,
-        "progressive_passes": 51.3,
-        "aerial_win_pct": 57.2,
-        "gk_psxg_minus_ga": 0.47,
-        "setpiece_xg": 0.41,
-        "form_last5": 4.2,
-        "momentum_index": 78
+        "goals_vs_xg": 0.17,
+        "ppda": 6.64,
+        "possession_pct": 59.9,
+        "progressive_passes": 50.1,
+        "aerial_win_pct": 54.4,
+        "gk_psxg_minus_ga": 0.33,
+        "setpiece_xg": 0.38,
+        "form_last5": 4.3,
+        "momentum_index": 89
       },
       "projection": {
-        "advance_r32_pct": 87.7,
-        "reach_quarters_pct": 60.3,
-        "reach_final_pct": 36.4,
-        "win_trophy_pct": 4.5
+        "advance_r32_pct": 92.2,
+        "reach_quarters_pct": 66.8,
+        "reach_final_pct": 47.0,
+        "win_trophy_pct": 6.5
       },
       "_live_metrics": []
     },
@@ -205,7 +115,7 @@
       "team": "Brazil",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 1993,
+      "elo": 2030,
       "metrics": {
         "xg_for": 2.21,
         "xg_against": 0.71,
@@ -224,10 +134,70 @@
         "momentum_index": 74
       },
       "projection": {
-        "advance_r32_pct": 87.6,
-        "reach_quarters_pct": 60.1,
-        "reach_final_pct": 36.0,
-        "win_trophy_pct": 4.4
+        "advance_r32_pct": 90.5,
+        "reach_quarters_pct": 64.5,
+        "reach_final_pct": 43.0,
+        "win_trophy_pct": 5.8
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "England",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2010,
+      "metrics": {
+        "xg_for": 1.96,
+        "xg_against": 1.0,
+        "npxg": 1.81,
+        "shots_per90": 15.7,
+        "shots_on_target": 6.0,
+        "big_chances_per90": 3.4,
+        "goals_vs_xg": 0.27,
+        "ppda": 8.51,
+        "possession_pct": 54.5,
+        "progressive_passes": 47.1,
+        "aerial_win_pct": 54.7,
+        "gk_psxg_minus_ga": 0.96,
+        "setpiece_xg": 0.5,
+        "form_last5": 4.0,
+        "momentum_index": 82
+      },
+      "projection": {
+        "advance_r32_pct": 88.9,
+        "reach_quarters_pct": 62.1,
+        "reach_final_pct": 39.1,
+        "win_trophy_pct": 5.1
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Portugal",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 2000,
+      "metrics": {
+        "xg_for": 1.95,
+        "xg_against": 0.81,
+        "npxg": 1.76,
+        "shots_per90": 16.6,
+        "shots_on_target": 6.5,
+        "big_chances_per90": 2.9,
+        "goals_vs_xg": -0.14,
+        "ppda": 8.71,
+        "possession_pct": 59.7,
+        "progressive_passes": 51.3,
+        "aerial_win_pct": 57.2,
+        "gk_psxg_minus_ga": 0.47,
+        "setpiece_xg": 0.41,
+        "form_last5": 4.2,
+        "momentum_index": 78
+      },
+      "projection": {
+        "advance_r32_pct": 88.1,
+        "reach_quarters_pct": 60.9,
+        "reach_final_pct": 37.3,
+        "win_trophy_pct": 4.8
       },
       "_live_metrics": []
     },
@@ -235,7 +205,7 @@
       "team": "Netherlands",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1971,
+      "elo": 1985,
       "metrics": {
         "xg_for": 1.93,
         "xg_against": 0.77,
@@ -254,130 +224,10 @@
         "momentum_index": 84
       },
       "projection": {
-        "advance_r32_pct": 85.8,
-        "reach_quarters_pct": 57.4,
-        "reach_final_pct": 32.2,
-        "win_trophy_pct": 3.8
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Norway",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1951,
-      "metrics": {
-        "xg_for": 1.46,
-        "xg_against": 1.31,
-        "npxg": 1.27,
-        "shots_per90": 13.5,
-        "shots_on_target": 4.7,
-        "big_chances_per90": 2.4,
-        "goals_vs_xg": 0.14,
-        "ppda": 10.63,
-        "possession_pct": 52.2,
-        "progressive_passes": 44.2,
-        "aerial_win_pct": 49.1,
-        "gk_psxg_minus_ga": -0.15,
-        "setpiece_xg": 0.31,
-        "form_last5": 3.4,
-        "momentum_index": 68
-      },
-      "projection": {
-        "advance_r32_pct": 84.2,
-        "reach_quarters_pct": 55.0,
-        "reach_final_pct": 28.9,
-        "win_trophy_pct": 3.4
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Belgium",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1948,
-      "metrics": {
-        "xg_for": 1.89,
-        "xg_against": 1.12,
-        "npxg": 1.74,
-        "shots_per90": 14.7,
-        "shots_on_target": 5.7,
-        "big_chances_per90": 2.2,
-        "goals_vs_xg": 0.14,
-        "ppda": 9.7,
-        "possession_pct": 54.9,
-        "progressive_passes": 50.1,
-        "aerial_win_pct": 50.0,
-        "gk_psxg_minus_ga": 0.82,
-        "setpiece_xg": 0.37,
-        "form_last5": 3.5,
-        "momentum_index": 71
-      },
-      "projection": {
-        "advance_r32_pct": 83.9,
-        "reach_quarters_pct": 54.7,
-        "reach_final_pct": 28.4,
-        "win_trophy_pct": 3.3
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Switzerland",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1928,
-      "metrics": {
-        "xg_for": 1.58,
-        "xg_against": 1.34,
-        "npxg": 1.36,
-        "shots_per90": 13.1,
-        "shots_on_target": 4.6,
-        "big_chances_per90": 2.5,
-        "goals_vs_xg": 0.32,
-        "ppda": 10.33,
-        "possession_pct": 55.5,
-        "progressive_passes": 40.0,
-        "aerial_win_pct": 48.4,
-        "gk_psxg_minus_ga": 0.29,
-        "setpiece_xg": 0.34,
-        "form_last5": 3.1,
-        "momentum_index": 59
-      },
-      "projection": {
-        "advance_r32_pct": 82.3,
-        "reach_quarters_pct": 52.3,
-        "reach_final_pct": 25.4,
-        "win_trophy_pct": 3.0
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Mexico",
-      "confederation": "CONCACAF",
-      "group": "A",
-      "elo": 1913,
-      "metrics": {
-        "xg_for": 1.4,
-        "xg_against": 1.25,
-        "npxg": 1.21,
-        "shots_per90": 11.8,
-        "shots_on_target": 4.2,
-        "big_chances_per90": 2.3,
-        "goals_vs_xg": 0.11,
-        "ppda": 9.77,
-        "possession_pct": 51.4,
-        "progressive_passes": 35.0,
-        "aerial_win_pct": 53.2,
-        "gk_psxg_minus_ga": 0.5,
-        "setpiece_xg": 0.34,
-        "form_last5": 3.0,
-        "momentum_index": 63
-      },
-      "projection": {
-        "advance_r32_pct": 81.1,
-        "reach_quarters_pct": 50.5,
-        "reach_final_pct": 23.1,
-        "win_trophy_pct": 2.7
+        "advance_r32_pct": 86.9,
+        "reach_quarters_pct": 59.1,
+        "reach_final_pct": 34.6,
+        "win_trophy_pct": 4.4
       },
       "_live_metrics": []
     },
@@ -385,7 +235,7 @@
       "team": "Germany",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1908,
+      "elo": 1965,
       "metrics": {
         "xg_for": 2.01,
         "xg_against": 1.09,
@@ -404,160 +254,40 @@
         "momentum_index": 80
       },
       "projection": {
-        "advance_r32_pct": 80.7,
-        "reach_quarters_pct": 49.9,
-        "reach_final_pct": 22.4,
-        "win_trophy_pct": 2.6
+        "advance_r32_pct": 85.3,
+        "reach_quarters_pct": 56.7,
+        "reach_final_pct": 31.2,
+        "win_trophy_pct": 3.9
       },
       "_live_metrics": []
     },
     {
-      "team": "Morocco",
-      "confederation": "CAF",
+      "team": "Belgium",
+      "confederation": "UEFA",
       "group": "-",
-      "elo": 1901,
+      "elo": 1940,
       "metrics": {
-        "xg_for": 1.84,
-        "xg_against": 1.24,
-        "npxg": 1.67,
-        "shots_per90": 13.2,
-        "shots_on_target": 4.9,
-        "big_chances_per90": 2.1,
-        "goals_vs_xg": 0.37,
-        "ppda": 8.78,
-        "possession_pct": 52.7,
-        "progressive_passes": 45.3,
-        "aerial_win_pct": 52.9,
-        "gk_psxg_minus_ga": 0.22,
-        "setpiece_xg": 0.35,
-        "form_last5": 2.7,
-        "momentum_index": 70
-      },
-      "projection": {
-        "advance_r32_pct": 80.1,
-        "reach_quarters_pct": 49.1,
-        "reach_final_pct": 21.5,
-        "win_trophy_pct": 2.5
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Japan",
-      "confederation": "AFC",
-      "group": "-",
-      "elo": 1888,
-      "metrics": {
-        "xg_for": 1.48,
-        "xg_against": 1.42,
-        "npxg": 1.26,
-        "shots_per90": 12.0,
-        "shots_on_target": 4.2,
-        "big_chances_per90": 1.7,
+        "xg_for": 1.89,
+        "xg_against": 1.12,
+        "npxg": 1.74,
+        "shots_per90": 14.7,
+        "shots_on_target": 5.7,
+        "big_chances_per90": 2.2,
         "goals_vs_xg": 0.14,
-        "ppda": 9.6,
-        "possession_pct": 50.8,
-        "progressive_passes": 36.6,
-        "aerial_win_pct": 50.5,
-        "gk_psxg_minus_ga": 0.13,
-        "setpiece_xg": 0.31,
-        "form_last5": 3.1,
-        "momentum_index": 58
+        "ppda": 9.7,
+        "possession_pct": 54.9,
+        "progressive_passes": 50.1,
+        "aerial_win_pct": 50.0,
+        "gk_psxg_minus_ga": 0.82,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.5,
+        "momentum_index": 71
       },
       "projection": {
-        "advance_r32_pct": 79.1,
-        "reach_quarters_pct": 47.5,
-        "reach_final_pct": 19.7,
-        "win_trophy_pct": 2.3
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Croatia",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1882,
-      "metrics": {
-        "xg_for": 1.64,
-        "xg_against": 1.03,
-        "npxg": 1.48,
-        "shots_per90": 12.6,
-        "shots_on_target": 4.5,
-        "big_chances_per90": 2.7,
-        "goals_vs_xg": 0.04,
-        "ppda": 9.34,
-        "possession_pct": 52.3,
-        "progressive_passes": 43.3,
-        "aerial_win_pct": 48.9,
-        "gk_psxg_minus_ga": 0.65,
-        "setpiece_xg": 0.41,
-        "form_last5": 3.6,
-        "momentum_index": 74
-      },
-      "projection": {
-        "advance_r32_pct": 78.6,
-        "reach_quarters_pct": 46.8,
-        "reach_final_pct": 18.9,
-        "win_trophy_pct": 2.2
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Ecuador",
-      "confederation": "CONMEBOL",
-      "group": "-",
-      "elo": 1871,
-      "metrics": {
-        "xg_for": 1.76,
-        "xg_against": 1.08,
-        "npxg": 1.57,
-        "shots_per90": 12.2,
-        "shots_on_target": 4.4,
-        "big_chances_per90": 1.9,
-        "goals_vs_xg": 0.34,
-        "ppda": 10.44,
-        "possession_pct": 51.4,
-        "progressive_passes": 40.2,
-        "aerial_win_pct": 54.2,
-        "gk_psxg_minus_ga": 0.66,
-        "setpiece_xg": 0.33,
-        "form_last5": 3.0,
-        "momentum_index": 66
-      },
-      "projection": {
-        "advance_r32_pct": 77.7,
-        "reach_quarters_pct": 45.5,
-        "reach_final_pct": 17.5,
-        "win_trophy_pct": 2.1
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Türkiye",
-      "confederation": "UEFA",
-      "group": "D",
-      "elo": 1852,
-      "metrics": {
-        "xg_for": 1.67,
-        "xg_against": 1.22,
-        "npxg": 1.51,
-        "shots_per90": 13.4,
-        "shots_on_target": 4.6,
-        "big_chances_per90": 2.0,
-        "goals_vs_xg": -0.1,
-        "ppda": 8.98,
-        "possession_pct": 51.1,
-        "progressive_passes": 44.5,
-        "aerial_win_pct": 53.0,
-        "gk_psxg_minus_ga": 0.08,
-        "setpiece_xg": 0.24,
-        "form_last5": 2.5,
-        "momentum_index": 55
-      },
-      "projection": {
-        "advance_r32_pct": 76.2,
-        "reach_quarters_pct": 43.2,
-        "reach_final_pct": 15.2,
-        "win_trophy_pct": 1.9
+        "advance_r32_pct": 83.3,
+        "reach_quarters_pct": 53.7,
+        "reach_final_pct": 27.2,
+        "win_trophy_pct": 3.3
       },
       "_live_metrics": []
     },
@@ -565,7 +295,7 @@
       "team": "Uruguay",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 1841,
+      "elo": 1915,
       "metrics": {
         "xg_for": 1.84,
         "xg_against": 1.17,
@@ -584,10 +314,130 @@
         "momentum_index": 73
       },
       "projection": {
-        "advance_r32_pct": 75.3,
-        "reach_quarters_pct": 41.9,
-        "reach_final_pct": 14.0,
-        "win_trophy_pct": 1.7
+        "advance_r32_pct": 81.2,
+        "reach_quarters_pct": 50.8,
+        "reach_final_pct": 23.4,
+        "win_trophy_pct": 2.8
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Colombia",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1900,
+      "metrics": {
+        "xg_for": 1.74,
+        "xg_against": 1.12,
+        "npxg": 1.58,
+        "shots_per90": 13.2,
+        "shots_on_target": 5.1,
+        "big_chances_per90": 2.6,
+        "goals_vs_xg": 0.15,
+        "ppda": 8.19,
+        "possession_pct": 55.0,
+        "progressive_passes": 42.1,
+        "aerial_win_pct": 51.3,
+        "gk_psxg_minus_ga": 0.25,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.3,
+        "momentum_index": 62
+      },
+      "projection": {
+        "advance_r32_pct": 80.0,
+        "reach_quarters_pct": 49.0,
+        "reach_final_pct": 21.3,
+        "win_trophy_pct": 2.6
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Croatia",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1900,
+      "metrics": {
+        "xg_for": 1.64,
+        "xg_against": 1.03,
+        "npxg": 1.48,
+        "shots_per90": 12.6,
+        "shots_on_target": 4.5,
+        "big_chances_per90": 2.7,
+        "goals_vs_xg": 0.04,
+        "ppda": 9.34,
+        "possession_pct": 52.3,
+        "progressive_passes": 43.3,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.65,
+        "setpiece_xg": 0.41,
+        "form_last5": 3.6,
+        "momentum_index": 74
+      },
+      "projection": {
+        "advance_r32_pct": 80.0,
+        "reach_quarters_pct": 49.0,
+        "reach_final_pct": 21.3,
+        "win_trophy_pct": 2.6
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Morocco",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1870,
+      "metrics": {
+        "xg_for": 1.84,
+        "xg_against": 1.24,
+        "npxg": 1.67,
+        "shots_per90": 13.2,
+        "shots_on_target": 4.9,
+        "big_chances_per90": 2.1,
+        "goals_vs_xg": 0.37,
+        "ppda": 8.78,
+        "possession_pct": 52.7,
+        "progressive_passes": 45.3,
+        "aerial_win_pct": 52.9,
+        "gk_psxg_minus_ga": 0.22,
+        "setpiece_xg": 0.35,
+        "form_last5": 2.7,
+        "momentum_index": 70
+      },
+      "projection": {
+        "advance_r32_pct": 77.6,
+        "reach_quarters_pct": 45.4,
+        "reach_final_pct": 17.4,
+        "win_trophy_pct": 2.2
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Switzerland",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1860,
+      "metrics": {
+        "xg_for": 1.58,
+        "xg_against": 1.34,
+        "npxg": 1.36,
+        "shots_per90": 13.1,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.5,
+        "goals_vs_xg": 0.32,
+        "ppda": 10.33,
+        "possession_pct": 55.5,
+        "progressive_passes": 40.0,
+        "aerial_win_pct": 48.4,
+        "gk_psxg_minus_ga": 0.29,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.1,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 76.8,
+        "reach_quarters_pct": 44.2,
+        "reach_final_pct": 16.2,
+        "win_trophy_pct": 2.0
       },
       "_live_metrics": []
     },
@@ -595,7 +445,7 @@
       "team": "Austria",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1821,
+      "elo": 1850,
       "metrics": {
         "xg_for": 1.73,
         "xg_against": 1.22,
@@ -614,10 +464,10 @@
         "momentum_index": 59
       },
       "projection": {
-        "advance_r32_pct": 73.7,
-        "reach_quarters_pct": 39.5,
-        "reach_final_pct": 11.8,
-        "win_trophy_pct": 1.5
+        "advance_r32_pct": 76.0,
+        "reach_quarters_pct": 43.0,
+        "reach_final_pct": 15.0,
+        "win_trophy_pct": 1.9
       },
       "_live_metrics": []
     },
@@ -625,7 +475,7 @@
       "team": "Senegal",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1816,
+      "elo": 1850,
       "metrics": {
         "xg_for": 1.5,
         "xg_against": 1.2,
@@ -644,100 +494,130 @@
         "momentum_index": 60
       },
       "projection": {
-        "advance_r32_pct": 73.3,
-        "reach_quarters_pct": 38.9,
-        "reach_final_pct": 11.3,
-        "win_trophy_pct": 1.5
+        "advance_r32_pct": 76.0,
+        "reach_quarters_pct": 43.0,
+        "reach_final_pct": 15.0,
+        "win_trophy_pct": 1.9
       },
       "_live_metrics": []
     },
     {
-      "team": "Paraguay",
+      "team": "Ecuador",
       "confederation": "CONMEBOL",
-      "group": "D",
-      "elo": 1814,
+      "group": "-",
+      "elo": 1840,
       "metrics": {
-        "xg_for": 1.32,
-        "xg_against": 1.48,
-        "npxg": 1.14,
-        "shots_per90": 10.9,
-        "shots_on_target": 4.3,
-        "big_chances_per90": 1.7,
-        "goals_vs_xg": -0.11,
+        "xg_for": 1.76,
+        "xg_against": 1.08,
+        "npxg": 1.57,
+        "shots_per90": 12.2,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 1.9,
+        "goals_vs_xg": 0.34,
         "ppda": 10.44,
-        "possession_pct": 46.0,
-        "progressive_passes": 38.1,
-        "aerial_win_pct": 50.0,
-        "gk_psxg_minus_ga": -0.12,
-        "setpiece_xg": 0.27,
-        "form_last5": 2.4,
-        "momentum_index": 62
+        "possession_pct": 51.4,
+        "progressive_passes": 40.2,
+        "aerial_win_pct": 54.2,
+        "gk_psxg_minus_ga": 0.66,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.0,
+        "momentum_index": 66
       },
       "projection": {
-        "advance_r32_pct": 73.1,
-        "reach_quarters_pct": 38.7,
-        "reach_final_pct": 11.1,
-        "win_trophy_pct": 1.5
+        "advance_r32_pct": 75.2,
+        "reach_quarters_pct": 41.8,
+        "reach_final_pct": 13.9,
+        "win_trophy_pct": 1.8
       },
       "_live_metrics": []
     },
     {
-      "team": "Australia",
-      "confederation": "AFC",
+      "team": "Türkiye",
+      "confederation": "UEFA",
       "group": "D",
-      "elo": 1795,
+      "elo": 1840,
       "metrics": {
-        "xg_for": 1.44,
-        "xg_against": 1.37,
-        "npxg": 1.26,
-        "shots_per90": 9.4,
-        "shots_on_target": 3.2,
-        "big_chances_per90": 1.6,
-        "goals_vs_xg": 0.06,
-        "ppda": 10.95,
-        "possession_pct": 51.0,
-        "progressive_passes": 33.1,
-        "aerial_win_pct": 47.9,
-        "gk_psxg_minus_ga": 0.14,
-        "setpiece_xg": 0.19,
-        "form_last5": 2.0,
-        "momentum_index": 49
+        "xg_for": 1.67,
+        "xg_against": 1.22,
+        "npxg": 1.51,
+        "shots_per90": 13.4,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 2.0,
+        "goals_vs_xg": -0.1,
+        "ppda": 8.98,
+        "possession_pct": 51.1,
+        "progressive_passes": 44.5,
+        "aerial_win_pct": 53.0,
+        "gk_psxg_minus_ga": 0.08,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.5,
+        "momentum_index": 55
       },
       "projection": {
-        "advance_r32_pct": 71.6,
-        "reach_quarters_pct": 36.4,
-        "reach_final_pct": 9.3,
-        "win_trophy_pct": 1.3
+        "advance_r32_pct": 75.2,
+        "reach_quarters_pct": 41.8,
+        "reach_final_pct": 13.9,
+        "win_trophy_pct": 1.8
       },
       "_live_metrics": []
     },
     {
-      "team": "Iran",
+      "team": "Norway",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1830,
+      "metrics": {
+        "xg_for": 1.46,
+        "xg_against": 1.31,
+        "npxg": 1.27,
+        "shots_per90": 13.5,
+        "shots_on_target": 4.7,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": 0.14,
+        "ppda": 10.63,
+        "possession_pct": 52.2,
+        "progressive_passes": 44.2,
+        "aerial_win_pct": 49.1,
+        "gk_psxg_minus_ga": -0.15,
+        "setpiece_xg": 0.31,
+        "form_last5": 3.4,
+        "momentum_index": 68
+      },
+      "projection": {
+        "advance_r32_pct": 74.4,
+        "reach_quarters_pct": 40.6,
+        "reach_final_pct": 12.8,
+        "win_trophy_pct": 1.7
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Japan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1764,
+      "elo": 1820,
       "metrics": {
-        "xg_for": 1.64,
-        "xg_against": 1.29,
-        "npxg": 1.45,
-        "shots_per90": 12.7,
-        "shots_on_target": 4.4,
-        "big_chances_per90": 2.5,
-        "goals_vs_xg": -0.02,
-        "ppda": 10.88,
-        "possession_pct": 50.7,
-        "progressive_passes": 35.0,
-        "aerial_win_pct": 50.4,
-        "gk_psxg_minus_ga": 0.53,
-        "setpiece_xg": 0.33,
-        "form_last5": 2.3,
-        "momentum_index": 64
+        "xg_for": 1.48,
+        "xg_against": 1.42,
+        "npxg": 1.26,
+        "shots_per90": 12.0,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 1.7,
+        "goals_vs_xg": 0.14,
+        "ppda": 9.6,
+        "possession_pct": 50.8,
+        "progressive_passes": 36.6,
+        "aerial_win_pct": 50.5,
+        "gk_psxg_minus_ga": 0.13,
+        "setpiece_xg": 0.31,
+        "form_last5": 3.1,
+        "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 69.1,
-        "reach_quarters_pct": 32.7,
-        "reach_final_pct": 6.7,
-        "win_trophy_pct": 1.1
+        "advance_r32_pct": 73.6,
+        "reach_quarters_pct": 39.4,
+        "reach_final_pct": 11.7,
+        "win_trophy_pct": 1.6
       },
       "_live_metrics": []
     },
@@ -745,7 +625,7 @@
       "team": "United States",
       "confederation": "CONCACAF",
       "group": "D",
-      "elo": 1747,
+      "elo": 1810,
       "metrics": {
         "xg_for": 1.59,
         "xg_against": 1.1,
@@ -764,40 +644,10 @@
         "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 67.7,
-        "reach_quarters_pct": 30.7,
-        "reach_final_pct": 5.5,
-        "win_trophy_pct": 1.0
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Algeria",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1756,
-      "metrics": {
-        "xg_for": 1.33,
-        "xg_against": 1.37,
-        "npxg": 1.18,
-        "shots_per90": 12.9,
-        "shots_on_target": 4.6,
-        "big_chances_per90": 1.5,
-        "goals_vs_xg": -0.1,
-        "ppda": 10.64,
-        "possession_pct": 49.3,
-        "progressive_passes": 33.0,
-        "aerial_win_pct": 51.5,
-        "gk_psxg_minus_ga": 0.17,
-        "setpiece_xg": 0.26,
-        "form_last5": 2.8,
-        "momentum_index": 65
-      },
-      "projection": {
-        "advance_r32_pct": 68.4,
-        "reach_quarters_pct": 31.8,
-        "reach_final_pct": 6.1,
-        "win_trophy_pct": 1.0
+        "advance_r32_pct": 72.8,
+        "reach_quarters_pct": 38.2,
+        "reach_final_pct": 10.7,
+        "win_trophy_pct": 1.5
       },
       "_live_metrics": []
     },
@@ -805,7 +655,7 @@
       "team": "Sweden",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1731,
+      "elo": 1800,
       "metrics": {
         "xg_for": 1.57,
         "xg_against": 1.43,
@@ -824,280 +674,70 @@
         "momentum_index": 53
       },
       "projection": {
-        "advance_r32_pct": 66.4,
-        "reach_quarters_pct": 28.8,
-        "reach_final_pct": 4.4,
-        "win_trophy_pct": 0.9
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
+        "win_trophy_pct": 1.4
       },
       "_live_metrics": []
     },
     {
-      "team": "Egypt",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1742,
-      "metrics": {
-        "xg_for": 1.55,
-        "xg_against": 1.26,
-        "npxg": 1.34,
-        "shots_per90": 11.2,
-        "shots_on_target": 4.3,
-        "big_chances_per90": 1.8,
-        "goals_vs_xg": -0.2,
-        "ppda": 11.32,
-        "possession_pct": 51.3,
-        "progressive_passes": 34.3,
-        "aerial_win_pct": 48.0,
-        "gk_psxg_minus_ga": 0.35,
-        "setpiece_xg": 0.26,
-        "form_last5": 3.0,
-        "momentum_index": 58
-      },
-      "projection": {
-        "advance_r32_pct": 67.3,
-        "reach_quarters_pct": 30.1,
-        "reach_final_pct": 5.1,
-        "win_trophy_pct": 0.9
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Canada",
+      "team": "Mexico",
       "confederation": "CONCACAF",
-      "group": "B",
-      "elo": 1729,
+      "group": "A",
+      "elo": 1800,
       "metrics": {
-        "xg_for": 1.53,
-        "xg_against": 1.4,
-        "npxg": 1.39,
-        "shots_per90": 10.7,
-        "shots_on_target": 4.1,
-        "big_chances_per90": 1.5,
-        "goals_vs_xg": 0.2,
-        "ppda": 12.22,
-        "possession_pct": 46.2,
-        "progressive_passes": 34.2,
-        "aerial_win_pct": 52.3,
-        "gk_psxg_minus_ga": 0.04,
-        "setpiece_xg": 0.28,
-        "form_last5": 3.0,
-        "momentum_index": 55
-      },
-      "projection": {
-        "advance_r32_pct": 66.2,
-        "reach_quarters_pct": 28.6,
-        "reach_final_pct": 4.3,
-        "win_trophy_pct": 0.9
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Côte d'Ivoire",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1727,
-      "metrics": {
-        "xg_for": 1.58,
-        "xg_against": 1.47,
-        "npxg": 1.35,
-        "shots_per90": 11.7,
+        "xg_for": 1.4,
+        "xg_against": 1.25,
+        "npxg": 1.21,
+        "shots_per90": 11.8,
         "shots_on_target": 4.2,
-        "big_chances_per90": 1.6,
-        "goals_vs_xg": -0.06,
-        "ppda": 10.42,
-        "possession_pct": 52.7,
-        "progressive_passes": 39.5,
-        "aerial_win_pct": 45.6,
-        "gk_psxg_minus_ga": 0.03,
-        "setpiece_xg": 0.23,
-        "form_last5": 2.4,
-        "momentum_index": 59
+        "big_chances_per90": 2.3,
+        "goals_vs_xg": 0.11,
+        "ppda": 9.77,
+        "possession_pct": 51.4,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 53.2,
+        "gk_psxg_minus_ga": 0.5,
+        "setpiece_xg": 0.34,
+        "form_last5": 3.0,
+        "momentum_index": 63
       },
       "projection": {
-        "advance_r32_pct": 66.1,
-        "reach_quarters_pct": 28.3,
-        "reach_final_pct": 4.2,
-        "win_trophy_pct": 0.9
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
+        "win_trophy_pct": 1.4
       },
       "_live_metrics": []
     },
     {
-      "team": "South Korea",
+      "team": "Iran",
       "confederation": "AFC",
-      "group": "A",
-      "elo": 1723,
+      "group": "-",
+      "elo": 1800,
       "metrics": {
-        "xg_for": 1.53,
-        "xg_against": 1.16,
-        "npxg": 1.33,
-        "shots_per90": 10.0,
-        "shots_on_target": 3.8,
-        "big_chances_per90": 2.4,
-        "goals_vs_xg": -0.18,
-        "ppda": 10.09,
-        "possession_pct": 50.4,
-        "progressive_passes": 36.6,
-        "aerial_win_pct": 49.5,
-        "gk_psxg_minus_ga": -0.3,
-        "setpiece_xg": 0.21,
+        "xg_for": 1.64,
+        "xg_against": 1.29,
+        "npxg": 1.45,
+        "shots_per90": 12.7,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 2.5,
+        "goals_vs_xg": -0.02,
+        "ppda": 10.88,
+        "possession_pct": 50.7,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 50.4,
+        "gk_psxg_minus_ga": 0.53,
+        "setpiece_xg": 0.33,
         "form_last5": 2.3,
-        "momentum_index": 53
+        "momentum_index": 64
       },
       "projection": {
-        "advance_r32_pct": 65.7,
-        "reach_quarters_pct": 27.9,
-        "reach_final_pct": 3.9,
-        "win_trophy_pct": 0.8
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "DR Congo",
-      "confederation": "CAF",
-      "group": "-",
-      "elo": 1704,
-      "metrics": {
-        "xg_for": 1.22,
-        "xg_against": 1.59,
-        "npxg": 1.01,
-        "shots_per90": 8.9,
-        "shots_on_target": 3.2,
-        "big_chances_per90": 1.0,
-        "goals_vs_xg": 0.0,
-        "ppda": 12.02,
-        "possession_pct": 45.5,
-        "progressive_passes": 30.7,
-        "aerial_win_pct": 46.4,
-        "gk_psxg_minus_ga": -0.64,
-        "setpiece_xg": 0.29,
-        "form_last5": 2.3,
-        "momentum_index": 43
-      },
-      "projection": {
-        "advance_r32_pct": 64.2,
-        "reach_quarters_pct": 25.6,
-        "reach_final_pct": 2.9,
-        "win_trophy_pct": 0.7
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Czechia",
-      "confederation": "UEFA",
-      "group": "A",
-      "elo": 1680,
-      "metrics": {
-        "xg_for": 1.49,
-        "xg_against": 1.27,
-        "npxg": 1.32,
-        "shots_per90": 10.5,
-        "shots_on_target": 3.7,
-        "big_chances_per90": 1.6,
-        "goals_vs_xg": -0.22,
-        "ppda": 10.86,
-        "possession_pct": 51.1,
-        "progressive_passes": 42.1,
-        "aerial_win_pct": 51.2,
-        "gk_psxg_minus_ga": -0.1,
-        "setpiece_xg": 0.24,
-        "form_last5": 2.2,
-        "momentum_index": 50
-      },
-      "projection": {
-        "advance_r32_pct": 62.3,
-        "reach_quarters_pct": 22.7,
-        "reach_final_pct": 1.8,
-        "win_trophy_pct": 0.6
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Panama",
-      "confederation": "CONCACAF",
-      "group": "-",
-      "elo": 1658,
-      "metrics": {
-        "xg_for": 1.38,
-        "xg_against": 1.49,
-        "npxg": 1.19,
-        "shots_per90": 8.8,
-        "shots_on_target": 3.2,
-        "big_chances_per90": 1.1,
-        "goals_vs_xg": 0.17,
-        "ppda": 11.3,
-        "possession_pct": 45.7,
-        "progressive_passes": 28.9,
-        "aerial_win_pct": 48.9,
-        "gk_psxg_minus_ga": 0.03,
-        "setpiece_xg": 0.17,
-        "form_last5": 1.9,
-        "momentum_index": 51
-      },
-      "projection": {
-        "advance_r32_pct": 60.5,
-        "reach_quarters_pct": 20.1,
-        "reach_final_pct": 1.0,
-        "win_trophy_pct": 0.6
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Uzbekistan",
-      "confederation": "AFC",
-      "group": "-",
-      "elo": 1631,
-      "metrics": {
-        "xg_for": 0.95,
-        "xg_against": 1.64,
-        "npxg": 0.76,
-        "shots_per90": 8.1,
-        "shots_on_target": 2.7,
-        "big_chances_per90": 1.5,
-        "goals_vs_xg": -0.23,
-        "ppda": 13.36,
-        "possession_pct": 49.5,
-        "progressive_passes": 26.8,
-        "aerial_win_pct": 51.1,
-        "gk_psxg_minus_ga": -0.24,
-        "setpiece_xg": 0.26,
-        "form_last5": 2.1,
-        "momentum_index": 43
-      },
-      "projection": {
-        "advance_r32_pct": 58.3,
-        "reach_quarters_pct": 16.9,
-        "reach_final_pct": 0.4,
-        "win_trophy_pct": 0.5
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "Jordan",
-      "confederation": "AFC",
-      "group": "-",
-      "elo": 1628,
-      "metrics": {
-        "xg_for": 1.0,
-        "xg_against": 1.43,
-        "npxg": 0.82,
-        "shots_per90": 10.1,
-        "shots_on_target": 3.9,
-        "big_chances_per90": 1.2,
-        "goals_vs_xg": -0.28,
-        "ppda": 13.19,
-        "possession_pct": 46.0,
-        "progressive_passes": 35.2,
-        "aerial_win_pct": 46.6,
-        "gk_psxg_minus_ga": -0.34,
-        "setpiece_xg": 0.2,
-        "form_last5": 2.1,
-        "momentum_index": 47
-      },
-      "projection": {
-        "advance_r32_pct": 58.1,
-        "reach_quarters_pct": 16.5,
-        "reach_final_pct": 0.3,
-        "win_trophy_pct": 0.5
+        "advance_r32_pct": 72.0,
+        "reach_quarters_pct": 37.0,
+        "reach_final_pct": 9.8,
+        "win_trophy_pct": 1.4
       },
       "_live_metrics": []
     },
@@ -1105,7 +745,7 @@
       "team": "Scotland",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 853,
+      "elo": 1790,
       "metrics": {
         "xg_for": 1.57,
         "xg_against": 1.25,
@@ -1124,10 +764,220 @@
         "momentum_index": 51
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 71.2,
+        "reach_quarters_pct": 35.8,
+        "reach_final_pct": 8.9,
+        "win_trophy_pct": 1.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Czechia",
+      "confederation": "UEFA",
+      "group": "A",
+      "elo": 1785,
+      "metrics": {
+        "xg_for": 1.49,
+        "xg_against": 1.27,
+        "npxg": 1.32,
+        "shots_per90": 10.5,
+        "shots_on_target": 3.7,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": -0.22,
+        "ppda": 10.86,
+        "possession_pct": 51.1,
+        "progressive_passes": 42.1,
+        "aerial_win_pct": 51.2,
+        "gk_psxg_minus_ga": -0.1,
+        "setpiece_xg": 0.24,
+        "form_last5": 2.2,
+        "momentum_index": 50
+      },
+      "projection": {
+        "advance_r32_pct": 70.8,
+        "reach_quarters_pct": 35.2,
+        "reach_final_pct": 8.4,
+        "win_trophy_pct": 1.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Egypt",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1790,
+      "metrics": {
+        "xg_for": 1.55,
+        "xg_against": 1.26,
+        "npxg": 1.34,
+        "shots_per90": 11.2,
+        "shots_on_target": 4.3,
+        "big_chances_per90": 1.8,
+        "goals_vs_xg": -0.2,
+        "ppda": 11.32,
+        "possession_pct": 51.3,
+        "progressive_passes": 34.3,
+        "aerial_win_pct": 48.0,
+        "gk_psxg_minus_ga": 0.35,
+        "setpiece_xg": 0.26,
+        "form_last5": 3.0,
+        "momentum_index": 58
+      },
+      "projection": {
+        "advance_r32_pct": 71.2,
+        "reach_quarters_pct": 35.8,
+        "reach_final_pct": 8.9,
+        "win_trophy_pct": 1.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Algeria",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1785,
+      "metrics": {
+        "xg_for": 1.33,
+        "xg_against": 1.37,
+        "npxg": 1.18,
+        "shots_per90": 12.9,
+        "shots_on_target": 4.6,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.1,
+        "ppda": 10.64,
+        "possession_pct": 49.3,
+        "progressive_passes": 33.0,
+        "aerial_win_pct": 51.5,
+        "gk_psxg_minus_ga": 0.17,
+        "setpiece_xg": 0.26,
+        "form_last5": 2.8,
+        "momentum_index": 65
+      },
+      "projection": {
+        "advance_r32_pct": 70.8,
+        "reach_quarters_pct": 35.2,
+        "reach_final_pct": 8.4,
+        "win_trophy_pct": 1.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "South Korea",
+      "confederation": "AFC",
+      "group": "A",
+      "elo": 1790,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.16,
+        "npxg": 1.33,
+        "shots_per90": 10.0,
+        "shots_on_target": 3.8,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": -0.18,
+        "ppda": 10.09,
+        "possession_pct": 50.4,
+        "progressive_passes": 36.6,
+        "aerial_win_pct": 49.5,
+        "gk_psxg_minus_ga": -0.3,
+        "setpiece_xg": 0.21,
+        "form_last5": 2.3,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 71.2,
+        "reach_quarters_pct": 35.8,
+        "reach_final_pct": 8.9,
+        "win_trophy_pct": 1.3
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Canada",
+      "confederation": "CONCACAF",
+      "group": "B",
+      "elo": 1770,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.4,
+        "npxg": 1.39,
+        "shots_per90": 10.7,
+        "shots_on_target": 4.1,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": 0.2,
+        "ppda": 12.22,
+        "possession_pct": 46.2,
+        "progressive_passes": 34.2,
+        "aerial_win_pct": 52.3,
+        "gk_psxg_minus_ga": 0.04,
+        "setpiece_xg": 0.28,
+        "form_last5": 3.0,
+        "momentum_index": 55
+      },
+      "projection": {
+        "advance_r32_pct": 69.5,
+        "reach_quarters_pct": 33.5,
+        "reach_final_pct": 7.2,
+        "win_trophy_pct": 1.2
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Côte d'Ivoire",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1775,
+      "metrics": {
+        "xg_for": 1.58,
+        "xg_against": 1.47,
+        "npxg": 1.35,
+        "shots_per90": 11.7,
+        "shots_on_target": 4.2,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": -0.06,
+        "ppda": 10.42,
+        "possession_pct": 52.7,
+        "progressive_passes": 39.5,
+        "aerial_win_pct": 45.6,
+        "gk_psxg_minus_ga": 0.03,
+        "setpiece_xg": 0.23,
+        "form_last5": 2.4,
+        "momentum_index": 59
+      },
+      "projection": {
+        "advance_r32_pct": 69.9,
+        "reach_quarters_pct": 34.1,
+        "reach_final_pct": 7.6,
+        "win_trophy_pct": 1.2
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Paraguay",
+      "confederation": "CONMEBOL",
+      "group": "D",
+      "elo": 1760,
+      "metrics": {
+        "xg_for": 1.32,
+        "xg_against": 1.48,
+        "npxg": 1.14,
+        "shots_per90": 10.9,
+        "shots_on_target": 4.3,
+        "big_chances_per90": 1.7,
+        "goals_vs_xg": -0.11,
+        "ppda": 10.44,
+        "possession_pct": 46.0,
+        "progressive_passes": 38.1,
+        "aerial_win_pct": 50.0,
+        "gk_psxg_minus_ga": -0.12,
+        "setpiece_xg": 0.27,
+        "form_last5": 2.4,
+        "momentum_index": 62
+      },
+      "projection": {
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.3,
+        "reach_final_pct": 6.4,
+        "win_trophy_pct": 1.1
       },
       "_live_metrics": []
     },
@@ -1135,7 +985,7 @@
       "team": "Bosnia and Herzegovina",
       "confederation": "UEFA",
       "group": "B",
-      "elo": 1605,
+      "elo": 1760,
       "metrics": {
         "xg_for": 1.31,
         "xg_against": 1.37,
@@ -1154,10 +1004,40 @@
         "momentum_index": 53
       },
       "projection": {
-        "advance_r32_pct": 56.2,
-        "reach_quarters_pct": 13.8,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.3,
+        "reach_final_pct": 6.4,
+        "win_trophy_pct": 1.1
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Australia",
+      "confederation": "AFC",
+      "group": "D",
+      "elo": 1760,
+      "metrics": {
+        "xg_for": 1.44,
+        "xg_against": 1.37,
+        "npxg": 1.26,
+        "shots_per90": 9.4,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.6,
+        "goals_vs_xg": 0.06,
+        "ppda": 10.95,
+        "possession_pct": 51.0,
+        "progressive_passes": 33.1,
+        "aerial_win_pct": 47.9,
+        "gk_psxg_minus_ga": 0.14,
+        "setpiece_xg": 0.19,
+        "form_last5": 2.0,
+        "momentum_index": 49
+      },
+      "projection": {
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.3,
+        "reach_final_pct": 6.4,
+        "win_trophy_pct": 1.1
       },
       "_live_metrics": []
     },
@@ -1165,7 +1045,7 @@
       "team": "Ghana",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1570,
+      "elo": 1740,
       "metrics": {
         "xg_for": 1.3,
         "xg_against": 1.51,
@@ -1184,10 +1064,10 @@
         "momentum_index": 56
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 67.1,
+        "reach_quarters_pct": 29.9,
+        "reach_final_pct": 5.0,
+        "win_trophy_pct": 1.0
       },
       "_live_metrics": []
     },
@@ -1195,7 +1075,7 @@
       "team": "Tunisia",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1562,
+      "elo": 1730,
       "metrics": {
         "xg_for": 1.15,
         "xg_against": 1.5,
@@ -1214,10 +1094,40 @@
         "momentum_index": 54
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 66.3,
+        "reach_quarters_pct": 28.7,
+        "reach_final_pct": 4.3,
+        "win_trophy_pct": 0.9
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Panama",
+      "confederation": "CONCACAF",
+      "group": "-",
+      "elo": 1700,
+      "metrics": {
+        "xg_for": 1.38,
+        "xg_against": 1.49,
+        "npxg": 1.19,
+        "shots_per90": 8.8,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.1,
+        "goals_vs_xg": 0.17,
+        "ppda": 11.3,
+        "possession_pct": 45.7,
+        "progressive_passes": 28.9,
+        "aerial_win_pct": 48.9,
+        "gk_psxg_minus_ga": 0.03,
+        "setpiece_xg": 0.17,
+        "form_last5": 1.9,
+        "momentum_index": 51
+      },
+      "projection": {
+        "advance_r32_pct": 63.9,
+        "reach_quarters_pct": 25.1,
+        "reach_final_pct": 2.7,
+        "win_trophy_pct": 0.8
       },
       "_live_metrics": []
     },
@@ -1225,7 +1135,7 @@
       "team": "South Africa",
       "confederation": "CAF",
       "group": "A",
-      "elo": 1559,
+      "elo": 1700,
       "metrics": {
         "xg_for": 1.08,
         "xg_against": 1.41,
@@ -1244,10 +1154,40 @@
         "momentum_index": 56
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 63.9,
+        "reach_quarters_pct": 25.1,
+        "reach_final_pct": 2.7,
+        "win_trophy_pct": 0.8
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "DR Congo",
+      "confederation": "CAF",
+      "group": "-",
+      "elo": 1680,
+      "metrics": {
+        "xg_for": 1.22,
+        "xg_against": 1.59,
+        "npxg": 1.01,
+        "shots_per90": 8.9,
+        "shots_on_target": 3.2,
+        "big_chances_per90": 1.0,
+        "goals_vs_xg": 0.0,
+        "ppda": 12.02,
+        "possession_pct": 45.5,
+        "progressive_passes": 30.7,
+        "aerial_win_pct": 46.4,
+        "gk_psxg_minus_ga": -0.64,
+        "setpiece_xg": 0.29,
+        "form_last5": 2.3,
+        "momentum_index": 43
+      },
+      "projection": {
+        "advance_r32_pct": 62.3,
+        "reach_quarters_pct": 22.7,
+        "reach_final_pct": 1.8,
+        "win_trophy_pct": 0.7
       },
       "_live_metrics": []
     },
@@ -1255,7 +1195,7 @@
       "team": "Saudi Arabia",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1596,
+      "elo": 1690,
       "metrics": {
         "xg_for": 1.22,
         "xg_against": 1.58,
@@ -1274,10 +1214,10 @@
         "momentum_index": 45
       },
       "projection": {
-        "advance_r32_pct": 55.5,
-        "reach_quarters_pct": 12.7,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 63.1,
+        "reach_quarters_pct": 23.9,
+        "reach_final_pct": 2.2,
+        "win_trophy_pct": 0.7
       },
       "_live_metrics": []
     },
@@ -1285,7 +1225,7 @@
       "team": "Qatar",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1411,
+      "elo": 1680,
       "metrics": {
         "xg_for": 1.04,
         "xg_against": 1.7,
@@ -1304,10 +1244,40 @@
         "momentum_index": 42
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 62.3,
+        "reach_quarters_pct": 22.7,
+        "reach_final_pct": 1.8,
+        "win_trophy_pct": 0.7
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Uzbekistan",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1660,
+      "metrics": {
+        "xg_for": 0.95,
+        "xg_against": 1.64,
+        "npxg": 0.76,
+        "shots_per90": 8.1,
+        "shots_on_target": 2.7,
+        "big_chances_per90": 1.5,
+        "goals_vs_xg": -0.23,
+        "ppda": 13.36,
+        "possession_pct": 49.5,
+        "progressive_passes": 26.8,
+        "aerial_win_pct": 51.1,
+        "gk_psxg_minus_ga": -0.24,
+        "setpiece_xg": 0.26,
+        "form_last5": 2.1,
+        "momentum_index": 43
+      },
+      "projection": {
+        "advance_r32_pct": 60.7,
+        "reach_quarters_pct": 20.3,
+        "reach_final_pct": 1.1,
+        "win_trophy_pct": 0.6
       },
       "_live_metrics": []
     },
@@ -1315,7 +1285,7 @@
       "team": "Curaçao",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1438,
+      "elo": 1620,
       "metrics": {
         "xg_for": 0.94,
         "xg_against": 1.81,
@@ -1334,10 +1304,10 @@
         "momentum_index": 38
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 57.4,
+        "reach_quarters_pct": 15.6,
+        "reach_final_pct": 0.2,
+        "win_trophy_pct": 0.5
       },
       "_live_metrics": []
     },
@@ -1345,7 +1315,7 @@
       "team": "Cabo Verde",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1619,
+      "elo": 1640,
       "metrics": {
         "xg_for": 0.88,
         "xg_against": 1.6,
@@ -1364,10 +1334,40 @@
         "momentum_index": 48
       },
       "projection": {
-        "advance_r32_pct": 57.3,
-        "reach_quarters_pct": 15.5,
-        "reach_final_pct": 0.2,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 59.0,
+        "reach_quarters_pct": 18.0,
+        "reach_final_pct": 0.6,
+        "win_trophy_pct": 0.5
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Jordan",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1640,
+      "metrics": {
+        "xg_for": 1.0,
+        "xg_against": 1.43,
+        "npxg": 0.82,
+        "shots_per90": 10.1,
+        "shots_on_target": 3.9,
+        "big_chances_per90": 1.2,
+        "goals_vs_xg": -0.28,
+        "ppda": 13.19,
+        "possession_pct": 46.0,
+        "progressive_passes": 35.2,
+        "aerial_win_pct": 46.6,
+        "gk_psxg_minus_ga": -0.34,
+        "setpiece_xg": 0.2,
+        "form_last5": 2.1,
+        "momentum_index": 47
+      },
+      "projection": {
+        "advance_r32_pct": 59.0,
+        "reach_quarters_pct": 18.0,
+        "reach_final_pct": 0.6,
+        "win_trophy_pct": 0.5
       },
       "_live_metrics": []
     },
@@ -1375,7 +1375,7 @@
       "team": "Iraq",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1561,
+      "elo": 1635,
       "metrics": {
         "xg_for": 0.97,
         "xg_against": 1.53,
@@ -1394,10 +1394,10 @@
         "momentum_index": 45
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 58.6,
+        "reach_quarters_pct": 17.4,
+        "reach_final_pct": 0.4,
+        "win_trophy_pct": 0.5
       },
       "_live_metrics": []
     },
@@ -1405,7 +1405,7 @@
       "team": "New Zealand",
       "confederation": "OFC",
       "group": "-",
-      "elo": 1534,
+      "elo": 1620,
       "metrics": {
         "xg_for": 0.95,
         "xg_against": 1.69,
@@ -1424,10 +1424,10 @@
         "momentum_index": 36
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
-        "reach_final_pct": 0.0,
-        "win_trophy_pct": 0.4
+        "advance_r32_pct": 57.4,
+        "reach_quarters_pct": 15.6,
+        "reach_final_pct": 0.2,
+        "win_trophy_pct": 0.5
       },
       "_live_metrics": []
     },
@@ -1435,7 +1435,7 @@
       "team": "Haiti",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1517,
+      "elo": 1600,
       "metrics": {
         "xg_for": 0.94,
         "xg_against": 1.56,
@@ -1454,8 +1454,8 @@
         "momentum_index": 41
       },
       "projection": {
-        "advance_r32_pct": 55.0,
-        "reach_quarters_pct": 12.0,
+        "advance_r32_pct": 55.8,
+        "reach_quarters_pct": 13.2,
         "reach_final_pct": 0.0,
         "win_trophy_pct": 0.4
       },
