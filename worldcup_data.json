@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-07-28T19:29:50Z",
+  "generated_utc": "2026-07-28T22:08:26Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -295,7 +295,7 @@
       "team": "Belgium",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1948,
+      "elo": 1947,
       "metrics": {
         "xg_for": 1.89,
         "xg_against": 1.12,
@@ -314,9 +314,9 @@
         "momentum_index": 71
       },
       "projection": {
-        "advance_r32_pct": 83.9,
-        "reach_quarters_pct": 54.7,
-        "reach_final_pct": 28.4,
+        "advance_r32_pct": 83.8,
+        "reach_quarters_pct": 54.6,
+        "reach_final_pct": 28.3,
         "win_trophy_pct": 3.3
       },
       "_live_metrics": []
@@ -475,7 +475,7 @@
       "team": "Croatia",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1882,
+      "elo": 1881,
       "metrics": {
         "xg_for": 1.64,
         "xg_against": 1.03,
@@ -494,9 +494,9 @@
         "momentum_index": 74
       },
       "projection": {
-        "advance_r32_pct": 78.6,
-        "reach_quarters_pct": 46.8,
-        "reach_final_pct": 18.9,
+        "advance_r32_pct": 78.5,
+        "reach_quarters_pct": 46.7,
+        "reach_final_pct": 18.8,
         "win_trophy_pct": 2.2
       },
       "_live_metrics": []
@@ -895,7 +895,7 @@
       "team": "Côte d'Ivoire",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1727,
+      "elo": 1728,
       "metrics": {
         "xg_for": 1.58,
         "xg_against": 1.47,
@@ -915,7 +915,7 @@
       },
       "projection": {
         "advance_r32_pct": 66.1,
-        "reach_quarters_pct": 28.3,
+        "reach_quarters_pct": 28.5,
         "reach_final_pct": 4.2,
         "win_trophy_pct": 0.9
       },
@@ -1045,7 +1045,7 @@
       "team": "Uzbekistan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1631,
+      "elo": 1630,
       "metrics": {
         "xg_for": 0.95,
         "xg_against": 1.64,
@@ -1064,8 +1064,8 @@
         "momentum_index": 43
       },
       "projection": {
-        "advance_r32_pct": 58.3,
-        "reach_quarters_pct": 16.9,
+        "advance_r32_pct": 58.2,
+        "reach_quarters_pct": 16.8,
         "reach_final_pct": 0.4,
         "win_trophy_pct": 0.5
       },
@@ -1165,7 +1165,7 @@
       "team": "Ghana",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1570,
+      "elo": 1571,
       "metrics": {
         "xg_for": 1.3,
         "xg_against": 1.51,
@@ -1225,7 +1225,7 @@
       "team": "South Africa",
       "confederation": "CAF",
       "group": "A",
-      "elo": 1559,
+      "elo": 1560,
       "metrics": {
         "xg_for": 1.08,
         "xg_against": 1.41,
