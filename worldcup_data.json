@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-08-18T18:42:54Z",
+  "generated_utc": "2026-08-18T21:29:08Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -865,7 +865,7 @@
       "team": "Canada",
       "confederation": "CONCACAF",
       "group": "B",
-      "elo": 1729,
+      "elo": 1730,
       "metrics": {
         "xg_for": 1.53,
         "xg_against": 1.4,
@@ -884,8 +884,8 @@
         "momentum_index": 55
       },
       "projection": {
-        "advance_r32_pct": 66.2,
-        "reach_quarters_pct": 28.6,
+        "advance_r32_pct": 66.3,
+        "reach_quarters_pct": 28.7,
         "reach_final_pct": 4.3,
         "win_trophy_pct": 0.9
       },
