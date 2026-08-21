@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-08-20T21:33:20Z",
+  "generated_utc": "2026-08-21T01:24:18Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -265,7 +265,7 @@
       "team": "Norway",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1951,
+      "elo": 1952,
       "metrics": {
         "xg_for": 1.46,
         "xg_against": 1.31,
@@ -285,8 +285,8 @@
       },
       "projection": {
         "advance_r32_pct": 84.2,
-        "reach_quarters_pct": 55.0,
-        "reach_final_pct": 28.9,
+        "reach_quarters_pct": 55.2,
+        "reach_final_pct": 29.1,
         "win_trophy_pct": 3.4
       },
       "_live_metrics": []
@@ -1045,7 +1045,7 @@
       "team": "Uzbekistan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1631,
+      "elo": 1630,
       "metrics": {
         "xg_for": 0.95,
         "xg_against": 1.64,
@@ -1064,8 +1064,8 @@
         "momentum_index": 43
       },
       "projection": {
-        "advance_r32_pct": 58.3,
-        "reach_quarters_pct": 16.9,
+        "advance_r32_pct": 58.2,
+        "reach_quarters_pct": 16.8,
         "reach_final_pct": 0.4,
         "win_trophy_pct": 0.5
       },
