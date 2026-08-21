@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-08-21T09:40:52Z",
+  "generated_utc": "2026-08-21T12:53:10Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -745,7 +745,7 @@
       "team": "United States",
       "confederation": "CONCACAF",
       "group": "D",
-      "elo": 1747,
+      "elo": 1746,
       "metrics": {
         "xg_for": 1.59,
         "xg_against": 1.1,
@@ -764,9 +764,9 @@
         "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 67.7,
-        "reach_quarters_pct": 30.7,
-        "reach_final_pct": 5.5,
+        "advance_r32_pct": 67.6,
+        "reach_quarters_pct": 30.6,
+        "reach_final_pct": 5.4,
         "win_trophy_pct": 1.0
       },
       "_live_metrics": []
