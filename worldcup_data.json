@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-21T12:17:13Z",
+  "generated_utc": "2026-09-21T19:56:56Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -235,7 +235,7 @@
       "team": "Netherlands",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1970,
+      "elo": 1971,
       "metrics": {
         "xg_for": 1.93,
         "xg_against": 0.77,
@@ -254,9 +254,9 @@
         "momentum_index": 84
       },
       "projection": {
-        "advance_r32_pct": 85.7,
-        "reach_quarters_pct": 57.3,
-        "reach_final_pct": 32.0,
+        "advance_r32_pct": 85.8,
+        "reach_quarters_pct": 57.4,
+        "reach_final_pct": 32.2,
         "win_trophy_pct": 3.8
       },
       "_live_metrics": []
