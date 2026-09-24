@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-23T21:16:29Z",
+  "generated_utc": "2026-09-24T03:39:54Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -1255,7 +1255,7 @@
       "team": "Saudi Arabia",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1596,
+      "elo": 1600,
       "metrics": {
         "xg_for": 1.22,
         "xg_against": 1.58,
@@ -1274,8 +1274,8 @@
         "momentum_index": 45
       },
       "projection": {
-        "advance_r32_pct": 55.5,
-        "reach_quarters_pct": 12.7,
+        "advance_r32_pct": 55.8,
+        "reach_quarters_pct": 13.2,
         "reach_final_pct": 0.0,
         "win_trophy_pct": 0.4
       },
@@ -1375,7 +1375,7 @@
       "team": "Iraq",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1561,
+      "elo": 1556,
       "metrics": {
         "xg_for": 0.97,
         "xg_against": 1.53,
