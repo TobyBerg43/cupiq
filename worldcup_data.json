@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-24T11:20:47Z",
+  "generated_utc": "2026-09-24T16:43:54Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -257,7 +257,7 @@
         "advance_r32_pct": 85.8,
         "reach_quarters_pct": 57.4,
         "reach_final_pct": 32.2,
-        "win_trophy_pct": 3.8
+        "win_trophy_pct": 3.9
       },
       "_live_metrics": []
     },
@@ -445,7 +445,7 @@
       "team": "Japan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1888,
+      "elo": 1897,
       "metrics": {
         "xg_for": 1.48,
         "xg_against": 1.42,
@@ -464,10 +464,10 @@
         "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 79.1,
-        "reach_quarters_pct": 47.5,
-        "reach_final_pct": 19.7,
-        "win_trophy_pct": 2.3
+        "advance_r32_pct": 79.8,
+        "reach_quarters_pct": 48.6,
+        "reach_final_pct": 20.9,
+        "win_trophy_pct": 2.4
       },
       "_live_metrics": []
     },
@@ -502,36 +502,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Ecuador",
-      "confederation": "CONMEBOL",
-      "group": "-",
-      "elo": 1871,
-      "metrics": {
-        "xg_for": 1.76,
-        "xg_against": 1.08,
-        "npxg": 1.57,
-        "shots_per90": 12.2,
-        "shots_on_target": 4.4,
-        "big_chances_per90": 1.9,
-        "goals_vs_xg": 0.34,
-        "ppda": 10.44,
-        "possession_pct": 51.4,
-        "progressive_passes": 40.2,
-        "aerial_win_pct": 54.2,
-        "gk_psxg_minus_ga": 0.66,
-        "setpiece_xg": 0.33,
-        "form_last5": 3.0,
-        "momentum_index": 66
-      },
-      "projection": {
-        "advance_r32_pct": 77.7,
-        "reach_quarters_pct": 45.5,
-        "reach_final_pct": 17.5,
-        "win_trophy_pct": 2.1
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Türkiye",
       "confederation": "UEFA",
       "group": "D",
@@ -562,10 +532,40 @@
       "_live_metrics": []
     },
     {
+      "team": "Ecuador",
+      "confederation": "CONMEBOL",
+      "group": "-",
+      "elo": 1851,
+      "metrics": {
+        "xg_for": 1.76,
+        "xg_against": 1.08,
+        "npxg": 1.57,
+        "shots_per90": 12.2,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 1.9,
+        "goals_vs_xg": 0.34,
+        "ppda": 10.44,
+        "possession_pct": 51.4,
+        "progressive_passes": 40.2,
+        "aerial_win_pct": 54.2,
+        "gk_psxg_minus_ga": 0.66,
+        "setpiece_xg": 0.33,
+        "form_last5": 3.0,
+        "momentum_index": 66
+      },
+      "projection": {
+        "advance_r32_pct": 76.1,
+        "reach_quarters_pct": 43.1,
+        "reach_final_pct": 15.1,
+        "win_trophy_pct": 1.8
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Uruguay",
       "confederation": "CONMEBOL",
       "group": "-",
-      "elo": 1841,
+      "elo": 1832,
       "metrics": {
         "xg_for": 1.84,
         "xg_against": 1.17,
@@ -584,10 +584,10 @@
         "momentum_index": 73
       },
       "projection": {
-        "advance_r32_pct": 75.3,
-        "reach_quarters_pct": 41.9,
-        "reach_final_pct": 14.0,
-        "win_trophy_pct": 1.7
+        "advance_r32_pct": 74.5,
+        "reach_quarters_pct": 40.9,
+        "reach_final_pct": 13.0,
+        "win_trophy_pct": 1.6
       },
       "_live_metrics": []
     },
@@ -712,36 +712,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Iran",
-      "confederation": "AFC",
-      "group": "-",
-      "elo": 1764,
-      "metrics": {
-        "xg_for": 1.64,
-        "xg_against": 1.29,
-        "npxg": 1.45,
-        "shots_per90": 12.7,
-        "shots_on_target": 4.4,
-        "big_chances_per90": 2.5,
-        "goals_vs_xg": -0.02,
-        "ppda": 10.88,
-        "possession_pct": 50.7,
-        "progressive_passes": 35.0,
-        "aerial_win_pct": 50.4,
-        "gk_psxg_minus_ga": 0.53,
-        "setpiece_xg": 0.33,
-        "form_last5": 2.3,
-        "momentum_index": 64
-      },
-      "projection": {
-        "advance_r32_pct": 69.1,
-        "reach_quarters_pct": 32.7,
-        "reach_final_pct": 6.7,
-        "win_trophy_pct": 1.1
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "United States",
       "confederation": "CONCACAF",
       "group": "D",
@@ -767,6 +737,36 @@
         "advance_r32_pct": 67.6,
         "reach_quarters_pct": 30.6,
         "reach_final_pct": 5.4,
+        "win_trophy_pct": 1.0
+      },
+      "_live_metrics": []
+    },
+    {
+      "team": "Iran",
+      "confederation": "AFC",
+      "group": "-",
+      "elo": 1748,
+      "metrics": {
+        "xg_for": 1.64,
+        "xg_against": 1.29,
+        "npxg": 1.45,
+        "shots_per90": 12.7,
+        "shots_on_target": 4.4,
+        "big_chances_per90": 2.5,
+        "goals_vs_xg": -0.02,
+        "ppda": 10.88,
+        "possession_pct": 50.7,
+        "progressive_passes": 35.0,
+        "aerial_win_pct": 50.4,
+        "gk_psxg_minus_ga": 0.53,
+        "setpiece_xg": 0.33,
+        "form_last5": 2.3,
+        "momentum_index": 64
+      },
+      "projection": {
+        "advance_r32_pct": 67.8,
+        "reach_quarters_pct": 30.8,
+        "reach_final_pct": 5.5,
         "win_trophy_pct": 1.0
       },
       "_live_metrics": []
@@ -862,6 +862,36 @@
       "_live_metrics": []
     },
     {
+      "team": "South Korea",
+      "confederation": "AFC",
+      "group": "A",
+      "elo": 1743,
+      "metrics": {
+        "xg_for": 1.53,
+        "xg_against": 1.16,
+        "npxg": 1.33,
+        "shots_per90": 10.0,
+        "shots_on_target": 3.8,
+        "big_chances_per90": 2.4,
+        "goals_vs_xg": -0.18,
+        "ppda": 10.09,
+        "possession_pct": 50.4,
+        "progressive_passes": 36.6,
+        "aerial_win_pct": 49.5,
+        "gk_psxg_minus_ga": -0.3,
+        "setpiece_xg": 0.21,
+        "form_last5": 2.3,
+        "momentum_index": 53
+      },
+      "projection": {
+        "advance_r32_pct": 67.4,
+        "reach_quarters_pct": 30.2,
+        "reach_final_pct": 5.2,
+        "win_trophy_pct": 0.9
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Canada",
       "confederation": "CONCACAF",
       "group": "B",
@@ -918,36 +948,6 @@
         "reach_quarters_pct": 28.5,
         "reach_final_pct": 4.2,
         "win_trophy_pct": 0.9
-      },
-      "_live_metrics": []
-    },
-    {
-      "team": "South Korea",
-      "confederation": "AFC",
-      "group": "A",
-      "elo": 1723,
-      "metrics": {
-        "xg_for": 1.53,
-        "xg_against": 1.16,
-        "npxg": 1.33,
-        "shots_per90": 10.0,
-        "shots_on_target": 3.8,
-        "big_chances_per90": 2.4,
-        "goals_vs_xg": -0.18,
-        "ppda": 10.09,
-        "possession_pct": 50.4,
-        "progressive_passes": 36.6,
-        "aerial_win_pct": 49.5,
-        "gk_psxg_minus_ga": -0.3,
-        "setpiece_xg": 0.21,
-        "form_last5": 2.3,
-        "momentum_index": 53
-      },
-      "projection": {
-        "advance_r32_pct": 65.7,
-        "reach_quarters_pct": 27.9,
-        "reach_final_pct": 3.9,
-        "win_trophy_pct": 0.8
       },
       "_live_metrics": []
     },
@@ -1045,7 +1045,7 @@
       "team": "Uzbekistan",
       "confederation": "AFC",
       "group": "-",
-      "elo": 1631,
+      "elo": 1647,
       "metrics": {
         "xg_for": 0.95,
         "xg_against": 1.64,
@@ -1064,9 +1064,9 @@
         "momentum_index": 43
       },
       "projection": {
-        "advance_r32_pct": 58.3,
-        "reach_quarters_pct": 16.9,
-        "reach_final_pct": 0.4,
+        "advance_r32_pct": 59.6,
+        "reach_quarters_pct": 18.8,
+        "reach_final_pct": 0.7,
         "win_trophy_pct": 0.5
       },
       "_live_metrics": []
@@ -1405,7 +1405,7 @@
       "team": "New Zealand",
       "confederation": "OFC",
       "group": "-",
-      "elo": 1534,
+      "elo": 1531,
       "metrics": {
         "xg_for": 0.95,
         "xg_against": 1.69,
