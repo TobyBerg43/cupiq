@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-24T16:43:54Z",
+  "generated_utc": "2026-09-24T21:18:30Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -955,7 +955,7 @@
       "team": "DR Congo",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1704,
+      "elo": 1709,
       "metrics": {
         "xg_for": 1.22,
         "xg_against": 1.59,
@@ -974,10 +974,10 @@
         "momentum_index": 43
       },
       "projection": {
-        "advance_r32_pct": 64.2,
-        "reach_quarters_pct": 25.6,
-        "reach_final_pct": 2.9,
-        "win_trophy_pct": 0.7
+        "advance_r32_pct": 64.6,
+        "reach_quarters_pct": 26.2,
+        "reach_final_pct": 3.1,
+        "win_trophy_pct": 0.8
       },
       "_live_metrics": []
     },
