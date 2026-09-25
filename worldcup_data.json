@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-25T16:49:13Z",
+  "generated_utc": "2026-09-25T21:15:55Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -1015,7 +1015,7 @@
       "team": "Panama",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1658,
+      "elo": 1650,
       "metrics": {
         "xg_for": 1.38,
         "xg_against": 1.49,
@@ -1034,10 +1034,10 @@
         "momentum_index": 51
       },
       "projection": {
-        "advance_r32_pct": 60.5,
-        "reach_quarters_pct": 20.1,
-        "reach_final_pct": 1.0,
-        "win_trophy_pct": 0.6
+        "advance_r32_pct": 59.8,
+        "reach_quarters_pct": 19.2,
+        "reach_final_pct": 0.8,
+        "win_trophy_pct": 0.5
       },
       "_live_metrics": []
     },
