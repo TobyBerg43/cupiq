@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-25T03:56:32Z",
+  "generated_utc": "2026-09-25T11:25:02Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -1315,7 +1315,7 @@
       "team": "Curaçao",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1438,
+      "elo": 1471,
       "metrics": {
         "xg_for": 0.94,
         "xg_against": 1.81,
@@ -1435,7 +1435,7 @@
       "team": "Haiti",
       "confederation": "CONCACAF",
       "group": "-",
-      "elo": 1517,
+      "elo": 1530,
       "metrics": {
         "xg_for": 0.94,
         "xg_against": 1.56,
