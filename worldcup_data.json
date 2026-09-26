@@ -1,6 +1,6 @@
 {
   "source": "Strength: live Elo from eloratings.net (48 teams). Advanced metrics: modeled pre-tournament, update as matches are played.",
-  "generated_utc": "2026-09-25T21:15:55Z",
+  "generated_utc": "2026-09-26T04:01:28Z",
   "season": "FIFA World Cup 2026",
   "team_count": 48,
   "metric_glossary": {
@@ -47,7 +47,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.0
+        "win_trophy_pct": 8.9
       },
       "_live_metrics": []
     },
@@ -77,7 +77,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.0
+        "win_trophy_pct": 8.9
       },
       "_live_metrics": []
     },
@@ -107,7 +107,7 @@
         "advance_r32_pct": 97.0,
         "reach_quarters_pct": 74.0,
         "reach_final_pct": 55.0,
-        "win_trophy_pct": 9.0
+        "win_trophy_pct": 8.9
       },
       "_live_metrics": []
     },
@@ -115,7 +115,7 @@
       "team": "France",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 2070,
+      "elo": 2083,
       "metrics": {
         "xg_for": 2.2,
         "xg_against": 0.77,
@@ -134,10 +134,10 @@
         "momentum_index": 84
       },
       "projection": {
-        "advance_r32_pct": 93.8,
-        "reach_quarters_pct": 69.2,
-        "reach_final_pct": 51.1,
-        "win_trophy_pct": 7.1
+        "advance_r32_pct": 94.8,
+        "reach_quarters_pct": 70.8,
+        "reach_final_pct": 53.9,
+        "win_trophy_pct": 7.6
       },
       "_live_metrics": []
     },
@@ -167,7 +167,7 @@
         "advance_r32_pct": 88.4,
         "reach_quarters_pct": 61.2,
         "reach_final_pct": 37.8,
-        "win_trophy_pct": 4.7
+        "win_trophy_pct": 4.6
       },
       "_live_metrics": []
     },
@@ -232,6 +232,36 @@
       "_live_metrics": []
     },
     {
+      "team": "Belgium",
+      "confederation": "UEFA",
+      "group": "-",
+      "elo": 1979,
+      "metrics": {
+        "xg_for": 1.89,
+        "xg_against": 1.12,
+        "npxg": 1.74,
+        "shots_per90": 14.7,
+        "shots_on_target": 5.7,
+        "big_chances_per90": 2.2,
+        "goals_vs_xg": 0.14,
+        "ppda": 9.7,
+        "possession_pct": 54.9,
+        "progressive_passes": 50.1,
+        "aerial_win_pct": 50.0,
+        "gk_psxg_minus_ga": 0.82,
+        "setpiece_xg": 0.37,
+        "form_last5": 3.5,
+        "momentum_index": 71
+      },
+      "projection": {
+        "advance_r32_pct": 86.4,
+        "reach_quarters_pct": 58.4,
+        "reach_final_pct": 33.6,
+        "win_trophy_pct": 4.0
+      },
+      "_live_metrics": []
+    },
+    {
       "team": "Netherlands",
       "confederation": "UEFA",
       "group": "-",
@@ -292,36 +322,6 @@
       "_live_metrics": []
     },
     {
-      "team": "Belgium",
-      "confederation": "UEFA",
-      "group": "-",
-      "elo": 1947,
-      "metrics": {
-        "xg_for": 1.89,
-        "xg_against": 1.12,
-        "npxg": 1.74,
-        "shots_per90": 14.7,
-        "shots_on_target": 5.7,
-        "big_chances_per90": 2.2,
-        "goals_vs_xg": 0.14,
-        "ppda": 9.7,
-        "possession_pct": 54.9,
-        "progressive_passes": 50.1,
-        "aerial_win_pct": 50.0,
-        "gk_psxg_minus_ga": 0.82,
-        "setpiece_xg": 0.37,
-        "form_last5": 3.5,
-        "momentum_index": 71
-      },
-      "projection": {
-        "advance_r32_pct": 83.8,
-        "reach_quarters_pct": 54.6,
-        "reach_final_pct": 28.3,
-        "win_trophy_pct": 3.3
-      },
-      "_live_metrics": []
-    },
-    {
       "team": "Switzerland",
       "confederation": "UEFA",
       "group": "-",
@@ -347,7 +347,7 @@
         "advance_r32_pct": 82.3,
         "reach_quarters_pct": 52.3,
         "reach_final_pct": 25.4,
-        "win_trophy_pct": 3.0
+        "win_trophy_pct": 2.9
       },
       "_live_metrics": []
     },
@@ -415,7 +415,7 @@
       "team": "Morocco",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1901,
+      "elo": 1903,
       "metrics": {
         "xg_for": 1.84,
         "xg_against": 1.24,
@@ -434,9 +434,9 @@
         "momentum_index": 70
       },
       "projection": {
-        "advance_r32_pct": 80.1,
-        "reach_quarters_pct": 49.1,
-        "reach_final_pct": 21.5,
+        "advance_r32_pct": 80.3,
+        "reach_quarters_pct": 49.3,
+        "reach_final_pct": 21.7,
         "win_trophy_pct": 2.5
       },
       "_live_metrics": []
@@ -535,7 +535,7 @@
       "team": "Türkiye",
       "confederation": "UEFA",
       "group": "D",
-      "elo": 1852,
+      "elo": 1839,
       "metrics": {
         "xg_for": 1.67,
         "xg_against": 1.22,
@@ -554,10 +554,10 @@
         "momentum_index": 55
       },
       "projection": {
-        "advance_r32_pct": 76.2,
-        "reach_quarters_pct": 43.2,
-        "reach_final_pct": 15.2,
-        "win_trophy_pct": 1.8
+        "advance_r32_pct": 75.1,
+        "reach_quarters_pct": 41.7,
+        "reach_final_pct": 13.8,
+        "win_trophy_pct": 1.7
       },
       "_live_metrics": []
     },
@@ -647,7 +647,7 @@
         "advance_r32_pct": 73.1,
         "reach_quarters_pct": 38.7,
         "reach_final_pct": 11.1,
-        "win_trophy_pct": 1.5
+        "win_trophy_pct": 1.4
       },
       "_live_metrics": []
     },
@@ -775,7 +775,7 @@
       "team": "Algeria",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1756,
+      "elo": 1759,
       "metrics": {
         "xg_for": 1.33,
         "xg_against": 1.37,
@@ -794,9 +794,9 @@
         "momentum_index": 65
       },
       "projection": {
-        "advance_r32_pct": 68.4,
-        "reach_quarters_pct": 31.8,
-        "reach_final_pct": 6.1,
+        "advance_r32_pct": 68.7,
+        "reach_quarters_pct": 32.1,
+        "reach_final_pct": 6.3,
         "win_trophy_pct": 1.0
       },
       "_live_metrics": []
@@ -805,7 +805,7 @@
       "team": "Sweden",
       "confederation": "UEFA",
       "group": "-",
-      "elo": 1731,
+      "elo": 1741,
       "metrics": {
         "xg_for": 1.57,
         "xg_against": 1.43,
@@ -824,9 +824,9 @@
         "momentum_index": 53
       },
       "projection": {
-        "advance_r32_pct": 66.4,
-        "reach_quarters_pct": 28.8,
-        "reach_final_pct": 4.4,
+        "advance_r32_pct": 67.2,
+        "reach_quarters_pct": 30.0,
+        "reach_final_pct": 5.1,
         "win_trophy_pct": 0.9
       },
       "_live_metrics": []
@@ -835,7 +835,7 @@
       "team": "Egypt",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1742,
+      "elo": 1728,
       "metrics": {
         "xg_for": 1.55,
         "xg_against": 1.26,
@@ -854,9 +854,9 @@
         "momentum_index": 58
       },
       "projection": {
-        "advance_r32_pct": 67.3,
-        "reach_quarters_pct": 30.1,
-        "reach_final_pct": 5.1,
+        "advance_r32_pct": 66.1,
+        "reach_quarters_pct": 28.5,
+        "reach_final_pct": 4.2,
         "win_trophy_pct": 0.9
       },
       "_live_metrics": []
@@ -1135,7 +1135,7 @@
       "team": "Bosnia and Herzegovina",
       "confederation": "UEFA",
       "group": "B",
-      "elo": 1605,
+      "elo": 1616,
       "metrics": {
         "xg_for": 1.31,
         "xg_against": 1.37,
@@ -1154,9 +1154,9 @@
         "momentum_index": 53
       },
       "projection": {
-        "advance_r32_pct": 56.2,
-        "reach_quarters_pct": 13.8,
-        "reach_final_pct": 0.0,
+        "advance_r32_pct": 57.1,
+        "reach_quarters_pct": 15.1,
+        "reach_final_pct": 0.2,
         "win_trophy_pct": 0.4
       },
       "_live_metrics": []
@@ -1345,7 +1345,7 @@
       "team": "Cabo Verde",
       "confederation": "CAF",
       "group": "-",
-      "elo": 1619,
+      "elo": 1595,
       "metrics": {
         "xg_for": 0.88,
         "xg_against": 1.6,
@@ -1364,9 +1364,9 @@
         "momentum_index": 48
       },
       "projection": {
-        "advance_r32_pct": 57.3,
-        "reach_quarters_pct": 15.5,
-        "reach_final_pct": 0.2,
+        "advance_r32_pct": 55.4,
+        "reach_quarters_pct": 12.6,
+        "reach_final_pct": 0.0,
         "win_trophy_pct": 0.4
       },
       "_live_metrics": []
